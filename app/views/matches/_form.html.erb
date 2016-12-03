@@ -1,0 +1,43 @@
+<%= form_for(match) do |f| %>
+  <% if match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(match.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+      <% match.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :skill_rating %>
+    <%= f.number_field :skill_rating %>
+  </div>
+
+  <div class="field">
+    <%= f.label :result %>
+    <br>
+    <%= f.label :result, 'Win', value: 'win'  %>
+    <%= f.radio_button :result, 'win', checked: true %>
+    <%= f.label :result, 'Lose', value: 'lose' %>
+    <%= f.radio_button :result, 'lose' %>
+    <%= f.label :result, 'Draw', value: 'draw' %>
+    <%= f.radio_button :result, 'draw' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :map_ids %>
+    <%= f.select :map_ids, @maps %>
+  </div>
+
+  <div class="field">
+    <%= f.label :heroes_ids %>
+    <%= f.select :heroes_ids, @heroes, {}, { multiple: true } %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

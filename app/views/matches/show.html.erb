@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @match.result %>
+</p>
+
+<strong>Rating: </strong>
+<%= @match.skill_rating %>
+
+<p>
+  <strong>Heroes ids:</strong>
+  <%= @match.heroes_ids %>
+</p>
+
+<%= link_to 'Edit', edit_match_path(@match) %> |
