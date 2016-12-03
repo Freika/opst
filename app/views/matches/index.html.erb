@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Result</th>
-      <th>Heroes ids</th>
+      <th>Rating</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +13,7 @@
   <tbody>
     <% @matches.each do |match| %>
       <tr>
-        <td><%= match.result %></td>
-        <td><%= match.heroes_ids %></td>
+        <td><%= match.skill_rating %></td>
         <td><%= link_to 'Show', match %></td>
         <td><%= link_to 'Edit', edit_match_path(match) %></td>
         <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>

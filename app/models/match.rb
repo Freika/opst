@@ -9,7 +9,7 @@ class Match < ApplicationRecord
   def update_associations(hero_ids, map_id)
     heroes = Hero.find(hero_ids.reject(&:empty?).map(&:to_i))
     heroes = heroes - self.heros
-    heros << heroes
-    map = Map.find(map_id)
+    self.heros << heroes
+    self.map = Map.find(map_id)
   end
 end
