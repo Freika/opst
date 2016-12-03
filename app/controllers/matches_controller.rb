@@ -21,9 +21,7 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(result: match_params[:result].to_i)
-    heroes = Hero.find(match_params[:hero_ids].reject(&:empty?).map(&:to_i))
-    @match.heros << heroes
-    @match.map = Map.find(params[:map_id])
+    @match.update_associations(match_params[:hero_ids], params[:map_id])
 
     respond_to do |format|
       if @match.save
@@ -37,6 +35,8 @@ class MatchesController < ApplicationController
   end
 
   def update
+    @match.update_associations(match_params[:hero_ids], params[:map_id])
+
     respond_to do |format|
       if @match.update(match_params)
         format.html { redirect_to @match, notice: 'Match was successfully updated.' }
@@ -57,11 +57,12 @@ class MatchesController < ApplicationController
   end
 
   private
-    def set_match
-      @match = Match.find(params[:id])
-    end
 
-    def match_params
-      params.require(:match).permit(:result, :map_ids, :skill_rating, hero_ids: [])
-    end
+  def set_match
+    @match = Match.find(params[:id])
+  end
+
+  def match_params
+    params.require(:match).permit(:result, :map_ids, :skill_rating, hero_ids: [])
+  end
 end
