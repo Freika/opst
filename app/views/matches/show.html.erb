@@ -8,9 +8,16 @@
 <strong>Rating: </strong>
 <%= @match.skill_rating %>
 
+<strong>Map: </strong>
+<%= @match.map.name %>
+
 <p>
   <strong>Heroes ids:</strong>
-  <%= @match.heroes_ids %>
+  <% @match.heros.each do |hero| %>
+    <li>
+      <%= hero.name %>
+    </li>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_match_path(@match) %> |

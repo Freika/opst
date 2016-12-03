@@ -1,6 +1,6 @@
 class Match < ApplicationRecord
-  has_many :destinations
-  has_many :maps, through: :destinations
+  has_one :destination
+  has_one :map, through: :destination
 
   has_many :chosen_heros
   has_many :heros, through: :chosen_heros

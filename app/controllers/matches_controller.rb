@@ -20,9 +20,10 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.new(
-      result: match_params[:result].to_i, heroes_ids: match_params[:heroes_ids]
-    )
+    @match = Match.new(result: match_params[:result].to_i)
+    heroes = Hero.find(match_params[:hero_ids].reject(&:empty?).map(&:to_i))
+    @match.heros << heroes
+    @match.map = Map.find(params[:map_id])
 
     respond_to do |format|
       if @match.save
@@ -61,6 +62,6 @@ class MatchesController < ApplicationController
     end
 
     def match_params
-      params.require(:match).permit(:result, :map_ids, :skill_rating, heroes_ids: [])
+      params.require(:match).permit(:result, :map_ids, :skill_rating, hero_ids: [])
     end
 end

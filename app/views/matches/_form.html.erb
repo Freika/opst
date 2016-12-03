@@ -11,33 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :skill_rating %>
-    <%= f.number_field :skill_rating %>
+  <div class="row">
+    <div class="col-md-3">
+      <p>
+        <%= f.label :skill_rating %>
+        <%= f.number_field :skill_rating, class: 'form-control' %>
+      </p>
+    </div>
+
+    <div class="col-md-3">
+      <%= f.label :result, 'Was it win, lose or draw?' %>
+      <div class="radio">
+        <br>
+        <label>
+          <%= f.radio_button :result, 'win', checked: true %>
+          Win
+        </label>
+        <label>
+          <%= f.radio_button :result, 'lose' %>
+          Lose
+        </label>
+        <label>
+          <%= f.radio_button :result, 'draw' %>
+          Draw
+        </label>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :result %>
-    <br>
-    <%= f.label :result, 'Win', value: 'win'  %>
-    <%= f.radio_button :result, 'win', checked: true %>
-    <%= f.label :result, 'Lose', value: 'lose' %>
-    <%= f.radio_button :result, 'lose' %>
-    <%= f.label :result, 'Draw', value: 'draw' %>
-    <%= f.radio_button :result, 'draw' %>
+  <div class="row">
+    <div class="col-md-3">
+      <p>
+        <%= f.label :heroes_ids, 'Heroes' %>
+        <p>
+          <small>
+            Choose heroes you played most in this match
+          </small>
+        </p>
+        <%= f.select :hero_ids, @heroes, {}, { multiple: true, class: 'form-control select2', size: 10 } %>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p>
+        <%= f.label :map_id, 'Select map of this match' %>
+        <%= select_tag :map_id, options_for_select(@maps), class: 'form-control select2' %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :map_ids %>
-    <%= f.select :map_ids, @maps %>
-  </div>
-
-  <div class="field">
-    <%= f.label :heroes_ids %>
-    <%= f.select :heroes_ids, @heroes, {}, { multiple: true } %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="col-md-3">
+    <p>
+      <%= f.submit 'Save match', class: 'btn btn-success' %>
+    </p>
   </div>
 <% end %>
