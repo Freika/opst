@@ -47,7 +47,7 @@
 
       <p>
         <%= f.label :map_id, 'Select map of this match' %>
-        <%= select_tag :map_id, options_for_select(@maps), class: 'form-control select2' %>
+        <%= select_tag :map_id, options_for_select(@maps, @match.map.try(:id)), class: 'form-control select2' %>
       </p>
 
       <p>

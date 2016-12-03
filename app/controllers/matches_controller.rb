@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
   def index
-    @matches = Match.all
+    @matches = Match.all.order(created_at: :asc)
   end
 
   def show
@@ -20,7 +20,9 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.new(result: match_params[:result].to_i)
+    @match = Match.new(
+      result: match_params[:result].to_i, skill_rating: match_params[:skill_rating]
+    )
     @match.update_associations(match_params[:hero_ids], params[:map_id])
 
     respond_to do |format|
