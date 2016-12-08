@@ -21,13 +21,15 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(
-      result: match_params[:result].to_i, skill_rating: match_params[:skill_rating]
+      result: match_params[:result], skill_rating: match_params[:skill_rating]
     )
     @match.update_associations(match_params[:hero_ids], params[:map_id])
+    @match.update_skill_rating_diff
+    @match.calculate_result
 
     respond_to do |format|
       if @match.save
-        format.html { redirect_to @match, notice: 'Match was successfully created.' }
+        format.html { redirect_to matches_path, notice: 'Match was successfully created.' }
         format.json { render :show, status: :created, location: @match }
       else
         format.html { render :new }
@@ -38,10 +40,12 @@ class MatchesController < ApplicationController
 
   def update
     @match.update_associations(match_params[:hero_ids], params[:map_id])
+    @match.update_skill_rating_diff
+    @match.calculate_result
 
     respond_to do |format|
       if @match.update(match_params)
-        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
+        format.html { redirect_to matches_path, notice: 'Match was successfully updated.' }
         format.json { render :show, status: :ok, location: @match }
       else
         format.html { render :edit }
@@ -65,6 +69,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:result, :map_ids, :skill_rating, hero_ids: [])
+    params.require(:match).permit(:map_ids, :skill_rating, hero_ids: [])
   end
 end

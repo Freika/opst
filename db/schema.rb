@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203164753) do
+ActiveRecord::Schema.define(version: 20161207234035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,10 +48,12 @@ ActiveRecord::Schema.define(version: 20161203164753) do
 
   create_table "matches", force: :cascade do |t|
     t.integer  "result"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "skill_rating"
+    t.integer  "sr_diff",      default: 0, null: false
     t.index ["skill_rating"], name: "index_matches_on_skill_rating", using: :btree
+    t.index ["sr_diff"], name: "index_matches_on_sr_diff", using: :btree
   end
 
 end
