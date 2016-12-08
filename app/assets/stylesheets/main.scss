@@ -9,3 +9,13 @@
 .draw {
   background-color: #dcdcdc;
 }
+
+#matches {
+  td {
+    border: 1px solid black;
+  }
+
+  th, tr, thead {
+    border: none;
+  }
+}

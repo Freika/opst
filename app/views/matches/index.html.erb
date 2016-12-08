@@ -2,11 +2,12 @@
 
 <h1>Matches in <%= @season.name %></h1>
 
-<table class='table bordered'>
+<%= link_to 'New Match', new_match_path, class: 'btn btn-primary' %>
+
+<table class='table' id='matches'>
   <thead>
     <tr>
       <th>Rating</th>
-      <th colspan='3'></th>
     </tr>
   </thead>
 
@@ -16,8 +17,6 @@
         <td class='rating'><%= link_to match.skill_rating, match %></td>
         <td class='skill-rating-diff'><%= match.sr_diff %></td>
         <td class='streak'><%= match.streak %></td>
-        <td><%= match.map.name %></td>
-        <td class='diff'></td>
         <td class='result'><%= match.result %></td>
         <td><%= link_to 'Edit', edit_match_path(match) %></td>
         <td><%= link_to 'X', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,7 +24,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Match', new_match_path %>

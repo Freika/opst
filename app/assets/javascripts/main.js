@@ -17,7 +17,25 @@ $(document).on('turbolinks:load', function() {
     $el.addClass(klass);
   });
 
+
+  // Color skill rating diff
   $('.skill-rating-diff').each(function() {
+    $el = $(this)
+    content = $el.text();
+    if (parseInt(content) > 0) {
+      klass = 'win'
+    } else if (parseInt(content) < 0) {
+      klass = 'lose'
+    } else {
+      klass = 'draw'
+    }
+
+    $el.addClass(klass);
+  });
+
+
+  // Color streak
+  $('.streak').each(function() {
     $el = $(this)
     content = $el.text();
     if (parseInt(content) > 0) {
