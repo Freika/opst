@@ -52,7 +52,7 @@ $(document).on('turbolinks:load', function() {
 
 
   // Color skill rating
-  $('.rating').each(function() {
+  $('.skill-rating').each(function() {
     $el = $(this)
     content = parseInt($el.text());
     first_match_sr = gon.first_match_sr
