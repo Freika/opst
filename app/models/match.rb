@@ -4,6 +4,8 @@ class Match < ApplicationRecord
 
   has_many :chosen_heros
   has_many :heros, through: :chosen_heros
+
+  belongs_to :season
   enum result: { draw: 0, lose: 1, win: 2 }
 
   def update_skill_rating_diff
@@ -39,6 +41,7 @@ class Match < ApplicationRecord
     heroes = heroes - self.heros
     self.heros << heroes
     self.map = Map.find(map_id)
+    self.season = Season.last
 
     self
   end

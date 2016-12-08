@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207234035) do
+ActiveRecord::Schema.define(version: 20161208153912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,8 +52,17 @@ ActiveRecord::Schema.define(version: 20161207234035) do
     t.datetime "updated_at",               null: false
     t.integer  "skill_rating"
     t.integer  "sr_diff",      default: 0, null: false
+    t.integer  "season_id",    default: 0, null: false
+    t.index ["season_id"], name: "index_matches_on_season_id", using: :btree
     t.index ["skill_rating"], name: "index_matches_on_skill_rating", using: :btree
     t.index ["sr_diff"], name: "index_matches_on_sr_diff", using: :btree
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "finishes_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

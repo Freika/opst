@@ -3,6 +3,7 @@ class MatchesController < ApplicationController
 
   def index
     @matches = Match.includes(:map).order(created_at: :asc)
+    @season = Season.last
   end
 
   def show
