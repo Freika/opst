@@ -21,10 +21,10 @@ $(document).on('turbolinks:load', function() {
   // Color skill rating diff
   $('.skill-rating-diff').each(function() {
     $el = $(this)
-    content = $el.text();
-    if (parseInt(content) > 0) {
+    content = parseInt($el.text());
+    if (content > 0) {
       klass = 'win'
-    } else if (parseInt(content) < 0) {
+    } else if (content < 0) {
       klass = 'lose'
     } else {
       klass = 'draw'
@@ -37,10 +37,29 @@ $(document).on('turbolinks:load', function() {
   // Color streak
   $('.streak').each(function() {
     $el = $(this)
-    content = $el.text();
-    if (parseInt(content) > 0) {
+    content = parseInt($el.text());
+
+    if (content > 0) {
       klass = 'win'
-    } else if (parseInt(content) < 0) {
+    } else if (content < 0) {
+      klass = 'lose'
+    } else {
+      klass = 'draw'
+    }
+
+    $el.addClass(klass);
+  });
+
+
+  // Color skill rating
+  $('.rating').each(function() {
+    $el = $(this)
+    content = parseInt($el.text());
+    first_match_sr = gon.first_match_sr
+
+    if (content > first_match_sr) {
+      klass = 'win'
+    } else if (content < first_match_sr) {
       klass = 'lose'
     } else {
       klass = 'draw'

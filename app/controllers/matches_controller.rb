@@ -4,6 +4,7 @@ class MatchesController < ApplicationController
   def index
     @matches = Match.includes(:map).order(created_at: :asc)
     @season = Season.last
+    gon.first_match_sr = @season.matches.first.skill_rating
   end
 
   def show

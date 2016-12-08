@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 gem 'select2-rails'
 gem 'jquery-turbolinks'
+gem 'gon'
 
 group :development, :test do
   gem 'byebug', platform: :mri

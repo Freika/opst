@@ -1,26 +1,30 @@
-<p id='notice'><%= notice %></p>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <p id='notice'><%= notice %></p>
 
-<h1>Matches in <%= @season.name %></h1>
+  <h1>Matches in <%= @season.name %></h1>
 
-<%= link_to 'New Match', new_match_path, class: 'btn btn-primary' %>
+  <%= link_to 'New Match', new_match_path, class: 'btn btn-primary' %>
 
-<table class='table' id='matches'>
-  <thead>
-    <tr>
-      <th>Rating</th>
-    </tr>
-  </thead>
+  <div class="table-responsive">
+    <table class='table' id='matches'>
+      <thead>
+        <tr>
+          <th>Rating</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @matches.each do |match| %>
-      <tr>
-        <td class='rating'><%= link_to match.skill_rating, match %></td>
-        <td class='skill-rating-diff'><%= match.sr_diff %></td>
-        <td class='streak'><%= match.streak %></td>
-        <td class='result'><%= match.result %></td>
-        <td><%= link_to 'Edit', edit_match_path(match) %></td>
-        <td><%= link_to 'X', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @matches.each do |match| %>
+          <tr>
+            <td class='rating'><%= link_to match.skill_rating, match %></td>
+            <td class='skill-rating-diff'><%= match.sr_diff %></td>
+            <td class='streak'><%= match.streak %></td>
+            <td class='result'><%= match.result %></td>
+            <td><%= link_to 'Edit', edit_match_path(match) %></td>
+            <td><%= link_to 'X', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
