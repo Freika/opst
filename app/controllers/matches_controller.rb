@@ -39,12 +39,13 @@ class MatchesController < ApplicationController
   end
 
   def update
+    @match.attributes = match_params
     @match.update_associations(match_params[:hero_ids], params[:map_id])
     @match.update_skill_rating_diff
     @match.calculate_result
 
     respond_to do |format|
-      if @match.update(match_params)
+      if @match.save
         format.html { redirect_to matches_path, notice: 'Match was successfully updated.' }
         format.json { render :show, status: :ok, location: @match }
       else

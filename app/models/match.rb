@@ -7,9 +7,8 @@ class Match < ApplicationRecord
   enum result: { draw: 0, lose: 1, win: 2 }
 
   def update_skill_rating_diff
-    prev_skill_rating = prev.try(:skill_rating) || skill_rating
-
-    self.sr_diff = skill_rating - prev_skill_rating
+    prev_skill_rating = self.prev.try(:skill_rating) || self.skill_rating
+    self.sr_diff = self.skill_rating - prev_skill_rating
 
     self
   end
@@ -40,5 +39,7 @@ class Match < ApplicationRecord
     heroes = heroes - self.heros
     self.heros << heroes
     self.map = Map.find(map_id)
+
+    self
   end
 end
