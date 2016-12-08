@@ -43,7 +43,7 @@ class MatchesController < ApplicationController
   def update
     @match.attributes = match_params
     @match.update_associations(match_params[:hero_ids], params[:map_id])
-    # @match.update_streak
+    @match.update_streak
 
     respond_to do |format|
       if @match.save

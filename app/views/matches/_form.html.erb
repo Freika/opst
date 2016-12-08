@@ -15,7 +15,7 @@
     <div class="col-xs-12 col-offset-sm-4 col-sm-4 col-md-offset-4 col-md-4   col-lg-4 col-lg-offset-4">
       <p>
         <%= f.label :skill_rating %>
-        <%= f.number_field :skill_rating, class: 'form-control' %>
+        <%= f.number_field :skill_rating, autofocus: true, required: true, class: 'form-control' %>
       </p>
 
       <p>
@@ -25,12 +25,12 @@
             Choose heroes you played most in this match
           </small>
         </p>
-        <%= f.select :hero_ids, @heroes, {}, { multiple: true, class: 'form-control select2', size: 10 } %>
+        <%= f.select :hero_ids, @heroes, {}, { required: true, multiple: true, class: 'form-control select2', size: 10 } %>
       </p>
 
       <p>
         <%= f.label :map_id, 'Select map of this match' %>
-        <%= select_tag :map_id, options_for_select(@maps, @match.map.try(:id)), class: 'form-control select2' %>
+        <%= select_tag :map_id, options_for_select(@maps, @match.map.try(:id)), required: true, class: 'form-control select2' %>
       </p>
 
       <p>
