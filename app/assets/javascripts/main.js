@@ -3,41 +3,26 @@ $(document).on('turbolinks:load', function() {
 
   // Color win/lose/draw
   $('.result').each(function() {
-    var $el = $(this);
-    var content = $el.text().toLowerCase();
+    el = $(this);
+    klass = el.text().toLowerCase();
 
-    if (content == 'win') {
-      klass = 'win'
-    } else if (content == 'lose') {
-      klass = 'lose'
-    } else {
-      klass = 'draw'
-    }
-
-    $el.addClass(klass);
+    el.addClass(klass);
   });
 
 
   // Color skill rating diff
   $('.skill-rating-diff').each(function() {
-    $el = $(this)
-    content = parseInt($el.text());
-    if (content > 0) {
-      klass = 'win'
-    } else if (content < 0) {
-      klass = 'lose'
-    } else {
-      klass = 'draw'
-    }
+    el = $(this);
+    klass = el.siblings('.result').text().toLowerCase();
 
-    $el.addClass(klass);
+    el.addClass(klass);
   });
 
 
   // Color streak
   $('.streak').each(function() {
-    $el = $(this)
-    content = parseInt($el.text());
+    el = $(this)
+    content = parseInt(el.text());
 
     if (content > 0) {
       klass = 'win'
@@ -47,14 +32,14 @@ $(document).on('turbolinks:load', function() {
       klass = 'draw'
     }
 
-    $el.addClass(klass);
+    el.addClass(klass);
   });
 
 
   // Color skill rating
   $('.skill-rating').each(function() {
-    $el = $(this)
-    content = parseInt($el.text());
+    el = $(this)
+    content = parseInt(el.text());
     first_match_sr = gon.first_match_sr
 
     if (content > first_match_sr) {
@@ -65,7 +50,7 @@ $(document).on('turbolinks:load', function() {
       klass = 'draw'
     }
 
-    $el.addClass(klass);
+    el.addClass(klass);
   });
 });
 
