@@ -23,6 +23,8 @@ class Match < ApplicationRecord
       else
         Match.results[:draw]
       end
+
+    self
   end
 
   def prev
