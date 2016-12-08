@@ -23,12 +23,14 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(skill_rating: match_params[:skill_rating])
     @match.update_associations(match_params[:hero_ids], params[:map_id])
-    @match.update_skill_rating_diff
-    @match.calculate_result
-    @match.update_streak
 
     respond_to do |format|
       if @match.save
+        @match.update_skill_rating_diff
+        @match.calculate_result
+        @match.update_streak
+        @match.save
+
         format.html { redirect_to matches_path, notice: 'Match was successfully created.' }
         format.json { render :show, status: :created, location: @match }
       else
@@ -41,12 +43,14 @@ class MatchesController < ApplicationController
   def update
     @match.attributes = match_params
     @match.update_associations(match_params[:hero_ids], params[:map_id])
-    @match.update_skill_rating_diff
-    @match.calculate_result
-    @match.update_streak
+    # @match.update_streak
 
     respond_to do |format|
       if @match.save
+        @match.update_skill_rating_diff
+        @match.calculate_result
+        @match.save
+
         format.html { redirect_to matches_path, notice: 'Match was successfully updated.' }
         format.json { render :show, status: :ok, location: @match }
       else
