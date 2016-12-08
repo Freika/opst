@@ -21,12 +21,11 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.new(
-      result: match_params[:result], skill_rating: match_params[:skill_rating]
-    )
+    @match = Match.new(skill_rating: match_params[:skill_rating])
     @match.update_associations(match_params[:hero_ids], params[:map_id])
     @match.update_skill_rating_diff
     @match.calculate_result
+    @match.update_streak
 
     respond_to do |format|
       if @match.save
@@ -44,6 +43,7 @@ class MatchesController < ApplicationController
     @match.update_associations(match_params[:hero_ids], params[:map_id])
     @match.update_skill_rating_diff
     @match.calculate_result
+    @match.update_streak
 
     respond_to do |format|
       if @match.save
