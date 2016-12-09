@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'select2-rails'
 gem 'jquery-turbolinks'
 gem 'gon'
+gem 'rails-assets-highcharts', source: 'https://rails-assets.org'
 
 group :development, :test do
   gem 'byebug', platform: :mri
