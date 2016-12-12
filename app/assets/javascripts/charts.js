@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+  // Wins/draws/loses donut
   $(function() {
     Highcharts.setOptions({
       colors: ['#72FF61', '#FF7070', '#DCDCDC']
@@ -10,6 +11,14 @@ $(document).on('turbolinks:load', function() {
         type: 'pie'
       },
 
+      title: {
+        text: 'Wins/Losses/Draws'
+      },
+
+      tooltip: {
+        pointFormat: '<b>{point.percentage:.1f}%</b>'
+      },
+
       plotOptions: {
         pie: {
           borderColor: '#000000',
@@ -18,9 +27,24 @@ $(document).on('turbolinks:load', function() {
       },
       series: [{
         data: [
-          {name: 'wins', y: gon.results_donut['wins'], colorIndex: true},
-          {name: 'loses', y: gon.results_donut['loses'], colorIndex: true},
-          {name: 'draws', y: gon.results_donut['draws'], colorIndex: true}
+          {
+            name: 'wins',
+            y: gon.results_donut['wins'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'loses',
+            y: gon.results_donut['losses'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'draws',
+            y: gon.results_donut['draws'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          }
         ],
       }]
     },
@@ -35,6 +59,35 @@ $(document).on('turbolinks:load', function() {
       chart.renderer.circle(xpos, ypos, circleradius).attr({
         fill: '#ddd',
       }).add();
+    });
+  });
+
+  // Skill rating chart
+  $(function () {
+    Highcharts.chart('skill_rating_chart', {
+      title: {
+        text: 'Season skill rating over time',
+        x: -20 //center
+      },
+      xAxis: {
+        title: {
+          text: 'Games'
+        }
+      },
+      yAxis: {
+        title: {
+          text: 'Skill Rating'
+        },
+        plotLines: [{
+          value: 0,
+          width: 1,
+          color: '#808080'
+        }]
+      },
+      series: [{
+        name: 'Skill Rating',
+        data: gon.skill_rating_chart
+      }]
     });
   });
 });

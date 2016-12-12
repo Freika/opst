@@ -4,8 +4,34 @@ class MatchesController < ApplicationController
   def index
     @matches = Match.includes(:map).order(created_at: :asc)
     @season = Season.last
+
+    # Season wins/draws/loses donut
     gon.first_match_sr = @season.matches.first.skill_rating
     gon.results_donut = @season.results_statistics
+
+    # Season main statistics
+    @games_played = @season.matches.count
+    @wins = @season.matches.win.count
+    @losses = @season.matches.lose.count
+    @draws = @season.matches.draw.count
+    @win_percent = @season.to_percent(@wins, @games_played)
+    @lose_percent = @season.to_percent(@losses, @games_played)
+    @draw_percent = @season.to_percent(@draws, @games_played)
+    # TODO: implement
+    @longest_win_streak = 10
+    @longest_loss_streak = 8
+    @average_gain = 22,53
+    @average_loss = 22,12
+
+    # Season skill rating chart
+    gon.skill_rating_chart = @season.matches.map { |m| m.skill_rating }
+
+    # Season Map types
+    @assault_maps_played = @season.matches.joins(:map).merge(Map.where(kind: Map.kinds[:assault])).count
+    @escort_maps_played = @season.matches.joins(:map).merge(Map.where(kind: Map.kinds[:escort])).count
+    @hybrid_maps_played = @season.matches.joins(:map).merge(Map.where(kind: Map.kinds[:hybrid])).count
+    @control_maps_played = @season.matches.joins(:map).merge(Map.where(kind: Map.kinds[:control])).count
+
   end
 
   def show
