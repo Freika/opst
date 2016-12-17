@@ -53,11 +53,24 @@
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#donut" aria-controls="donut" role="tab" data-toggle="tab">Donut</a></li>
-    <li role="presentation"><a href="#main_stats" aria-controls="main_stats" role="tab" data-toggle="tab">Main stats</a></li>
-    <li role="presentation"><a href="#skill_rating" aria-controls="skill_rating" role="tab" data-toggle="tab">Skill Rating Chart</a></li>
-    <li role="presentation"><a href="#map_types" aria-controls="map_types" role="tab" data-toggle="tab">Map types</a></li>
-    <li role="presentation"><a href="#map_breakdown" aria-controls="map_breakdown" role="tab" data-toggle="tab">Map breakdown</a></li>
+    <li role="presentation" class="active">
+      <a href="#donut" aria-controls="donut" role="tab" data-toggle="tab">Donut</a>
+    </li>
+    <li role="presentation">
+      <a href="#main_stats" aria-controls="main_stats" role="tab" data-toggle="tab">Main stats</a>
+    </li>
+    <li role="presentation">
+      <a href="#skill_rating" aria-controls="skill_rating" role="tab" data-toggle="tab">Skill Rating Chart</a>
+    </li>
+    <li role="presentation">
+      <a href="#map_types" aria-controls="map_types" role="tab" data-toggle="tab">Map types</a>
+    </li>
+    <li role="presentation">
+      <a href="#map_breakdown" aria-controls="map_breakdown" role="tab" data-toggle="tab">Map breakdown</a>
+    </li>
+    <li role="presentation">
+      <a href="#hero_breakdown" aria-controls="hero_breakdown" role="tab" data-toggle="tab">Hero breakdown</a>
+    </li>
   </ul>
 
   <!-- Tab panes -->
@@ -202,6 +215,34 @@
             <td><%= map.wins_percent(@matches) %>%</td>
             <td><%= map.losses_percent(@matches) %>%</td>
             <td><%= map.draws_percent(@matches) %>%</td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div role="tabpanel" class="tab-pane active" id="hero_breakdown">
+      <table class="table">
+        <tr>
+          <th>Hero</th>
+          <th>% played</th>
+          <th>Played</th>
+          <th>Wins</th>
+          <th>Losses</th>
+          <th>Draws</th>
+          <th>Win %</th>
+          <th>Loss %</th>
+          <th>Draw %</th>
+        </tr>
+        <% @heroes.each do |hero| %>
+          <tr>
+            <td><%= hero.name %></td>
+            <td><%= hero.percent_played(@matches) %>%</td>
+            <td><%= hero.played(@matches) %></td>
+            <td><%= hero.wins(@matches) %></td>
+            <td><%= hero.losses(@matches) %></td>
+            <td><%= hero.draws(@matches) %></td>
+            <td><%= hero.wins_percent(@matches) %>%</td>
+            <td><%= hero.losses_percent(@matches) %>%</td>
+            <td><%= hero.draws_percent(@matches) %>%</td>
           </tr>
         <% end %>
       </table>

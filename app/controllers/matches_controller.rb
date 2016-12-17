@@ -76,6 +76,9 @@ class MatchesController < ApplicationController
     # Map breakdown
     @maps = Map.all
 
+    # Heroes breakdown
+    @heroes = Hero.all
+
   end
 
   def show
