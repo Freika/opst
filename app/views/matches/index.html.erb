@@ -57,6 +57,7 @@
     <li role="presentation"><a href="#main_stats" aria-controls="main_stats" role="tab" data-toggle="tab">Main stats</a></li>
     <li role="presentation"><a href="#skill_rating" aria-controls="skill_rating" role="tab" data-toggle="tab">Skill Rating Chart</a></li>
     <li role="presentation"><a href="#map_types" aria-controls="map_types" role="tab" data-toggle="tab">Map types</a></li>
+    <li role="presentation"><a href="#map_breakdown" aria-controls="map_breakdown" role="tab" data-toggle="tab">Map breakdown</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -175,6 +176,34 @@
           <td><%= @control_maps_losses_percent %>%</td>
           <td><%= @control_maps_draws_percent %>%</td>
         </tr>
+      </table>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="map_breakdown">
+      <table class="table">
+        <tr>
+          <th>Map</th>
+          <th>% played</th>
+          <th>Played</th>
+          <th>Wins</th>
+          <th>Losses</th>
+          <th>Draws</th>
+          <th>Win %</th>
+          <th>Loss %</th>
+          <th>Draw %</th>
+        </tr>
+        <% @maps.each do |map| %>
+          <tr>
+            <td><%= map.name %></td>
+            <td><%= map.percent_played(@matches) %>%</td>
+            <td><%= map.played(@matches) %></td>
+            <td><%= map.wins(@matches) %></td>
+            <td><%= map.losses(@matches) %></td>
+            <td><%= map.draws(@matches) %></td>
+            <td><%= map.wins_percent(@matches) %>%</td>
+            <td><%= map.losses_percent(@matches) %>%</td>
+            <td><%= map.draws_percent(@matches) %>%</td>
+          </tr>
+        <% end %>
       </table>
     </div>
   </div>

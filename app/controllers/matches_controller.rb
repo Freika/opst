@@ -73,6 +73,9 @@ class MatchesController < ApplicationController
     @assault_maps_draws_percent = @season.to_percent(@assault_maps_draws, @games_played)
     @control_maps_draws_percent = @season.to_percent(@control_maps_draws, @games_played)
 
+    # Map breakdown
+    @maps = Map.all
+
   end
 
   def show
