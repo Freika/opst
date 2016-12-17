@@ -79,6 +79,8 @@ class MatchesController < ApplicationController
     # Heroes breakdown
     @heroes = Hero.all
 
+    # Games by maps donut
+    gon.maps_statistics = @season.maps_statistics
   end
 
   def show

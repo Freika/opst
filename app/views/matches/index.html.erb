@@ -71,6 +71,9 @@
     <li role="presentation">
       <a href="#hero_breakdown" aria-controls="hero_breakdown" role="tab" data-toggle="tab">Hero breakdown</a>
     </li>
+    <li role="presentation">
+      <a href="#games_by_map" aria-controls="games_by_map" role="tab" data-toggle="tab">Games by map</a>
+    </li>
   </ul>
 
   <!-- Tab panes -->
@@ -207,14 +210,14 @@
         <% @maps.each do |map| %>
           <tr>
             <td><%= map.name %></td>
-            <td><%= map.percent_played(@matches) %>%</td>
-            <td><%= map.played(@matches) %></td>
-            <td><%= map.wins(@matches) %></td>
-            <td><%= map.losses(@matches) %></td>
-            <td><%= map.draws(@matches) %></td>
-            <td><%= map.wins_percent(@matches) %>%</td>
-            <td><%= map.losses_percent(@matches) %>%</td>
-            <td><%= map.draws_percent(@matches) %>%</td>
+            <td><%= map.percent_played(@season.matches) %>%</td>
+            <td><%= map.played(@season.matches) %></td>
+            <td><%= map.wins(@season.matches) %></td>
+            <td><%= map.losses(@season.matches) %></td>
+            <td><%= map.draws(@season.matches) %></td>
+            <td><%= map.wins_percent(@season.matches) %>%</td>
+            <td><%= map.losses_percent(@season.matches) %>%</td>
+            <td><%= map.draws_percent(@season.matches) %>%</td>
           </tr>
         <% end %>
       </table>
@@ -235,17 +238,20 @@
         <% @heroes.each do |hero| %>
           <tr>
             <td><%= hero.name %></td>
-            <td><%= hero.percent_played(@matches) %>%</td>
-            <td><%= hero.played(@matches) %></td>
-            <td><%= hero.wins(@matches) %></td>
-            <td><%= hero.losses(@matches) %></td>
-            <td><%= hero.draws(@matches) %></td>
-            <td><%= hero.wins_percent(@matches) %>%</td>
-            <td><%= hero.losses_percent(@matches) %>%</td>
-            <td><%= hero.draws_percent(@matches) %>%</td>
+            <td><%= hero.percent_played(@season.matches) %>%</td>
+            <td><%= hero.played(@season.matches) %></td>
+            <td><%= hero.wins(@season.matches) %></td>
+            <td><%= hero.losses(@season.matches) %></td>
+            <td><%= hero.draws(@season.matches) %></td>
+            <td><%= hero.wins_percent(@season.matches) %>%</td>
+            <td><%= hero.losses_percent(@season.matches) %>%</td>
+            <td><%= hero.draws_percent(@season.matches) %>%</td>
           </tr>
         <% end %>
       </table>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="games_by_map">
+      <div id="games_played_by_map_donut"></div>
     </div>
   </div>
 </div>
