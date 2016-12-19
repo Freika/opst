@@ -14,6 +14,9 @@ gem 'select2-rails'
 gem 'jquery-turbolinks'
 gem 'gon'
 gem 'rails-assets-highcharts', source: 'https://rails-assets.org'
+gem 'slim-rails'
+
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platform: :mri

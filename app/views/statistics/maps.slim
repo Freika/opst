@@ -1,0 +1,56 @@
+h1 Maps statistics
+
+.col-md-6
+  table.table
+    tr
+      th colspan="9"  Map types
+    tr
+      th Map type
+      th % played
+      th Played
+      th Wins
+      th Losses
+      th Draws
+      th Win %
+      th Loss %
+      th Draw %
+    tr
+      td Assault maps
+      td = @played[:assault]
+      td = "#{@played_percent[:assault]}%"
+      td = @assault[:wins]
+      td = @assault[:losses]
+      td = @assault[:draws]
+      td = "#{@assault_maps_wins_percent}%"
+      td = "#{@assault_maps_losses_percent}%"
+      td = "#{@assault_maps_draws_percent}%"
+    tr
+      td Escort maps
+      td = @played[:escort]
+      td = "#{@played_percent[:escort]}%"
+      td = @escort[:wins]
+      td = @escort[:losses]
+      td = @escort[:draws]
+      td = "#{@escort[:wins_percent]}%"
+      td = "#{@escort[:losses_percent]}%"
+      td = "#{@escort[:draws_percent]}%"
+    tr
+      td Hybrid maps
+      td = @played[:hybrid]
+      td = "#{@played_percent[:hybrid]}%"
+      td = @hybrid[:wins]
+      td = @hybrid[:losses]
+      td = @hybrid[:draws]
+      td = "#{@hybrid[:wins_percent]}%"
+      td = "#{@hybrid[:losses_percent]}%"
+      td = "#{@hybrid[:draws_percent]}%"
+    tr
+      td Control maps
+      td = @played[:control]
+      td = "#{@played_percent[:control]}%"
+      td = @control[:wins]
+      td = @control[:losses]
+      td = @control[:draws]
+      td = "#{@control[:wins_percent]}%"
+      td = "#{@control[:losses_percent]}%"
+      td = "#{@control[:draws_percent]}%"

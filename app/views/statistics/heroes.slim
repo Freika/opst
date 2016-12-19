@@ -1,0 +1,32 @@
+= javascript_include_tag 'statistics/heroes'
+
+h1 Heroes statistics
+
+.col-md-6
+  table.table
+    tr
+      th Hero
+      th % played
+      th Played
+      th Wins
+      th Losses
+      th Draws
+      th Win %
+      th Loss %
+      th Draw %
+    - @heroes.each do |hero|
+      tr
+        td = hero.name
+        td = "#{hero.percent_played(@season.matches)}%"
+        td = hero.played(@season.matches)
+        td = hero.wins(@season.matches)
+        td = hero.losses(@season.matches)
+        td = hero.draws(@season.matches)
+        td = "#{hero.wins_percent(@season.matches)}%"
+        td = "#{hero.losses_percent(@season.matches)}%"
+        td = "#{hero.draws_percent(@season.matches)}%"
+
+.col-md-6
+  #games_played_by_hero_donut
+
+#hero_win_percentage

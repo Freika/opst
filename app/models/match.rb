@@ -6,7 +6,10 @@ class Match < ApplicationRecord
   has_many :heros, through: :chosen_heros
 
   belongs_to :season
+  belongs_to :user
   enum result: { draw: 0, lose: 1, win: 2 }
+
+  scope :current_season, -> { where('season_id = ?', Season.last.id) }
 
   def update_skill_rating_diff
     prev_skill_rating = self.prev.try(:skill_rating) || self.skill_rating

@@ -3,10 +3,10 @@ class Season < ApplicationRecord
 
   has_many :matches
 
-  def results_statistics
-    wins  = matches.where(result: Match.results[:win]).count
-    losses = matches.where(result: Match.results[:lose]).count
-    draws = matches.where(result: Match.results[:draw]).count
+  def results_statistics(user_id)
+    wins  = matches.where(user_id: user_id, result: Match.results[:win]).count
+    losses = matches.where(user_id: user_id, result: Match.results[:lose]).count
+    draws = matches.where(user_id: user_id, result: Match.results[:draw]).count
 
     win_percent = to_percent(wins, total)
     lose_percent = to_percent(losses, total)
@@ -75,8 +75,8 @@ class Season < ApplicationRecord
     hash
   end
 
-  def streaks
-    matches.pluck(:streak)
+  def streaks(user_id)
+    matches.where(user_id: user_id).pluck(:streak)
   end
 
   private

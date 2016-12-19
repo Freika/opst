@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'charts' %>
 <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-3 col-sm-6 col-lg-offset-3 col-lg-6">
   <p id='notice'><%= notice %></p>
 
@@ -53,15 +54,6 @@
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active">
-      <a href="#donut" aria-controls="donut" role="tab" data-toggle="tab">Donut</a>
-    </li>
-    <li role="presentation">
-      <a href="#main_stats" aria-controls="main_stats" role="tab" data-toggle="tab">Main stats</a>
-    </li>
-    <li role="presentation">
-      <a href="#skill_rating" aria-controls="skill_rating" role="tab" data-toggle="tab">Skill Rating Chart</a>
-    </li>
     <li role="presentation">
       <a href="#map_types" aria-controls="map_types" role="tab" data-toggle="tab">Map types</a>
     </li>
@@ -69,142 +61,16 @@
       <a href="#map_breakdown" aria-controls="map_breakdown" role="tab" data-toggle="tab">Map breakdown</a>
     </li>
     <li role="presentation">
-      <a href="#hero_breakdown" aria-controls="hero_breakdown" role="tab" data-toggle="tab">Hero breakdown</a>
-    </li>
-    <li role="presentation">
       <a href="#games_by_map" aria-controls="games_by_map" role="tab" data-toggle="tab">Games by map</a>
     </li>
     <li role="presentation">
-      <a href="#games_by_hero" aria-controls="games_by_hero" role="tab" data-toggle="tab">Games by hero</a>
-    </li>
-    <li role="presentation">
       <a href="#wins_per_map" aria-controls="wins_per_map" role="tab" data-toggle="tab">Wins per map</a>
-    </li>
-    <li role="presentation">
-      <a href="#wins_per_hero" aria-controls="wins_per_hero" role="tab" data-toggle="tab">Wins per hero</a>
-    </li>
-    <li role="presentation">
-      <a href="#streaks_chart" aria-controls="streaks_chart" role="tab" data-toggle="tab">Streaks</a>
     </li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="donut">
-      <div id="results_donut"></div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="main_stats">
-      <table class='table'>
-        <tr>
-          <th>Main statistics</th>
-        </tr>
-        <tr>
-          <td>Games played</td>
-          <td><%= @games_played %></td>
-        </tr>
-        <tr>
-          <td>Wins</td>
-          <td><%= @wins %></td>
-        </tr>
-        <tr>
-          <td>Losses</td>
-          <td><%= @losses %></td>
-        </tr>
-        <tr>
-          <td>Wins %</td>
-          <td><%= @win_percent %></td>
-        </tr>
-        <tr>
-          <td>Loss %</td>
-          <td><%= @lose_percent %></td>
-        </tr>
-        <tr>
-          <td>Draw %</td>
-          <td><%= @draw_percent %></td>
-        </tr>
-        <tr>
-          <td>Longest win streak</td>
-          <td><%= @longest_win_streak %></td>
-        </tr>
-        <tr>
-          <td>Longest loss streak</td>
-          <td><%= @longest_loss_streak %></td>
-        </tr>
-        <tr>
-          <td>Average gain</td>
-          <td><%= @average_gain %></td>
-        </tr>
-        <tr>
-          <td>Average loss</td>
-          <td><%= @average_loss %></td>
-        </tr>
-      </table>
-
-    </div>
-    <div role="tabpanel" class="tab-pane" id="skill_rating">
-      <div id="skill_rating_chart"></div>
-    </div>
     <div role="tabpanel" class="tab-pane" id="map_types">
-      <table class="table">
-        <tr>
-          <th colspan='9'>Map types</th>
-        </tr>
-        <tr>
-          <th>Map type</th>
-          <th>% played</th>
-          <th>Played</th>
-          <th>Wins</th>
-          <th>Losses</th>
-          <th>Draws</th>
-          <th>Win %</th>
-          <th>Loss %</th>
-          <th>Draw %</th>
-        </tr>
-        <tr>
-          <td>Assault maps</td>
-          <td><%= @assault_maps_played %></td>
-          <td><%= @assault_maps_played_percent %>%</td>
-          <td><%= @assault_maps_wins %></td>
-          <td><%= @assault_maps_losses %></td>
-          <td><%= @assault_maps_draws %></td>
-          <td><%= @assault_maps_wins_percent %>%</td>
-          <td><%= @assault_maps_losses_percent %>%</td>
-          <td><%= @assault_maps_draws_percent %>%</td>
-        </tr>
-        <tr>
-          <td>Escort maps</td>
-          <td><%= @escort_maps_played %></td>
-          <td><%= @escort_maps_played_percent %>%</td>
-          <td><%= @escort_maps_wins %></td>
-          <td><%= @escort_maps_losses %></td>
-          <td><%= @escort_maps_draws %></td>
-          <td><%= @escort_maps_wins_percent %>%</td>
-          <td><%= @escort_maps_losses_percent %>%</td>
-          <td><%= @escort_maps_draws_percent %>%</td>
-        </tr>
-        <tr>
-          <td>Hybrid maps</td>
-          <td><%= @hybrid_maps_played %></td>
-          <td><%= @hybrid_maps_played_percent %>%</td>
-          <td><%= @hybrid_maps_wins %></td>
-          <td><%= @hybrid_maps_losses %></td>
-          <td><%= @hybrid_maps_draws %></td>
-          <td><%= @hybrid_maps_wins_percent %>%</td>
-          <td><%= @hybrid_maps_losses_percent %>%</td>
-          <td><%= @hybrid_maps_draws_percent %>%</td>
-        </tr>
-        <tr>
-          <td>Control maps</td>
-          <td><%= @control_maps_played %></td>
-          <td><%= @control_maps_played_percent %>%</td>
-          <td><%= @control_maps_wins %></td>
-          <td><%= @control_maps_losses %></td>
-          <td><%= @control_maps_draws %></td>
-          <td><%= @control_maps_wins_percent %>%</td>
-          <td><%= @control_maps_losses_percent %>%</td>
-          <td><%= @control_maps_draws_percent %>%</td>
-        </tr>
-      </table>
     </div>
     <div role="tabpanel" class="tab-pane" id="map_breakdown">
       <table class="table">
@@ -234,48 +100,11 @@
         <% end %>
       </table>
     </div>
-    <div role="tabpanel" class="tab-pane active" id="hero_breakdown">
-      <table class="table">
-        <tr>
-          <th>Hero</th>
-          <th>% played</th>
-          <th>Played</th>
-          <th>Wins</th>
-          <th>Losses</th>
-          <th>Draws</th>
-          <th>Win %</th>
-          <th>Loss %</th>
-          <th>Draw %</th>
-        </tr>
-        <% @heroes.each do |hero| %>
-          <tr>
-            <td><%= hero.name %></td>
-            <td><%= hero.percent_played(@season.matches) %>%</td>
-            <td><%= hero.played(@season.matches) %></td>
-            <td><%= hero.wins(@season.matches) %></td>
-            <td><%= hero.losses(@season.matches) %></td>
-            <td><%= hero.draws(@season.matches) %></td>
-            <td><%= hero.wins_percent(@season.matches) %>%</td>
-            <td><%= hero.losses_percent(@season.matches) %>%</td>
-            <td><%= hero.draws_percent(@season.matches) %>%</td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
     <div role="tabpanel" class="tab-pane" id="games_by_map">
       <div id="games_played_by_map_donut"></div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="games_by_hero">
-      <div id="games_played_by_hero_donut"></div>
-    </div>
     <div role="tabpanel" class="tab-pane" id="wins_per_map">
       <div id="map_win_percentage"></div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="wins_per_hero">
-      <div id="hero_win_percentage"></div>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="streaks_chart">
-      <div id="streaks"></div>
     </div>
   </div>
 </div>

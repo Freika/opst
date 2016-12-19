@@ -1,0 +1,45 @@
+= javascript_include_tag 'statistics/main'
+
+h1 Main statistics
+
+.col-md-6
+  table.table
+    tr
+      th Main statistics
+    tr
+      td Games played
+      td = @main_stats[:games_played]
+    tr
+      td Wins
+      td = @main_stats[:wins]
+    tr
+      td Losses
+      td = @main_stats[:losses]
+    tr
+      td Wins %
+      td = @main_stats[:win_percent]
+    tr
+      td Loss %
+      td = @main_stats[:lose_percent]
+    tr
+      td Draw %
+      td = @main_stats[:draw_percent]
+    tr
+      td Longest win streak
+      td = @main_stats[:longest_win_streak]
+    tr
+      td Longest loss streak
+      td = @main_stats[:longest_loss_streak]
+    tr
+      td Average gain
+      td = @main_stats[:average_gain]
+    tr
+      td Average loss
+      td = @main_stats[:average_loss]
+
+.col-md-6
+  #results_donut
+
+#streaks
+
+#skill_rating_chart
