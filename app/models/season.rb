@@ -28,6 +28,19 @@ class Season < ApplicationRecord
     h
   end
 
+  def heroes_statistics
+    hash = {}
+
+    Hero.all.each do |h|
+      hero_matches = matches.joins(:heros).where('heros.id = ?', h.id).count
+      hero_name = h.name.underscore.gsub(' ', '_').gsub('.', '')
+
+      hash[hero_name] = to_percent(hero_matches, total)
+    end
+
+    hash
+  end
+
   private
 
   def total

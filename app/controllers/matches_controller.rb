@@ -81,6 +81,8 @@ class MatchesController < ApplicationController
 
     # Games by maps donut
     gon.maps_statistics = @season.maps_statistics
+    # Games by heroes donut
+    gon.heroes_statistics = @season.heroes_statistics
   end
 
   def show
