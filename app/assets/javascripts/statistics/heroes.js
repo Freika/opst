@@ -6,6 +6,11 @@ $(document).on('turbolinks:load ajax:success', function() {
 
   elements.each(function(index, el) {
     // games played by hero donut
+
+    $heroes_statistics = $('#games_played_by_hero_donut');
+    console.log($heroes_statistics.data())
+
+
     $(function() {
       Highcharts.setOptions({
         colors: ['#72FF61', '#FF7070', '#DCDCDC', '#ffaadc', '#ddaacc', '#aacc33']
@@ -35,142 +40,142 @@ $(document).on('turbolinks:load ajax:success', function() {
           data: [
             {
               name: 'Ana',
-              y: gon.heroes_statistics['ana'],
+              y: $heroes_statistics.data('ana'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Bastion',
-              y: gon.heroes_statistics['bastion'],
+              y: $heroes_statistics.data('bastion'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'D.Va',
-              y: gon.heroes_statistics['dva'],
+              y: $heroes_statistics.data('dva'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Genji',
-              y: gon.heroes_statistics['genji'],
+              y: $heroes_statistics.data('genji'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Hanzo',
-              y: gon.heroes_statistics['hanzo'],
+              y: $heroes_statistics.data('hanzo'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: "Junkrat",
-              y: gon.heroes_statistics["junkrat"],
+              y: $heroes_statistics.data("junkrat"),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Lucio',
-              y: gon.heroes_statistics['lucio'],
+              y: $heroes_statistics.data('lucio'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'McCree',
-              y: gon.heroes_statistics['mc_cree'],
+              y: $heroes_statistics.data('mccree'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Mei',
-              y: gon.heroes_statistics['mei'],
+              y: $heroes_statistics.data('mei'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Mercy',
-              y: gon.heroes_statistics['mercy'],
+              y: $heroes_statistics.data('mercy'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Pharah',
-              y: gon.heroes_statistics['pharah'],
+              y: $heroes_statistics.data('pharah'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Reaper',
-              y: gon.heroes_statistics['reaper'],
+              y: $heroes_statistics.data('reaper'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Reinhardt',
-              y: gon.heroes_statistics['reinhardt'],
+              y: $heroes_statistics.data('reinhardt'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Roadhog',
-              y: gon.heroes_statistics['roadhog'],
+              y: $heroes_statistics.data('roadhog'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Soldier 76',
-              y: gon.heroes_statistics['soldier_76'],
+              y: $heroes_statistics.data('soldier76'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Sombra',
-              y: gon.heroes_statistics['sombra'],
+              y: $heroes_statistics.data('sombra'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Symmetra',
-              y: gon.heroes_statistics['symmetra'],
+              y: $heroes_statistics.data('symmetra'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Torbjorn',
-              y: gon.heroes_statistics['torbjorn'],
+              y: $heroes_statistics.data('torbjorn'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Tracer',
-              y: gon.heroes_statistics['tracer'],
+              y: $heroes_statistics.data('tracer'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Widowmaker',
-              y: gon.heroes_statistics['widowmaker'],
+              y: $heroes_statistics.data('widowmaker'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Winston',
-              y: gon.heroes_statistics['winston'],
+              y: $heroes_statistics.data('winston'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Zarya',
-              y: gon.heroes_statistics['zarya'],
+              y: $heroes_statistics.data('zarya'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Zenyatta',
-              y: gon.heroes_statistics['zenyatta'],
+              y: $heroes_statistics.data('zenyatta'),
               colorIndex: true,
               dataLabels: { enabled: false }
-            },
+            }
           ],
         }]
       },
@@ -189,6 +194,9 @@ $(document).on('turbolinks:load ajax:success', function() {
     });
 
     // Win percent per hero chart
+    $wins_percentage_per_hero = $('#hero_win_percentage');
+
+
     $(function () {
       // Create the chart
       Highcharts.chart('hero_win_percentage', {
@@ -223,145 +231,144 @@ $(document).on('turbolinks:load ajax:success', function() {
           pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
         },
         series: [{
-          name: 'Map',
+          name: 'Hero',
           colorByPoint: true,
           data: [
-
             {
               name: 'Ana',
-              y: gon.wins_percentage_per_hero['ana'],
+              y: $wins_percentage_per_hero.data('ana'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Bastion',
-              y: gon.wins_percentage_per_hero['bastion'],
+              y: $wins_percentage_per_hero.data('bastion'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'D.Va',
-              y: gon.wins_percentage_per_hero['dva'],
+              y: $wins_percentage_per_hero.data('dva'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Genji',
-              y: gon.wins_percentage_per_hero['genji'],
+              y: $wins_percentage_per_hero.data('genji'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Hanzo',
-              y: gon.wins_percentage_per_hero['hanzo'],
+              y: $wins_percentage_per_hero.data('hanzo'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: "Junkrat",
-              y: gon.wins_percentage_per_hero["junkrat"],
+              y: $wins_percentage_per_hero.data("junkrat"),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Lucio',
-              y: gon.wins_percentage_per_hero['lucio'],
+              y: $wins_percentage_per_hero.data('lucio'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'McCree',
-              y: gon.wins_percentage_per_hero['mc_cree'],
+              y: $wins_percentage_per_hero.data('mccree'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Mei',
-              y: gon.wins_percentage_per_hero['mei'],
+              y: $wins_percentage_per_hero.data('mei'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Mercy',
-              y: gon.wins_percentage_per_hero['mercy'],
+              y: $wins_percentage_per_hero.data('mercy'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Pharah',
-              y: gon.wins_percentage_per_hero['pharah'],
+              y: $wins_percentage_per_hero.data('pharah'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Reaper',
-              y: gon.wins_percentage_per_hero['reaper'],
+              y: $wins_percentage_per_hero.data('reaper'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Reinhardt',
-              y: gon.wins_percentage_per_hero['reinhardt'],
+              y: $wins_percentage_per_hero.data('reinhardt'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Roadhog',
-              y: gon.wins_percentage_per_hero['roadhog'],
+              y: $wins_percentage_per_hero.data('roadhog'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Soldier 76',
-              y: gon.wins_percentage_per_hero['soldier_76'],
+              y: $wins_percentage_per_hero.data('soldier76'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Sombra',
-              y: gon.wins_percentage_per_hero['sombra'],
+              y: $wins_percentage_per_hero.data('sombra'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Symmetra',
-              y: gon.wins_percentage_per_hero['symmetra'],
+              y: $wins_percentage_per_hero.data('symmetra'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Torbjorn',
-              y: gon.wins_percentage_per_hero['torbjorn'],
+              y: $wins_percentage_per_hero.data('torbjorn'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Tracer',
-              y: gon.wins_percentage_per_hero['tracer'],
+              y: $wins_percentage_per_hero.data('tracer'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Widowmaker',
-              y: gon.wins_percentage_per_hero['widowmaker'],
+              y: $wins_percentage_per_hero.data('widowmaker'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Winston',
-              y: gon.wins_percentage_per_hero['winston'],
+              y: $wins_percentage_per_hero.data('winston'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Zarya',
-              y: gon.wins_percentage_per_hero['zarya'],
+              y: $wins_percentage_per_hero.data('zarya'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Zenyatta',
-              y: gon.wins_percentage_per_hero['zenyatta'],
+              y: $wins_percentage_per_hero.data('zenyatta'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },

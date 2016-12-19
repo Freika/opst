@@ -41,8 +41,8 @@ class StatisticsController < ApplicationController
     @season = Season.last
 
     @heroes = Hero.all
-    gon.heroes_statistics = @season.heroes_statistics
-    gon.wins_percentage_per_hero = @season.wins_percentage_per_hero
+    @heroes_statistics = @season.heroes_statistics
+    @heroes_wins = @season.wins_percentage_per_hero
   end
 
   def maps

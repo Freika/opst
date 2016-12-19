@@ -8,10 +8,6 @@ class MatchesController < ApplicationController
                 .includes(:map)
                 .order(created_at: :asc)
     @season = Season.last
-
-    # Season wins/draws/loses donut
-    gon.first_match_sr = @matches.first.skill_rating rescue 0
-    gon.wins_percentage_per_hero = @season.wins_percentage_per_hero
   end
 
   def show
