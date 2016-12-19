@@ -1,4 +1,6 @@
 class StatisticsController < ApplicationController
+  before_action :authenticate_user!
+
   def main
     @matches = current_user.matches
                 .current_season
@@ -7,24 +9,28 @@ class StatisticsController < ApplicationController
     @season = Season.last
 
     # Season main statistics
+    wins = @matches.win.count
+    losses = @matches.lose.count
+    draws = @matches.draw.count
+    games_played = @matches.count
+
     @main_stats = {
-      games_played: @matches.count,
-      wins: @matches.win.count,
-      losses: @matches.lose.count,
-      draws: @matches.draw.count,
-      win_percent: @season.to_percent(@wins, @games_played),
-      lose_percent: @season.to_percent(@losses, @games_played),
-      draw_percent: @season.to_percent(@draws, @games_played),
+      games_played: games_played,
+      wins: wins,
+      losses: losses,
+      draws: draws,
+      win_percent: @season.to_percent(wins, games_played),
+      lose_percent: @season.to_percent(losses, games_played),
+      draw_percent: @season.to_percent(draws, games_played),
       # TODO: implement,
       longest_win_streak: 10,
       longest_loss_streak: 8,
       average_gain: 22.53,
-      average_loss: 22.12,
+      average_loss: 22.12
     }
 
-    gon.results_donut = @season.results_statistics(current_user.id)
-    gon.skill_rating_chart = @matches.map { |m| m.skill_rating }
-    gon.streaks = @season.streaks(current_user.id)
+    @skill_rating_chart = @matches.pluck(:skill_rating)
+    @streaks = @season.streaks(current_user.id)
   end
 
   def heroes

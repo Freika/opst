@@ -3,18 +3,6 @@ class Season < ApplicationRecord
 
   has_many :matches
 
-  def results_statistics(user_id)
-    wins  = matches.where(user_id: user_id, result: Match.results[:win]).count
-    losses = matches.where(user_id: user_id, result: Match.results[:lose]).count
-    draws = matches.where(user_id: user_id, result: Match.results[:draw]).count
-
-    win_percent = to_percent(wins, total)
-    lose_percent = to_percent(losses, total)
-    draw_percent = to_percent(draws, total)
-
-    { wins: win_percent, losses: lose_percent, draws: draw_percent }
-  end
-
   def maps_statistics
     h = {}
 

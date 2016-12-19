@@ -16,4 +16,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require select2
+//= require main
+//= require_tree ./statistics
 //= require turbolinks

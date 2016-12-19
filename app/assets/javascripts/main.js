@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load ajax:success', function() {
   $('.select2').select2();
 
   // Color win/lose/draw

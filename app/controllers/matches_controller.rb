@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  before_action :user_authenticate!
+  before_action :authenticate_user!
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,7 +10,7 @@ class MatchesController < ApplicationController
     @season = Season.last
 
     # Season wins/draws/loses donut
-    gon.first_match_sr = @season.matches.first.skill_rating
+    gon.first_match_sr = @matches.first.skill_rating rescue 0
     gon.wins_percentage_per_hero = @season.wins_percentage_per_hero
   end
 
