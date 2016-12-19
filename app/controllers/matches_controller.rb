@@ -10,27 +10,6 @@ class MatchesController < ApplicationController
 
     # Season wins/draws/loses donut
     gon.first_match_sr = @season.matches.first.skill_rating
-
-    # Season skill rating chart
-
-
-    assault_matches = @season.matches.joins(:map).merge(Map.where(kind: Map.kinds[:assault]))
-    escort_matches = @season.matches.joins(:map).merge(Map.where(kind: Map.kinds[:escort]))
-    hybrid_matches = @season.matches.joins(:map).merge(Map.where(kind: Map.kinds[:hybrid]))
-    control_matches = @season.matches.joins(:map).merge(Map.where(kind: Map.kinds[:control]))
-    # Season Map types
-
-    # Map breakdown
-    @maps = Map.all
-
-    # Heroes breakdown
-
-    # Games by maps donut
-    gon.maps_statistics = @season.maps_statistics
-    # Games by heroes donut
-    # Wins per map percentage chart
-    gon.wins_per_map = @season.wins_percentage_per_map
-    # Wins per hero percentage chart
     gon.wins_percentage_per_hero = @season.wins_percentage_per_hero
   end
 

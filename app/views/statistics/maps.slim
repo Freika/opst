@@ -1,3 +1,5 @@
+= javascript_include_tag 'statistics/maps'
+
 h1 Maps statistics
 
 .col-md-6
@@ -54,3 +56,31 @@ h1 Maps statistics
       td = "#{@control[:wins_percent]}%"
       td = "#{@control[:losses_percent]}%"
       td = "#{@control[:draws_percent]}%"
+
+  #games_played_by_map_donut
+
+.col-md-6
+  table.table
+    tr
+      th Map
+      th % played
+      th Played
+      th Wins
+      th Losses
+      th Draws
+      th Win %
+      th Loss %
+      th Draw %
+    - @maps.each do |map| %
+      tr
+        td = map.name
+        td = "#{map.percent_played(@season.matches)}%"
+        td = map.played(@season.matches)
+        td = map.wins(@season.matches)
+        td = map.losses(@season.matches)
+        td = map.draws(@season.matches)
+        td = "#{map.wins_percent(@season.matches)}%"
+        td = "#{map.losses_percent(@season.matches)}%"
+        td = "#{map.draws_percent(@season.matches)}%"
+
+#map_win_percentage

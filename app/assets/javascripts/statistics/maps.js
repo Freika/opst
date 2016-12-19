@@ -1,5 +1,4 @@
 $(document).on('turbolinks:load', function() {
-  // games played by map donut
   $(function() {
     Highcharts.setOptions({
       colors: ['#72FF61', '#FF7070', '#DCDCDC', '#ffaadc', '#ddaacc', '#aacc33']
@@ -122,8 +121,6 @@ $(document).on('turbolinks:load', function() {
     });
   });
 
-
-
   // Win percent per map chart
   $(function () {
     // Create the chart
@@ -221,4 +218,5 @@ $(document).on('turbolinks:load', function() {
       }]
     });
   });
+
 });
