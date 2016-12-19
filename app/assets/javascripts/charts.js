@@ -676,4 +676,23 @@ $(document).on('turbolinks:load', function() {
       }]
     });
   });
+
+  // Streaks chart
+  $(function () {
+    Highcharts.chart('streaks', {
+      chart: {
+        type: 'line'
+      },
+      title: {
+        text: 'Streaks'
+      },
+      subtitle: {
+        text: 'Win and lose streaks'
+      },
+      series: [{
+        name: 'Streak',
+        data: gon.streaks
+      }]
+    });
+  });
 });

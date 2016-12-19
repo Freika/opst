@@ -75,6 +75,10 @@ class Season < ApplicationRecord
     hash
   end
 
+  def streaks
+    matches.pluck(:streak)
+  end
+
   private
 
   def total

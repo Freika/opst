@@ -87,6 +87,8 @@ class MatchesController < ApplicationController
     gon.wins_per_map = @season.wins_percentage_per_map
     # Wins per hero percentage chart
     gon.wins_percentage_per_hero = @season.wins_percentage_per_hero
+    # Streaks
+    gon.streaks = @season.streaks
   end
 
   def show
