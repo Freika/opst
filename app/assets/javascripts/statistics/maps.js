@@ -130,6 +130,8 @@ $(document).on('turbolinks:load ajax:success', function() {
     });
 
     // Win percent per map chart
+    $wins_per_map = $('#map_win_percentage');
+
     $(function () {
       // Create the chart
       Highcharts.chart('map_win_percentage', {
@@ -169,59 +171,55 @@ $(document).on('turbolinks:load ajax:success', function() {
           data: [
           {
             name: 'Dorado',
-            y: gon.wins_per_map['dorado'],
+            y: $wins_per_map.data('dorado'),
           },
           {
             name: 'Eichenwalde',
-            y: gon.wins_per_map['eichenwalde'],
+            y: $wins_per_map.data('eichenwalde'),
           },
           {
             name: 'Hanamura',
-            y: gon.wins_per_map['hanamura'],
+            y: $wins_per_map.data('hanamura'),
           },
           {
             name: 'Hollywood',
-            y: gon.wins_per_map['hollywood'],
+            y: $wins_per_map.data('hollywood'),
           },
           {
             name: 'Ilios',
-            y: gon.wins_per_map['ilios'],
+            y: $wins_per_map.data('ilios'),
           },
           {
             name: 'King\'s Row',
-            y: gon.wins_per_map['king_s_row'],
+            y: $wins_per_map.data('kingsrow'),
           },
           {
             name: 'Lijiang Tower',
-            y: gon.wins_per_map['lijiang_tower'],
+            y: $wins_per_map.data('lijiangtower'),
           },
           {
             name: 'Nepal',
-            y: gon.wins_per_map['nepal'],
+            y: $wins_per_map.data('nepal'),
           },
           {
             name: 'Numbani',
-            y: gon.wins_per_map['numbani'],
-          },
-          {
-            name: 'Oasis',
-            y: gon.wins_per_map['oasis'],
+            y: $wins_per_map.data('numbani'),
           },
           {
             name: 'Route 66',
-            y: gon.wins_per_map['route_66'],
+            y: $wins_per_map.data('route66'),
           },
           {
             name: 'Temple of Anubis',
-            y: gon.wins_per_map['temple_of_anubis'],
+            y: $wins_per_map.data('templeofanubis'),
           },
           {
             name: 'Volskaya Industries',
-            y: gon.wins_per_map['volskaya_industries'],
+            y: $wins_per_map.data('volskayaindustries'),
           },
           {
             name: 'Watchpoint: Gibraltar',
-            y: gon.wins_per_map['watchpoint__gibraltar'],
+            y: $wins_per_map.data('watchpointgibraltar'),
           }]
         }]
       });

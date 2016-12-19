@@ -54,8 +54,7 @@ class StatisticsController < ApplicationController
     @maps = Map.all
 
     @maps_statistics = @season.maps_statistics
-    gon.wins_per_map = @season.wins_percentage_per_map
-
+    @wins_per_map = @season.wins_percentage_per_map
 
     games_played = @matches.count
     assault_matches = @matches.joins(:map).merge(Map.where(kind: Map.kinds[:assault]))
