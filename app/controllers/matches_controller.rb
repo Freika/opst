@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+  before_action :user_authenticate!
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -28,7 +29,7 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.new(skill_rating: match_params[:skill_rating])
+    @match = current_user.matches.build(skill_rating: match_params[:skill_rating])
     @match.update_associations(match_params[:hero_ids], params[:map_id])
 
     respond_to do |format|
@@ -78,7 +79,7 @@ class MatchesController < ApplicationController
   private
 
   def set_match
-    @match = Match.find(params[:id])
+    @match = current_user.matches.find(params[:id])
   end
 
   def match_params
