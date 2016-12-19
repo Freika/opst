@@ -5,7 +5,7 @@ Map.create!([
   { name: 'Watchpoint: Gibraltar', kind: 2 },
   { name: 'Dorado', kind: 2 },
   { name: 'Route 66', kind: 2 },
-  { name: 'Lijang Tower', kind: 3 },
+  { name: 'Lijiang Tower', kind: 3 },
   { name: 'Ilios', kind: 3 },
   { name: 'Nepal', kind: 3 },
   { name: 'King\'s Row', kind: 4 },

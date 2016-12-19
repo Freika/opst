@@ -5,6 +5,8 @@ $(document).on('turbolinks:load ajax:success', function() {
   }
 
   elements.each(function(index, el) {
+    $maps = $('#games_played_by_map_donut');
+
     $(function() {
       Highcharts.setOptions({
         colors: ['#72FF61', '#FF7070', '#DCDCDC', '#ffaadc', '#ddaacc', '#aacc33']
@@ -34,82 +36,82 @@ $(document).on('turbolinks:load ajax:success', function() {
           data: [
             {
               name: 'Dorado',
-              y: gon.maps_statistics['dorado'],
+              y: $maps.data('dorado'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Eichenwalde',
-              y: gon.maps_statistics['eichenwalde'],
+              y: $maps.data('eichenwalde'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Hanamura',
-              y: gon.maps_statistics['hanamura'],
+              y: $maps.data('hanamura'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Hollywood',
-              y: gon.maps_statistics['hollywood'],
+              y: $maps.data('hollywood'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Ilios',
-              y: gon.maps_statistics['ilios'],
+              y: $maps.data('ilios'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: "King's Row",
-              y: gon.maps_statistics["king_s_row"],
+              y: $maps.data("kingsrow"),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
-              name: 'Lijang Tower',
-              y: gon.maps_statistics['lijang_tower'],
+              name: 'Lijiang Tower',
+              y: $maps.data('lijiangtower'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Nepal',
-              y: gon.maps_statistics['nepal'],
+              y: $maps.data('nepal'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Numbani',
-              y: gon.maps_statistics['numbani'],
+              y: $maps.data('numbani'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Route 66',
-              y: gon.maps_statistics['route_66'],
+              y: $maps.data('route66'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Temple of Anubis',
-              y: gon.maps_statistics['temple_of_anubis'],
+              y: $maps.data('templeofanubis'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Volskaya Industries',
-              y: gon.maps_statistics['volskaya_industries'],
+              y: $maps.data('volskayaindustries'),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Watchpoint Gibraltar',
-              y: gon.maps_statistics['watchpoint__gibraltar'],
+              y: $maps.data('watchpointgibraltar'),
               colorIndex: true,
               dataLabels: { enabled: false }
-            },
+            }
           ],
         }]
       },

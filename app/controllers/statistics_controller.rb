@@ -53,7 +53,7 @@ class StatisticsController < ApplicationController
     @season = Season.last
     @maps = Map.all
 
-    gon.maps_statistics = @season.maps_statistics
+    @maps_statistics = @season.maps_statistics
     gon.wins_per_map = @season.wins_percentage_per_map
 
 

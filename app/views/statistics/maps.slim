@@ -4,7 +4,7 @@
   .col-md-6
     table.table
       tr
-        th colspan="9"  Map types
+        th colspan="9" Map types
       tr
         th Map type
         th % played
@@ -56,8 +56,7 @@
         td = "#{@control[:losses_percent]}%"
         td = "#{@control[:draws_percent]}%"
 
-    #games_played_by_map_donut
-
+    #games_played_by_map_donut data-dorado=@maps_statistics['dorado'] data-eichenwalde=@maps_statistics['eichenwalde'] data-hanamura=@maps_statistics['hanamura'] data-hollywood=@maps_statistics['hollywood'] data-ilios=@maps_statistics['ilios'] data-kingsrow=@maps_statistics['king_s_row'] data-lijiangtower=@maps_statistics['lijiang_tower'] data-nepal=@maps_statistics['nepal'] data-numbani=@maps_statistics['numbani'] data-route66=@maps_statistics['route_66'] data-templeofanubis=@maps_statistics['temple_of_anubis'] data-volskayaindustries=@maps_statistics['volskaya_industries'] data-watchpointgibraltar=@maps_statistics['watchpoint__gibraltar']
   .col-md-6
     table.table
       tr
