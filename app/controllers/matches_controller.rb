@@ -83,6 +83,10 @@ class MatchesController < ApplicationController
     gon.maps_statistics = @season.maps_statistics
     # Games by heroes donut
     gon.heroes_statistics = @season.heroes_statistics
+    # Wins per map percentage chart
+    gon.wins_per_map = @season.wins_percentage_per_map
+    # Wins per hero percentage chart
+    gon.wins_percentage_per_hero = @season.wins_percentage_per_hero
   end
 
   def show

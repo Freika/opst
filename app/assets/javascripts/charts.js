@@ -397,4 +397,283 @@ $(document).on('turbolinks:load', function() {
       }).add();
     });
   });
+
+  // Win percent per hero chart
+  $(function () {
+    // Create the chart
+    Highcharts.chart('hero_win_percentage', {
+      chart: {
+        type: 'column'
+      },
+      title: {
+        text: 'Wins per hero'
+      },
+      xAxis: {
+        type: 'category'
+      },
+      yAxis: {
+        title: {
+          text: 'Wins percent'
+        }
+      },
+      legend: {
+        enabled: false
+      },
+      plotOptions: {
+        series: {
+          borderWidth: 0,
+          dataLabels: {
+            enabled: true,
+            format: '{point.y:.1f}%'
+          }
+        }
+      },
+      tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+      },
+      series: [{
+        name: 'Map',
+        colorByPoint: true,
+        data: [
+
+          {
+            name: 'Ana',
+            y: gon.wins_percentage_per_hero['ana'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Bastion',
+            y: gon.wins_percentage_per_hero['bastion'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'D.Va',
+            y: gon.wins_percentage_per_hero['dva'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Genji',
+            y: gon.wins_percentage_per_hero['genji'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Hanzo',
+            y: gon.wins_percentage_per_hero['hanzo'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: "Junkrat",
+            y: gon.wins_percentage_per_hero["junkrat"],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Lucio',
+            y: gon.wins_percentage_per_hero['lucio'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'McCree',
+            y: gon.wins_percentage_per_hero['mc_cree'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Mei',
+            y: gon.wins_percentage_per_hero['mei'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Mercy',
+            y: gon.wins_percentage_per_hero['mercy'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Pharah',
+            y: gon.wins_percentage_per_hero['pharah'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Reaper',
+            y: gon.wins_percentage_per_hero['reaper'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Reinhardt',
+            y: gon.wins_percentage_per_hero['reinhardt'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Roadhog',
+            y: gon.wins_percentage_per_hero['roadhog'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Soldier 76',
+            y: gon.wins_percentage_per_hero['soldier_76'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Sombra',
+            y: gon.wins_percentage_per_hero['sombra'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Symmetra',
+            y: gon.wins_percentage_per_hero['symmetra'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Torbjorn',
+            y: gon.wins_percentage_per_hero['torbjorn'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Tracer',
+            y: gon.wins_percentage_per_hero['tracer'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Widowmaker',
+            y: gon.wins_percentage_per_hero['widowmaker'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Winston',
+            y: gon.wins_percentage_per_hero['winston'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Zarya',
+            y: gon.wins_percentage_per_hero['zarya'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+          {
+            name: 'Zenyatta',
+            y: gon.wins_percentage_per_hero['zenyatta'],
+            colorIndex: true,
+            dataLabels: { enabled: false }
+          },
+        ]
+      }]
+    });
+  });
+  // Win percent per map chart
+  $(function () {
+    // Create the chart
+    Highcharts.chart('map_win_percentage', {
+      chart: {
+        type: 'column'
+      },
+      title: {
+        text: 'Wins per map'
+      },
+      xAxis: {
+        type: 'category'
+      },
+      yAxis: {
+        title: {
+          text: 'Wins percent'
+        }
+      },
+      legend: {
+        enabled: false
+      },
+      plotOptions: {
+        series: {
+          borderWidth: 0,
+          dataLabels: {
+            enabled: true,
+            format: '{point.y:.1f}%'
+          }
+        }
+      },
+      tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+      },
+      series: [{
+        name: 'Hero',
+        colorByPoint: true,
+        data: [
+        {
+          name: 'Dorado',
+          y: gon.wins_per_map['dorado'],
+        },
+        {
+          name: 'Eichenwalde',
+          y: gon.wins_per_map['eichenwalde'],
+        },
+        {
+          name: 'Hanamura',
+          y: gon.wins_per_map['hanamura'],
+        },
+        {
+          name: 'Hollywood',
+          y: gon.wins_per_map['hollywood'],
+        },
+        {
+          name: 'Ilios',
+          y: gon.wins_per_map['ilios'],
+        },
+        {
+          name: 'King\'s Row',
+          y: gon.wins_per_map['king_s_row'],
+        },
+        {
+          name: 'Lijiang Tower',
+          y: gon.wins_per_map['lijiang_tower'],
+        },
+        {
+          name: 'Nepal',
+          y: gon.wins_per_map['nepal'],
+        },
+        {
+          name: 'Numbani',
+          y: gon.wins_per_map['numbani'],
+        },
+        {
+          name: 'Oasis',
+          y: gon.wins_per_map['oasis'],
+        },
+        {
+          name: 'Route 66',
+          y: gon.wins_per_map['route_66'],
+        },
+        {
+          name: 'Temple of Anubis',
+          y: gon.wins_per_map['temple_of_anubis'],
+        },
+        {
+          name: 'Volskaya Industries',
+          y: gon.wins_per_map['volskaya_industries'],
+        },
+        {
+          name: 'Watchpoint: Gibraltar',
+          y: gon.wins_per_map['watchpoint__gibraltar'],
+        }]
+      }]
+    });
+  });
 });

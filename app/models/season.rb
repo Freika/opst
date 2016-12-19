@@ -28,6 +28,40 @@ class Season < ApplicationRecord
     h
   end
 
+  def wins_percentage_per_map
+    h = {}
+
+    Map.all.each do |m|
+      map_wins =
+        matches
+          .joins(:map)
+          .where('maps.id = ? and result = ?', m.id, Match.results[:win])
+          .count
+      map_name = m.name.underscore.gsub(/\s|'|:/, '_')
+
+      h[map_name] = to_percent(map_wins, total)
+    end
+
+    h
+  end
+
+  def wins_percentage_per_hero
+    hash = {}
+
+    Hero.all.each do |h|
+      hero_wins =
+        matches
+        .joins(:heros)
+        .where('heros.id = ? and result = ?', h.id, Match.results[:win])
+        .count
+      hero_name = h.name.underscore.gsub(' ', '_').gsub('.', '')
+
+      hash[hero_name] = to_percent(hero_wins, total)
+    end
+
+    hash
+  end
+
   def heroes_statistics
     hash = {}
 
