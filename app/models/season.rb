@@ -1,7 +1,7 @@
 class Season < ApplicationRecord
   include Calculateable
 
-  has_many :matches
+  has_many :matches, dependent: :destroy
 
   def maps_statistics
     h = {}

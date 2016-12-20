@@ -1,8 +1,8 @@
 class Match < ApplicationRecord
-  has_one :destination
+  has_one :destination, dependent: :destroy
   has_one :map, through: :destination
 
-  has_many :chosen_heros
+  has_many :chosen_heros, dependent: :destroy
   has_many :heros, through: :chosen_heros
 
   belongs_to :season
@@ -73,5 +73,9 @@ class Match < ApplicationRecord
     end
 
     self
+  end
+
+  def self.first_in_season?
+    current_season.one?
   end
 end

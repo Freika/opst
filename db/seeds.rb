@@ -43,3 +43,5 @@ Hero.create!([
 ])
 
 p 'Hero.created'
+
+Season.create(name: '3rd season')

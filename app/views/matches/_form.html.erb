@@ -18,6 +18,13 @@
         <%= f.number_field :skill_rating, autofocus: true, required: true, class: 'form-control' %>
       </p>
 
+      <% if Match.first_in_season? %>
+        <p>
+          <%= f.label :result %>
+          <%= f.select :result, Match.results.keys, {}, class: 'form-control' %>
+        </p>
+      <% end %>
+
       <p>
         <%= f.label :heroes_ids, 'Heroes' %>
         <p>

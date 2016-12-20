@@ -14,7 +14,7 @@ class MatchesController < ApplicationController
   end
 
   def new
-    @match = Match.new
+    @match = current_user.matches.build
     @maps = Map.all.map { |map| [map.name, map.id] }
     @heroes = Hero.all.map { |hero| [hero.name, hero.id] }
   end
@@ -31,7 +31,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       if @match.save
         @match.update_skill_rating_diff
-        @match.calculate_result
+        @match.calculate_result unless Match.first_in_season?
         @match.update_streak
         @match.save
 
@@ -52,7 +52,7 @@ class MatchesController < ApplicationController
     respond_to do |format|
       if @match.save
         @match.update_skill_rating_diff
-        @match.calculate_result
+        @match.calculate_result unless Match.first_in_season?
         @match.save
 
         format.html { redirect_to matches_path, notice: 'Match was successfully updated.' }
@@ -79,6 +79,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:map_ids, :skill_rating, hero_ids: [])
+    params.require(:match).permit(:map_ids, :skill_rating, :result, hero_ids: [])
   end
 end
