@@ -36,31 +36,31 @@ $(document).on('turbolinks:load ajax:success', function() {
           data: [
             {
               name: 'Dorado',
-              y: $maps.data('dorado'),
+              y: parseFloat($maps.data('dorado')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Eichenwalde',
-              y: $maps.data('eichenwalde'),
+              y: parseFloat($maps.data('eichenwalde')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Hanamura',
-              y: $maps.data('hanamura'),
+              y: parseFloat($maps.data('hanamura')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Hollywood',
-              y: $maps.data('hollywood'),
+              y: parseFloat($maps.data('hollywood')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Ilios',
-              y: $maps.data('ilios'),
+              y: parseFloat($maps.data('ilios')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
@@ -72,43 +72,43 @@ $(document).on('turbolinks:load ajax:success', function() {
             },
             {
               name: 'Lijiang Tower',
-              y: $maps.data('lijiangtower'),
+              y: parseFloat($maps.data('lijiangtower')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Nepal',
-              y: $maps.data('nepal'),
+              y: parseFloat($maps.data('nepal')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Numbani',
-              y: $maps.data('numbani'),
+              y: parseFloat($maps.data('numbani')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Route 66',
-              y: $maps.data('route66'),
+              y: parseFloat($maps.data('route66')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Temple of Anubis',
-              y: $maps.data('templeofanubis'),
+              y: parseFloat($maps.data('templeofanubis')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Volskaya Industries',
-              y: $maps.data('volskayaindustries'),
+              y: parseFloat($maps.data('volskayaindustries')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Watchpoint Gibraltar',
-              y: $maps.data('watchpointgibraltar'),
+              y: parseFloat($maps.data('watchpointgibraltar')),
               colorIndex: true,
               dataLabels: { enabled: false }
             }
@@ -171,55 +171,55 @@ $(document).on('turbolinks:load ajax:success', function() {
           data: [
           {
             name: 'Dorado',
-            y: $wins_per_map.data('dorado'),
+            y: parseFloat($wins_per_map.data('dorado')),
           },
           {
             name: 'Eichenwalde',
-            y: $wins_per_map.data('eichenwalde'),
+            y: parseFloat($wins_per_map.data('eichenwalde')),
           },
           {
             name: 'Hanamura',
-            y: $wins_per_map.data('hanamura'),
+            y: parseFloat($wins_per_map.data('hanamura')),
           },
           {
             name: 'Hollywood',
-            y: $wins_per_map.data('hollywood'),
+            y: parseFloat($wins_per_map.data('hollywood')),
           },
           {
             name: 'Ilios',
-            y: $wins_per_map.data('ilios'),
+            y: parseFloat($wins_per_map.data('ilios')),
           },
           {
             name: 'King\'s Row',
-            y: $wins_per_map.data('kingsrow'),
+            y: parseFloat($wins_per_map.data('kingsrow')),
           },
           {
             name: 'Lijiang Tower',
-            y: $wins_per_map.data('lijiangtower'),
+            y: parseFloat($wins_per_map.data('lijiangtower')),
           },
           {
             name: 'Nepal',
-            y: $wins_per_map.data('nepal'),
+            y: parseFloat($wins_per_map.data('nepal')),
           },
           {
             name: 'Numbani',
-            y: $wins_per_map.data('numbani'),
+            y: parseFloat($wins_per_map.data('numbani')),
           },
           {
             name: 'Route 66',
-            y: $wins_per_map.data('route66'),
+            y: parseFloat($wins_per_map.data('route66')),
           },
           {
             name: 'Temple of Anubis',
-            y: $wins_per_map.data('templeofanubis'),
+            y: parseFloat($wins_per_map.data('templeofanubis')),
           },
           {
             name: 'Volskaya Industries',
-            y: $wins_per_map.data('volskayaindustries'),
+            y: parseFloat($wins_per_map.data('volskayaindustries')),
           },
           {
             name: 'Watchpoint: Gibraltar',
-            y: $wins_per_map.data('watchpointgibraltar'),
+            y: parseFloat($wins_per_map.data('watchpointgibraltar')),
           }]
         }]
       });

@@ -8,8 +8,6 @@ $(document).on('turbolinks:load ajax:success', function() {
     // games played by hero donut
 
     $heroes_statistics = $('#games_played_by_hero_donut');
-    console.log($heroes_statistics.data())
-
 
     $(function() {
       Highcharts.setOptions({
@@ -40,139 +38,139 @@ $(document).on('turbolinks:load ajax:success', function() {
           data: [
             {
               name: 'Ana',
-              y: $heroes_statistics.data('ana'),
+              y: parseFloat($heroes_statistics.data('ana')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Bastion',
-              y: $heroes_statistics.data('bastion'),
+              y: parseFloat($heroes_statistics.data('bastion')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'D.Va',
-              y: $heroes_statistics.data('dva'),
+              y: parseFloat($heroes_statistics.data('dva')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Genji',
-              y: $heroes_statistics.data('genji'),
+              y: parseFloat($heroes_statistics.data('genji')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Hanzo',
-              y: $heroes_statistics.data('hanzo'),
+              y: parseFloat($heroes_statistics.data('hanzo')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: "Junkrat",
-              y: $heroes_statistics.data("junkrat"),
+              y: parseFloat($heroes_statistics.data("junkrat")),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Lucio',
-              y: $heroes_statistics.data('lucio'),
+              y: parseFloat($heroes_statistics.data('lucio')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'McCree',
-              y: $heroes_statistics.data('mccree'),
+              y: parseFloat($heroes_statistics.data('mccree')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Mei',
-              y: $heroes_statistics.data('mei'),
+              y: parseFloat($heroes_statistics.data('mei')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Mercy',
-              y: $heroes_statistics.data('mercy'),
+              y: parseFloat($heroes_statistics.data('mercy')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Pharah',
-              y: $heroes_statistics.data('pharah'),
+              y: parseFloat($heroes_statistics.data('pharah')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Reaper',
-              y: $heroes_statistics.data('reaper'),
+              y: parseFloat($heroes_statistics.data('reaper')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Reinhardt',
-              y: $heroes_statistics.data('reinhardt'),
+              y: parseFloat($heroes_statistics.data('reinhardt')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Roadhog',
-              y: $heroes_statistics.data('roadhog'),
+              y: parseFloat($heroes_statistics.data('roadhog')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Soldier 76',
-              y: $heroes_statistics.data('soldier76'),
+              y: parseFloat($heroes_statistics.data('soldier76')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Sombra',
-              y: $heroes_statistics.data('sombra'),
+              y: parseFloat($heroes_statistics.data('sombra')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Symmetra',
-              y: $heroes_statistics.data('symmetra'),
+              y: parseFloat($heroes_statistics.data('symmetra')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Torbjorn',
-              y: $heroes_statistics.data('torbjorn'),
+              y: parseFloat($heroes_statistics.data('torbjorn')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Tracer',
-              y: $heroes_statistics.data('tracer'),
+              y: parseFloat($heroes_statistics.data('tracer')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Widowmaker',
-              y: $heroes_statistics.data('widowmaker'),
+              y: parseFloat($heroes_statistics.data('widowmaker')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Winston',
-              y: $heroes_statistics.data('winston'),
+              y: parseFloat($heroes_statistics.data('winston')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Zarya',
-              y: $heroes_statistics.data('zarya'),
+              y: parseFloat($heroes_statistics.data('zarya')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Zenyatta',
-              y: $heroes_statistics.data('zenyatta'),
+              y: parseFloat($heroes_statistics.data('zenyatta')),
               colorIndex: true,
               dataLabels: { enabled: false }
             }
@@ -236,139 +234,139 @@ $(document).on('turbolinks:load ajax:success', function() {
           data: [
             {
               name: 'Ana',
-              y: $wins_percentage_per_hero.data('ana'),
+              y: parseFloat($wins_percentage_per_hero.data('ana')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Bastion',
-              y: $wins_percentage_per_hero.data('bastion'),
+              y: parseFloat($wins_percentage_per_hero.data('bastion')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'D.Va',
-              y: $wins_percentage_per_hero.data('dva'),
+              y: parseFloat($wins_percentage_per_hero.data('dva')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Genji',
-              y: $wins_percentage_per_hero.data('genji'),
+              y: parseFloat($wins_percentage_per_hero.data('genji')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Hanzo',
-              y: $wins_percentage_per_hero.data('hanzo'),
+              y: parseFloat($wins_percentage_per_hero.data('hanzo')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: "Junkrat",
-              y: $wins_percentage_per_hero.data("junkrat"),
+              y: parseFloat($wins_percentage_per_hero.data("junkrat")),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Lucio',
-              y: $wins_percentage_per_hero.data('lucio'),
+              y: parseFloat($wins_percentage_per_hero.data('lucio')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'McCree',
-              y: $wins_percentage_per_hero.data('mccree'),
+              y: parseFloat($wins_percentage_per_hero.data('mccree')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Mei',
-              y: $wins_percentage_per_hero.data('mei'),
+              y: parseFloat($wins_percentage_per_hero.data('mei')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Mercy',
-              y: $wins_percentage_per_hero.data('mercy'),
+              y: parseFloat($wins_percentage_per_hero.data('mercy')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Pharah',
-              y: $wins_percentage_per_hero.data('pharah'),
+              y: parseFloat($wins_percentage_per_hero.data('pharah')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Reaper',
-              y: $wins_percentage_per_hero.data('reaper'),
+              y: parseFloat($wins_percentage_per_hero.data('reaper')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Reinhardt',
-              y: $wins_percentage_per_hero.data('reinhardt'),
+              y: parseFloat($wins_percentage_per_hero.data('reinhardt')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Roadhog',
-              y: $wins_percentage_per_hero.data('roadhog'),
+              y: parseFloat($wins_percentage_per_hero.data('roadhog')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Soldier 76',
-              y: $wins_percentage_per_hero.data('soldier76'),
+              y: parseFloat($wins_percentage_per_hero.data('soldier76')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Sombra',
-              y: $wins_percentage_per_hero.data('sombra'),
+              y: parseFloat($wins_percentage_per_hero.data('sombra')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Symmetra',
-              y: $wins_percentage_per_hero.data('symmetra'),
+              y: parseFloat($wins_percentage_per_hero.data('symmetra')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Torbjorn',
-              y: $wins_percentage_per_hero.data('torbjorn'),
+              y: parseFloat($wins_percentage_per_hero.data('torbjorn')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Tracer',
-              y: $wins_percentage_per_hero.data('tracer'),
+              y: parseFloat($wins_percentage_per_hero.data('tracer')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Widowmaker',
-              y: $wins_percentage_per_hero.data('widowmaker'),
+              y: parseFloat($wins_percentage_per_hero.data('widowmaker')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Winston',
-              y: $wins_percentage_per_hero.data('winston'),
+              y: parseFloat($wins_percentage_per_hero.data('winston')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Zarya',
-              y: $wins_percentage_per_hero.data('zarya'),
+              y: parseFloat($wins_percentage_per_hero.data('zarya')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Zenyatta',
-              y: $wins_percentage_per_hero.data('zenyatta'),
+              y: parseFloat($wins_percentage_per_hero.data('zenyatta')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },

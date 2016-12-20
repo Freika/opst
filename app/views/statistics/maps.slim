@@ -22,9 +22,9 @@
         td = @assault[:wins]
         td = @assault[:losses]
         td = @assault[:draws]
-        td = "#{@assault_maps_wins_percent}%"
-        td = "#{@assault_maps_losses_percent}%"
-        td = "#{@assault_maps_draws_percent}%"
+        td = "#{@assault[:wins_percent]}%"
+        td = "#{@assault[:losses_percent]}%"
+        td = "#{@assault[:draws_percent]}%"
       tr
         td Escort maps
         td = @played[:escort]
