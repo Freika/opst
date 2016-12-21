@@ -8,6 +8,7 @@ class MatchesController < ApplicationController
                 .includes(:map)
                 .order(created_at: :asc)
     @season = Season.last
+    gon.first_match_sr = @matches.first.skill_rating
   end
 
   def show
