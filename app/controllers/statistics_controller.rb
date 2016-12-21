@@ -22,11 +22,11 @@ class StatisticsController < ApplicationController
       win_percent: @season.to_percent(wins, games_played),
       lose_percent: @season.to_percent(losses, games_played),
       draw_percent: @season.to_percent(draws, games_played),
-      # TODO: implement,
-      longest_win_streak: 10,
-      longest_loss_streak: 8,
-      average_gain: 22.53,
-      average_loss: 22.12
+      # TODO: implement
+      longest_win_streak: 'N/A',
+      longest_loss_streak: 'N/A',
+      average_gain: 'N/A',
+      average_loss: 'N/A'
     }
 
     @skill_rating_chart = @matches.pluck(:skill_rating)
