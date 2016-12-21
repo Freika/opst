@@ -166,7 +166,7 @@ $(document).on('turbolinks:load ajax:success', function() {
           pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
         },
         series: [{
-          name: 'Hero',
+          name: 'Map',
           colorByPoint: true,
           data: [
           {
