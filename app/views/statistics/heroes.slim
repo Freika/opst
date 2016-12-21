@@ -14,16 +14,19 @@
         th Loss %
         th Draw %
       - @heroes.each do |hero|
-        tr
-          td = hero.name
-          td = "#{hero.percent_played(@season.matches)}%"
-          td = hero.played(@season.matches)
-          td = hero.wins(@season.matches)
-          td = hero.losses(@season.matches)
-          td = hero.draws(@season.matches)
-          td = "#{hero.wins_percent(@season.matches)}%"
-          td = "#{hero.losses_percent(@season.matches)}%"
-          td = "#{hero.draws_percent(@season.matches)}%"
+        - if hero.played(@season.matches).zero?
+          - next
+        - else
+          tr
+            td = hero.name
+            td = "#{hero.percent_played(@season.matches)}%"
+            td = hero.played(@season.matches)
+            td = hero.wins(@season.matches)
+            td = hero.losses(@season.matches)
+            td = hero.draws(@season.matches)
+            td = "#{hero.wins_percent(@season.matches)}%"
+            td = "#{hero.losses_percent(@season.matches)}%"
+            td = "#{hero.draws_percent(@season.matches)}%"
 
   .col-md-6
     #games_played_by_hero_donut data-ana=@heroes_statistics['ana'] data-bastion=@heroes_statistics['bastion'] data-dva=@heroes_statistics['dva'] data-genji=@heroes_statistics['genji'] data-hanzo=@heroes_statistics['hanzo'] data-junkrat=@heroes_statistics['junkrat'] data-lucio=@heroes_statistics['lucio'] data-mccree=@heroes_statistics['mc_cree'] data-mei=@heroes_statistics['mei'] data-mercy=@heroes_statistics['mercy'] data-pharah=@heroes_statistics['pharah'] data-reaper=@heroes_statistics['reaper'] data-reinhardt=@heroes_statistics['reinhardt'] data-roadhog=@heroes_statistics['roadhog'] data-soldier76=@heroes_statistics['soldier_76'] data-sombra=@heroes_statistics['sombra'] data-symmetra=@heroes_statistics['symmetra'] data-torbjorn=@heroes_statistics['torbjorn'] data-tracer=@heroes_statistics['tracer'] data-widowmaker=@heroes_statistics['widowmaker'] data-winston=@heroes_statistics['winston'] data-zarya=@heroes_statistics['zarya'] data-zenyatta=@heroes_statistics['zenyatta']
