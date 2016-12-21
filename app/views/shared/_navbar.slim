@@ -17,6 +17,7 @@ nav.navbar.navbar-default
         li = link_to 'Main stats', main_statistics_path
         li = link_to 'Maps stats', maps_statistics_path
         li = link_to 'Heroes stats', heroes_statistics_path
+        li = link_to 'Feedback', pages_feedback_path, class: 'bg-success'
       ul.nav.navbar-nav.navbar-right
         - if signed_in?
           li.dropdown

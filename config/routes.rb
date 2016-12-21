@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/feedback'
+
   get 'statistics/main', as: :main_statistics
 
   get 'statistics/heroes', as: :heroes_statistics
