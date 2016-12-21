@@ -1,0 +1,10 @@
+.text-center
+  h1 Overwatch Personal Stat Tracker
+
+  = link_to 'Add New Match', new_match_path, class: 'btn btn-primary', data: { placement: 'top', toggle: 'tooltip' }, title: 'Record results for your last match'
+  br
+  br
+  p = "#{@users} users in system"
+  p = "#{@matches} matches tracked"
+  p More stats to be added...
+

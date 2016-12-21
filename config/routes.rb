@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :matches
-  root 'matches#index'
+  root 'pages#home'
 end

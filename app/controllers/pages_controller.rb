@@ -4,4 +4,9 @@ class PagesController < ApplicationController
 
   def how_to
   end
+
+  def home
+    @matches = Match.count
+    @users = User.count
+  end
 end
