@@ -121,35 +121,5 @@ $(document).on('turbolinks:load ajax:success', function() {
 
     el.addClass(klass);
   });
-
-  $('.draws-percent').each(function() {
-    el = $(this)
-    content = parseFloat(el.text());
-    if (content == 50.0) {
-      klass = null
-    } else if (content > 90.0) {
-      klass = 'red_90'
-    } else if (content >= 80.0 && content < 90.0) {
-      klass = 'red_80'
-    } else if (content >= 80.0 && content < 90.0) {
-      klass = 'red_80'
-    } else if (content >= 70.0 && content < 80.0) {
-      klass = 'red_70'
-    } else if (content >= 60.0 && content < 70.0) {
-      klass = 'red_60'
-    } else if (content >= 50.0 && content < 60.0) {
-      klass = 'red_50'
-    } else if (content >= 40.0 && content < 50.0) {
-      klass = 'green_60'
-    } else if (content >= 30.0 && content < 40.0) {
-      klass = 'green_70'
-    } else if (content >= 20.0 && content < 30.0) {
-      klass = 'green_80'
-    } else if (content >= 0.0 && content < 20.0) {
-      klass = 'green_90'
-    }
-
-    el.addClass(klass);
-  });
 });
 
