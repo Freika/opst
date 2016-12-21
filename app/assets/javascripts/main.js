@@ -52,5 +52,9 @@ $(document).on('turbolinks:load ajax:success', function() {
 
     el.addClass(klass);
   });
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 });
 

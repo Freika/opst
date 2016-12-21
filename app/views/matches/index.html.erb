@@ -3,16 +3,22 @@
 
   <h1>Matches in <%= @season.name %></h1>
 
-  <%= link_to 'New Match', new_match_path, class: 'btn btn-primary' %>
+  <%= link_to 'New Match', new_match_path, class: 'btn btn-primary', data: { placement: 'top', toggle: 'tooltip' }, title: 'Record results for your last match' %>
 
   <div class="table-responsive">
     <table class='table' id='matches'>
       <thead>
         <tr>
-          <th>#</th>
-          <th>SR</th>
+          <th>
+            <span data-toggle="tooltip" data-placement="top" title="Match number">#</span>
+          </th>
+          <th>
+            <span data-toggle="tooltip" data-placement="top" title="Skill rating">SR</span>
+          </th>
           <th>Result</th>
-          <th>±SR</th>
+          <th>
+            <span data-toggle="tooltip" data-placement="top" title="Skill rating gain/loss">±SR</span>
+          </th>
           <th>Streak</th>
         </tr>
       </thead>
