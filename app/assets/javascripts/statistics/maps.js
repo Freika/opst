@@ -66,7 +66,7 @@ $(document).on('turbolinks:load ajax:success', function() {
             },
             {
               name: "King's Row",
-              y: $maps.data("kingsrow"),
+              y: parseFloat($maps.data("kingsrow")),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
@@ -96,19 +96,19 @@ $(document).on('turbolinks:load ajax:success', function() {
             },
             {
               name: 'Temple of Anubis',
-              y: parseFloat($maps.data('templeofanubis')),
+              y: parseFloat($maps.data('anubis')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Volskaya Industries',
-              y: parseFloat($maps.data('volskayaindustries')),
+              y: parseFloat($maps.data('volskaya')),
               colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Watchpoint Gibraltar',
-              y: parseFloat($maps.data('watchpointgibraltar')),
+              y: parseFloat($maps.data('gibraltar')),
               colorIndex: true,
               dataLabels: { enabled: false }
             }
@@ -211,15 +211,15 @@ $(document).on('turbolinks:load ajax:success', function() {
           },
           {
             name: 'Temple of Anubis',
-            y: parseFloat($wins_per_map.data('templeofanubis')),
+            y: parseFloat($wins_per_map.data('anubis')),
           },
           {
             name: 'Volskaya Industries',
-            y: parseFloat($wins_per_map.data('volskayaindustries')),
+            y: parseFloat($wins_per_map.data('volskaya')),
           },
           {
             name: 'Watchpoint: Gibraltar',
-            y: parseFloat($wins_per_map.data('watchpointgibraltar')),
+            y: parseFloat($wins_per_map.data('gibraltar')),
           }]
         }]
       });
