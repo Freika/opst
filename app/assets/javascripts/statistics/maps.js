@@ -8,9 +8,9 @@ $(document).on('turbolinks:load ajax:success', function() {
     $maps = $('#games_played_by_map_donut');
 
     $(function() {
-      Highcharts.setOptions({
-        colors: ['#72FF61', '#FF7070', '#DCDCDC', '#ffaadc', '#ddaacc', '#aacc33']
-      });
+      // Highcharts.setOptions({
+      //   colors: ['#72FF61', '#FF7070', '#DCDCDC', '#ffaadc', '#ddaacc', '#aacc33']
+      // });
 
       var chart = new Highcharts.Chart({
         chart: {
@@ -29,7 +29,11 @@ $(document).on('turbolinks:load ajax:success', function() {
         plotOptions: {
           pie: {
             borderColor: '#000000',
-            innerSize: '60%'
+            innerSize: '60%',
+            dataLabels: {
+              enabled: true
+            },
+            showInLegend: true
           }
         },
         series: [{
@@ -119,7 +123,7 @@ $(document).on('turbolinks:load ajax:success', function() {
 
       function(chart) { // on complete
         var xpos = '50%';
-        var ypos = '53%';
+        var ypos = '45%';
         var circleradius = 102;
 
         // Render the circle

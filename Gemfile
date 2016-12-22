@@ -24,11 +24,14 @@ end
 
 group :development do
   # debug
+  gem 'rack-mini-profiler', require: false
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet'
+  gem 'flamegraph'
+  gem 'stackprof', '~> 0.2.7'
 
   # server
   gem 'puma'

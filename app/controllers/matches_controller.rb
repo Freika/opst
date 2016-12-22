@@ -5,7 +5,7 @@ class MatchesController < ApplicationController
   def index
     @matches = current_user.matches
                 .current_season
-                .includes(:map)
+                .includes(:map, :destination)
                 .order(created_at: :asc)
     @season = Season.last
     gon.first_match_sr = @matches.first.skill_rating

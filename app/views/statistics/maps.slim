@@ -2,57 +2,58 @@
   h1 Maps statistics
 
   .col-md-6
-    table.table
-      tr
-        th Map type
-        th % played
-        th Played
-        th Wins
-        th Losses
-        th Draws
-        th Win %
-        th Loss %
-        th Draw %
-      tr
-        td Assault
-        td = @played[:assault]
-        td = "#{@played_percent[:assault]}%"
-        td = @assault[:wins]
-        td = @assault[:losses]
-        td = @assault[:draws]
-        td.wins-percent = "#{@assault[:wins_percent]}%"
-        td.losses-percent = "#{@assault[:losses_percent]}%"
-        td.draws-percent = "#{@assault[:draws_percent]}%"
-      tr
-        td Escort
-        td = @played[:escort]
-        td = "#{@played_percent[:escort]}%"
-        td = @escort[:wins]
-        td = @escort[:losses]
-        td = @escort[:draws]
-        td.wins-percent = "#{@escort[:wins_percent]}%"
-        td.losses-percent = "#{@escort[:losses_percent]}%"
-        td.draws-percent = "#{@escort[:draws_percent]}%"
-      tr
-        td Hybrid
-        td = @played[:hybrid]
-        td = "#{@played_percent[:hybrid]}%"
-        td = @hybrid[:wins]
-        td = @hybrid[:losses]
-        td = @hybrid[:draws]
-        td.wins-percent = "#{@hybrid[:wins_percent]}%"
-        td.losses-percent = "#{@hybrid[:losses_percent]}%"
-        td.draws-percent = "#{@hybrid[:draws_percent]}%"
-      tr
-        td Control
-        td = @played[:control]
-        td = "#{@played_percent[:control]}%"
-        td = @control[:wins]
-        td = @control[:losses]
-        td = @control[:draws]
-        td.wins-percent = "#{@control[:wins_percent]}%"
-        td.losses-percent = "#{@control[:losses_percent]}%"
-        td.draws-percent = "#{@control[:draws_percent]}%"
+    .table-responsive
+      table.table
+        tr
+          th Map type
+          th % played
+          th Played
+          th Wins
+          th Losses
+          th Draws
+          th Win %
+          th Loss %
+          th Draw %
+        tr
+          td Assault
+          td = @played[:assault]
+          td = "#{@played_percent[:assault]}%"
+          td = @assault[:wins]
+          td = @assault[:losses]
+          td = @assault[:draws]
+          td.wins-percent = "#{@assault[:wins_percent]}%"
+          td.losses-percent = "#{@assault[:losses_percent]}%"
+          td.draws-percent = "#{@assault[:draws_percent]}%"
+        tr
+          td Escort
+          td = @played[:escort]
+          td = "#{@played_percent[:escort]}%"
+          td = @escort[:wins]
+          td = @escort[:losses]
+          td = @escort[:draws]
+          td.wins-percent = "#{@escort[:wins_percent]}%"
+          td.losses-percent = "#{@escort[:losses_percent]}%"
+          td.draws-percent = "#{@escort[:draws_percent]}%"
+        tr
+          td Hybrid
+          td = @played[:hybrid]
+          td = "#{@played_percent[:hybrid]}%"
+          td = @hybrid[:wins]
+          td = @hybrid[:losses]
+          td = @hybrid[:draws]
+          td.wins-percent = "#{@hybrid[:wins_percent]}%"
+          td.losses-percent = "#{@hybrid[:losses_percent]}%"
+          td.draws-percent = "#{@hybrid[:draws_percent]}%"
+        tr
+          td Control
+          td = @played[:control]
+          td = "#{@played_percent[:control]}%"
+          td = @control[:wins]
+          td = @control[:losses]
+          td = @control[:draws]
+          td.wins-percent = "#{@control[:wins_percent]}%"
+          td.losses-percent = "#{@control[:losses_percent]}%"
+          td.draws-percent = "#{@control[:draws_percent]}%"
 
     #games_played_by_map_donut(
       data-dorado=@maps_statistics['dorado']
@@ -71,31 +72,32 @@
     )
 
   .col-md-6
-    table.table
-      tr
-        th Map
-        th % played
-        th Played
-        th Wins
-        th Losses
-        th Draws
-        th Win %
-        th Loss %
-        th Draw %
-      - @maps.each do |map| %
-        - if map.played(@season.matches).zero?
-          - next
-        - else
-          tr
-            td = map.name
-            td = "#{map.percent_played(@season.matches)}%"
-            td = map.played(@season.matches)
-            td = map.wins(@season.matches)
-            td = map.losses(@season.matches)
-            td = map.draws(@season.matches)
-            td.wins-percent = "#{map.wins_percent(@season.matches)}%"
-            td.losses-percent = "#{map.losses_percent(@season.matches)}%"
-            td.draws-percent = "#{map.draws_percent(@season.matches)}%"
+    .table-responsive
+      table.table
+        tr
+          th Map
+          th % played
+          th Played
+          th Wins
+          th Losses
+          th Draws
+          th Win %
+          th Loss %
+          th Draw %
+        - @maps.each do |map| %
+          - if map.played(@season.matches).zero?
+            - next
+          - else
+            tr
+              td = map.name
+              td = "#{map.percent_played(@season.matches)}%"
+              td = map.played(@season.matches)
+              td = map.wins(@season.matches)
+              td = map.losses(@season.matches)
+              td = map.draws(@season.matches)
+              td.wins-percent = "#{map.wins_percent(@season.matches)}%"
+              td.losses-percent = "#{map.losses_percent(@season.matches)}%"
+              td.draws-percent = "#{map.draws_percent(@season.matches)}%"
 
   #map_win_percentage(
     data-dorado=@wins_per_map['dorado']

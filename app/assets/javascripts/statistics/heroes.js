@@ -11,7 +11,12 @@ $(document).on('turbolinks:load ajax:success', function() {
 
     $(function() {
       Highcharts.setOptions({
-        colors: ['#72FF61', '#FF7070', '#DCDCDC', '#ffaadc', '#ddaacc', '#aacc33']
+        colors: [
+          '#f8911b', '#6e994d', '#ff7fd1', '#5e8c2b', '#938848', '#8d3939',
+          '#61a718', '#8d3939', '#9adbf4', '#d9a93e', '#1b65c6', '#272725',
+          '#aa958e', '#c19477', '#5870b6', '#8e5ab5', '#44b2c3', '#ff6200',
+          '#f8911b', '#6f6fae', '#4c505c', '#f571a8', '#c79c00'
+        ]
       });
 
       var chart = new Highcharts.Chart({
@@ -31,7 +36,11 @@ $(document).on('turbolinks:load ajax:success', function() {
         plotOptions: {
           pie: {
             borderColor: '#000000',
-            innerSize: '60%'
+            innerSize: '60%',
+            dataLabels: {
+              enabled: true
+            },
+            showInLegend: true
           }
         },
         series: [{
@@ -181,7 +190,7 @@ $(document).on('turbolinks:load ajax:success', function() {
 
       function(chart) { // on complete
         var xpos = '50%';
-        var ypos = '53%';
+        var ypos = '42%';
         var circleradius = 102;
 
         // Render the circle
