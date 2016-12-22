@@ -16,8 +16,8 @@
           th Draw %
         tr
           td Assault
-          td = @played[:assault]
           td = "#{@played_percent[:assault]}%"
+          td = @played[:assault]
           td = @assault[:wins]
           td = @assault[:losses]
           td = @assault[:draws]
@@ -26,8 +26,8 @@
           td.draws-percent = "#{@assault[:draws_percent]}%"
         tr
           td Escort
-          td = @played[:escort]
           td = "#{@played_percent[:escort]}%"
+          td = @played[:escort]
           td = @escort[:wins]
           td = @escort[:losses]
           td = @escort[:draws]
@@ -36,8 +36,8 @@
           td.draws-percent = "#{@escort[:draws_percent]}%"
         tr
           td Hybrid
-          td = @played[:hybrid]
           td = "#{@played_percent[:hybrid]}%"
+          td = @played[:hybrid]
           td = @hybrid[:wins]
           td = @hybrid[:losses]
           td = @hybrid[:draws]
@@ -46,8 +46,8 @@
           td.draws-percent = "#{@hybrid[:draws_percent]}%"
         tr
           td Control
-          td = @played[:control]
           td = "#{@played_percent[:control]}%"
+          td = @played[:control]
           td = @control[:wins]
           td = @control[:losses]
           td = @control[:draws]

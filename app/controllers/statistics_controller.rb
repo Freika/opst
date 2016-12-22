@@ -84,9 +84,9 @@ class StatisticsController < ApplicationController
       wins: hybrid_wins,
       losses: hybrid_losses,
       draws: hybrid_draws,
-      wins_percent: @season.to_percent(hybrid_wins, games_played),
-      losses_percent: @season.to_percent(hybrid_losses, games_played),
-      draws_percent: @season.to_percent(hybrid_draws, games_played)
+      wins_percent: @season.to_percent(hybrid_wins, @played[:hybrid]),
+      losses_percent: @season.to_percent(hybrid_losses, @played[:hybrid]),
+      draws_percent: @season.to_percent(hybrid_draws, @played[:hybrid])
     }
 
     escort_wins = escort_matches.where(result: Match.results[:win]).count
@@ -96,9 +96,9 @@ class StatisticsController < ApplicationController
       wins: escort_wins,
       losses: escort_losses,
       draws: escort_draws,
-      wins_percent: @season.to_percent(escort_wins, games_played),
-      losses_percent: @season.to_percent(escort_losses, games_played),
-      draws_percent: @season.to_percent(escort_draws, games_played)
+      wins_percent: @season.to_percent(escort_wins, @played[:escort]),
+      losses_percent: @season.to_percent(escort_losses, @played[:escort]),
+      draws_percent: @season.to_percent(escort_draws, @played[:escort])
     }
 
     assault_wins = assault_matches.where(result: Match.results[:win]).count
@@ -108,9 +108,9 @@ class StatisticsController < ApplicationController
       wins: assault_wins,
       losses: assault_losses,
       draws: assault_draws,
-      wins_percent: @season.to_percent(assault_wins, games_played),
-      losses_percent: @season.to_percent(assault_losses, games_played),
-      draws_percent: @season.to_percent(assault_draws, games_played)
+      wins_percent: @season.to_percent(assault_wins, @played[:assault]),
+      losses_percent: @season.to_percent(assault_losses, @played[:assault]),
+      draws_percent: @season.to_percent(assault_draws, @played[:assault])
     }
 
 
@@ -121,9 +121,9 @@ class StatisticsController < ApplicationController
       wins: control_wins,
       losses: control_losses,
       draws: control_draws,
-      wins_percent: @season.to_percent(control_wins, games_played),
-      losses_percent: @season.to_percent(control_losses, games_played),
-      draws_percent: @season.to_percent(control_draws, games_played)
+      wins_percent: @season.to_percent(control_wins, @played[:control]),
+      losses_percent: @season.to_percent(control_losses, @played[:control]),
+      draws_percent: @season.to_percent(control_draws, @played[:control])
     }
   end
 end

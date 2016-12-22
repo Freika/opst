@@ -41,79 +41,79 @@ $(document).on('turbolinks:load ajax:success', function() {
             {
               name: 'Dorado',
               y: parseFloat($maps.data('dorado')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Eichenwalde',
               y: parseFloat($maps.data('eichenwalde')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Hanamura',
               y: parseFloat($maps.data('hanamura')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Hollywood',
               y: parseFloat($maps.data('hollywood')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Ilios',
               y: parseFloat($maps.data('ilios')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: "King's Row",
               y: parseFloat($maps.data("kingsrow")),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Lijiang Tower',
               y: parseFloat($maps.data('lijiangtower')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Nepal',
               y: parseFloat($maps.data('nepal')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Numbani',
               y: parseFloat($maps.data('numbani')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Route 66',
               y: parseFloat($maps.data('route66')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Temple of Anubis',
               y: parseFloat($maps.data('anubis')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Volskaya Industries',
               y: parseFloat($maps.data('volskaya')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             },
             {
               name: 'Watchpoint Gibraltar',
               y: parseFloat($maps.data('gibraltar')),
-              colorIndex: true,
+              // colorIndex: true,
               dataLabels: { enabled: false }
             }
           ],
