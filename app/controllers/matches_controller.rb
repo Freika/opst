@@ -3,12 +3,7 @@ class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
   def index
-    @matches = current_user.matches
-                .current_season
-                .includes(:map, :destination)
-                .order(created_at: :asc)
-    @season = Season.last
-    gon.first_match_sr = @matches.first.skill_rating
+    load_matches_and_season
   end
 
   def show
@@ -29,19 +24,16 @@ class MatchesController < ApplicationController
     @match = current_user.matches.build(skill_rating: match_params[:skill_rating])
     @match.update_associations(match_params[:hero_ids], params[:map_id])
 
-    respond_to do |format|
-      if @match.save
-        @match.update_skill_rating_diff
-        @match.calculate_result unless Match.first_in_season?
-        @match.update_streak
-        @match.save
+    if @match.save
+      @match.update_skill_rating_diff
+      @match.calculate_result unless Match.first_in_season?
+      @match.update_streak
+      @match.save
 
-        format.html { redirect_to matches_path, notice: 'Match was successfully created.' }
-        format.json { render :show, status: :created, location: @match }
-      else
-        format.html { render :new }
-        format.json { render json: @match.errors, status: :unprocessable_entity }
-      end
+      load_matches_and_season
+      load_and_render_index
+    else
+      render :new
     end
   end
 
@@ -50,27 +42,22 @@ class MatchesController < ApplicationController
     @match.update_associations(match_params[:hero_ids], params[:map_id])
     @match.update_streak
 
-    respond_to do |format|
-      if @match.save
-        @match.update_skill_rating_diff
-        @match.calculate_result unless Match.first_in_season?
-        @match.save
+    if @match.save
+      @match.update_skill_rating_diff
+      @match.calculate_result unless Match.first_in_season?
+      @match.save
 
-        format.html { redirect_to matches_path, notice: 'Match was successfully updated.' }
-        format.json { render :show, status: :ok, location: @match }
-      else
-        format.html { render :edit }
-        format.json { render json: @match.errors, status: :unprocessable_entity }
-      end
+      load_matches_and_season
+      load_and_render_index
+    else
+      render :edit
     end
   end
 
   def destroy
     @match.destroy
-    respond_to do |format|
-      format.html { redirect_to matches_url, notice: 'Match was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    load_matches_and_season
+    load_and_render_index
   end
 
   private
@@ -81,5 +68,18 @@ class MatchesController < ApplicationController
 
   def match_params
     params.require(:match).permit(:map_ids, :skill_rating, :result, hero_ids: [])
+  end
+
+  def load_matches_and_season
+    @matches = current_user.matches
+                .current_season
+                .includes(:map, :destination)
+                .order(created_at: :asc)
+    @season = Season.last
+    gon.first_match_sr = @matches.first.skill_rating
+  end
+
+  def load_and_render_index
+    render :index, change: 'matches'
   end
 end
