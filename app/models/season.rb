@@ -3,44 +3,53 @@ class Season < ApplicationRecord
 
   has_many :matches, dependent: :destroy
 
-  def maps_statistics
-    h = {}
+  def maps_statistics(user_id)
+    hash = {}
 
     Map.all.each do |m|
-      map_matches = matches.joins(:map).where('maps.id = ?', m.id).count
+      map_matches =
+        matches
+          .joins(:map)
+          .where('maps.id = ? and user_id = ?', m.id, user_id)
+          .count
       map_name = m.name.underscore.gsub(/\s|'|:/, '_')
 
-      h[map_name] = to_percent(map_matches, total)
+      hash[map_name] = to_percent(map_matches, total)
     end
 
-    h
+    hash
   end
 
-  def wins_percentage_per_map
-    h = {}
+  def wins_percentage_per_map(user_id)
+    hash = {}
 
     Map.all.each do |m|
       map_wins =
         matches
           .joins(:map)
-          .where('maps.id = ? and result = ?', m.id, Match.results[:win])
+          .where(
+            'maps.id = ? and result = ? and user_id = ?',
+              m.id, Match.results[:win], user_id
+          )
           .count
       map_name = m.name.underscore.gsub(/\s|'|:/, '_')
 
-      h[map_name] = to_percent(map_wins, total)
+      hash[map_name] = to_percent(map_wins, total)
     end
 
-    h
+    hash
   end
 
-  def wins_percentage_per_hero
+  def wins_percentage_per_hero(user_id)
     hash = {}
 
     Hero.all.each do |h|
       hero_wins =
         matches
         .joins(:heros)
-        .where('heros.id = ? and result = ?', h.id, Match.results[:win])
+        .where(
+          'heros.id = ? and result = ? and user_id = ?',
+            h.id, Match.results[:win], user_id)
         .count
       hero_name = h.name.underscore.gsub(' ', '_').gsub('.', '')
 
@@ -50,11 +59,15 @@ class Season < ApplicationRecord
     hash
   end
 
-  def heroes_statistics
+  def heroes_statistics(user_id)
     hash = {}
 
     Hero.all.each do |h|
-      hero_matches = matches.joins(:heros).where('heros.id = ?', h.id).count
+      hero_matches =
+        matches
+          .joins(:heros)
+          .where('heros.id = ? and user_id = ?', h.id, user_id)
+          .count
       hero_name = h.name.underscore.gsub(' ', '_').gsub('.', '')
 
       hash[hero_name] = to_percent(hero_matches, total)
@@ -69,7 +82,7 @@ class Season < ApplicationRecord
 
   private
 
-  def total
-    matches.count
+  def total(user_id)
+    matches.where(user_id: user_id).count
   end
 end
