@@ -14,7 +14,7 @@ class Season < ApplicationRecord
           .count
       map_name = m.name.underscore.gsub(/\s|'|:/, '_')
 
-      hash[map_name] = to_percent(map_matches, total)
+      hash[map_name] = to_percent(map_matches, total(user_id))
     end
 
     hash
@@ -34,7 +34,7 @@ class Season < ApplicationRecord
           .count
       map_name = m.name.underscore.gsub(/\s|'|:/, '_')
 
-      hash[map_name] = to_percent(map_wins, total)
+      hash[map_name] = to_percent(map_wins, total(user_id))
     end
 
     hash
@@ -53,7 +53,7 @@ class Season < ApplicationRecord
         .count
       hero_name = h.name.underscore.gsub(' ', '_').gsub('.', '')
 
-      hash[hero_name] = to_percent(hero_wins, total)
+      hash[hero_name] = to_percent(hero_wins, total(user_id))
     end
 
     hash
@@ -70,7 +70,7 @@ class Season < ApplicationRecord
           .count
       hero_name = h.name.underscore.gsub(' ', '_').gsub('.', '')
 
-      hash[hero_name] = to_percent(hero_matches, total)
+      hash[hero_name] = to_percent(hero_matches, total(user_id))
     end
 
     hash
