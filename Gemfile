@@ -15,6 +15,7 @@ gem 'gon'
 gem 'rails-assets-highcharts', source: 'https://rails-assets.org'
 gem 'slim-rails'
 gem 'figaro'
+gem 'capistrano-rails-console', require: false
 
 gem 'devise'
 
