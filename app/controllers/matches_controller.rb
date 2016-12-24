@@ -25,9 +25,9 @@ class MatchesController < ApplicationController
     @match.update_associations(match_params[:hero_ids], params[:map_id])
 
     if @match.save
-      @match.update_skill_rating_diff
+      @match.update_skill_rating_diff(current_user.id)
       @match.calculate_result unless Match.first_in_season?
-      @match.update_streak
+      @match.update_streak(current_user.id)
       @match.save
 
       load_matches_and_season
@@ -40,7 +40,7 @@ class MatchesController < ApplicationController
   def update
     @match.attributes = match_params
     @match.update_associations(match_params[:hero_ids], params[:map_id])
-    @match.update_streak
+    @match.update_streak(current_user.id)
 
     if @match.save
       @match.update_skill_rating_diff

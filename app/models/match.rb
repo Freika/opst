@@ -11,8 +11,8 @@ class Match < ApplicationRecord
 
   scope :current_season, -> { where('season_id = ?', Season.last.id) }
 
-  def update_skill_rating_diff
-    prev_skill_rating = self.prev.try(:skill_rating) || self.skill_rating
+  def update_skill_rating_diff(user_id)
+    prev_skill_rating = self.prev(user_id).try(:skill_rating) || self.skill_rating
     self.sr_diff = self.skill_rating - prev_skill_rating
 
     self
@@ -31,8 +31,8 @@ class Match < ApplicationRecord
     self
   end
 
-  def prev
-    Match.where('id < ?', id).last
+  def prev(user_id)
+    Match.where('id < ? and user_id = ?', id, user_id).last
   end
 
   def next
@@ -49,8 +49,8 @@ class Match < ApplicationRecord
     self
   end
 
-  def update_streak
-    prev_streak = self.prev.try(:streak)
+  def update_streak(user_id)
+    prev_streak = self.prev(user_id).try(:streak)
 
     if prev_streak.try(:positive?)
       case self.result
