@@ -3,54 +3,55 @@
 
   <h1>Matches in <%= @season.name %></h1>
 
-  <div class="table-responsive">
-    <table class='table' id='matches' data-first='<%= @first_match_sr %>'>
-      <thead>
-        <tr>
-          <th>
-            <span data-toggle="tooltip" data-placement="top" title="Match number">#</span>
-          </th>
-          <th>
-            <span data-toggle="tooltip" data-placement="top" title="Skill rating">SR</span>
-          </th>
-          <th>Result</th>
-          <th>
-            <span data-toggle="tooltip" data-placement="top" title="Skill rating gain/loss">±SR</span>
-          </th>
-          <th>Streak</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @matches.each.with_index(1) do |match, index| %>
+  <div class="row">
+      <table class='table' id='matches' data-first='<%= @first_match_sr %>'>
+        <thead>
           <tr>
-            <td class='game-number'>
-              <%= index %>
-            </td>
-            <td class='skill-rating'>
-              <%= link_to match.skill_rating, match %>
-            </td>
-            <td class='result'>
-              <%= match.result %>
-            </td>
-            <td class='skill-rating-diff'>
-              <%= match.sr_diff %>
-            </td>
-            <td class='streak'>
-              <%= match.streak %>
-            </td>
-            <td>
-              <%= link_to edit_match_path(match) do %>
-                <i class="glyphicon glyphicon-edit"></i>
-              <% end %>
-              <%= link_to match, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <i class="glyphicon glyphicon-remove"></i>
-              <% end %>
-            </td>
+            <th>
+              <span data-toggle="tooltip" data-placement="top" title="Match number">#</span>
+            </th>
+            <th>
+              <span data-toggle="tooltip" data-placement="top" title="Skill rating">SR</span>
+            </th>
+            <th>Result</th>
+            <th>
+              <span data-toggle="tooltip" data-placement="top" title="Skill rating gain/loss">±SR</span>
+            </th>
+            <th>Streak</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          <% @matches.each.with_index(1) do |match, index| %>
+            <tr>
+              <td class='game-number'>
+                <%= index %>
+              </td>
+              <td class='skill-rating'>
+                <%= link_to match.skill_rating, match %>
+              </td>
+              <td class='result'>
+                <%= match.result %>
+              </td>
+              <td class='skill-rating-diff'>
+                <%= match.sr_diff %>
+              </td>
+              <td class='streak'>
+                <%= match.streak %>
+              </td>
+              <td class='actions'>
+                <%= link_to edit_match_path(match) do %>
+                  <i class="glyphicon glyphicon-edit"></i>
+                <% end %>
+                <%= link_to match, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="glyphicon glyphicon-remove"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <!-- </div> -->
   </div>
 
   <div class="text-center">
