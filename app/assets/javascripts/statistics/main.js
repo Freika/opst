@@ -29,7 +29,8 @@ $(document).on('turbolinks:load ajax:success', function() {
         plotOptions: {
           pie: {
             borderColor: '#000000',
-            innerSize: '60%'
+            innerSize: '60%',
+            showInLegend: true
           }
         },
         series: [{
