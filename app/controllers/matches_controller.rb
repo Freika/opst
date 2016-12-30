@@ -74,7 +74,7 @@ class MatchesController < ApplicationController
     @matches = current_user.matches
                 .current_season
                 .includes(:map, :destination)
-                .order(created_at: :asc)
+                .order(created_at: :desc)
                 .paginate(page: params[:page], per_page: 20)
     @season = Season.last
     @first_match_sr = current_user.matches.current_season.first.skill_rating
