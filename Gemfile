@@ -18,6 +18,7 @@ gem 'figaro'
 gem 'capistrano-rails-console', require: false
 
 gem 'devise'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug', platform: :mri
