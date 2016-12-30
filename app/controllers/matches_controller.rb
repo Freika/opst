@@ -77,7 +77,7 @@ class MatchesController < ApplicationController
                 .order(created_at: :asc)
                 .paginate(page: params[:page], per_page: 20)
     @season = Season.last
-    gon.first_match_sr = @matches.first.skill_rating
+    @first_match_sr = current_user.matches.current_season.first.skill_rating
   end
 
   def load_and_render_index

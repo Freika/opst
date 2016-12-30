@@ -38,9 +38,10 @@ $(document).on('turbolinks:load ajax:success', function() {
 
   // Color skill rating
   $('.skill-rating').each(function() {
-    el = $(this)
+    el = $(this);
+    table = $('#matches');
     content = parseInt(el.text());
-    first_match_sr = gon.first_match_sr
+    first_match_sr = table.data('first');
 
     if (content > first_match_sr) {
       klass = 'win'
