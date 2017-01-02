@@ -85,19 +85,19 @@
           th Loss %
           th Draw %
         - @maps.each do |map| %
-          - if map.played(@season.matches).zero?
+          - if map.played(@matches).zero?
             - next
           - else
             tr
               td = map.name
-              td = "#{map.percent_played(@season.matches)}%"
-              td = map.played(@season.matches)
-              td = map.wins(@season.matches)
-              td = map.losses(@season.matches)
-              td = map.draws(@season.matches)
-              td.wins-percent = "#{map.wins_percent(@season.matches)}%"
-              td.losses-percent = "#{map.losses_percent(@season.matches)}%"
-              td.draws-percent = "#{map.draws_percent(@season.matches)}%"
+              td = "#{map.percent_played(@matches)}%"
+              td = map.played(@matches)
+              td = map.wins(@matches)
+              td = map.losses(@matches)
+              td = map.draws(@matches)
+              td.wins-percent = "#{map.wins_percent(@matches)}%"
+              td.losses-percent = "#{map.losses_percent(@matches)}%"
+              td.draws-percent = "#{map.draws_percent(@matches)}%"
 
   #map_win_percentage(
     data-dorado=@wins_per_map['dorado']
