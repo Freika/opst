@@ -8,5 +8,7 @@ class PagesController < ApplicationController
   def home
     @matches = Match.count
     @users = User.count
+
+    render layout: false
   end
 end

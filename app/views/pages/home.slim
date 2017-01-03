@@ -1,8 +1,117 @@
-.col-xs-12.col-sm-offset-3.col-sm-6.col-md-offset-3.col-sm-6.col-lg-offset-3.col-lg-6
-  .text-center
-    h1 Overwatch Personal Stat Tracker
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1" name="viewport"
+    meta content="" name="description"
+    meta content="" name="author"
+    title Overwatch Personal Perfomance Stat Tracker
 
-    p = "#{@users} users in system"
-    p = "#{@matches} matches tracked"
-    p More stats to be added...
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Gentium+Basic" rel="stylesheet">
 
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+
+  body
+
+    = render 'shared/navbar'
+
+    a name="about"
+    .intro-header
+      .container
+        .row
+          .col-lg-12
+            .intro-message
+              h1 Overwatch Personal Stat Tracker
+              h3 You gonna perform better if you know where to push
+              hr.intro-divider
+              / ul.list-inline.intro-social-buttons
+              /   li
+              /     a.btn.btn-default.btn-lg href="https://twitter.com/SBootstrap"
+              /       span.network-name Twitter
+              /   li
+              /     a.btn.btn-default.btn-lg href="https://github.com/IronSummitMedia/startbootstrap"
+              /       span.network-name Github
+              /   li
+              /     a.btn.btn-default.btn-lg href="#"
+              /       span.network-name Linkedin
+
+
+
+    a name="services"
+    .content-section-a
+      .container
+        .row
+          .col-lg-5.col-sm-6
+            hr.section-heading-spacer/
+            .clearfix
+            h2.section-heading
+              | Record results of your matches
+            p.lead
+              ' Create a new record with match results after each match to gather
+              ' detailed statistics on your playing skills
+          .col-lg-5.col-lg-offset-2.col-sm-6
+            = image_tag 'ipad.png', class: 'img-responsive'
+
+
+    .content-section-b
+      .container
+        .row
+          .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
+            hr.section-heading-spacer/
+            .clearfix
+            h2.section-heading
+              | Observe various statistics
+            p.lead
+              ' Know your strengths a seaknesses: Look on your perfomance as each hero on each map and get crystal clear picture on what you should work harder
+          .col-lg-5.col-sm-pull-6.col-sm-6
+            = image_tag 'imac.png', class: 'img-responsive'
+
+
+    .content-section-a
+      .container
+        .row
+          .col-lg-5.col-sm-6
+            hr.section-heading-spacer/
+            .clearfix
+            h2.section-heading
+              | Grow your Skill Rating
+            p.lead
+              ' Train harder on heroes and maps you want to perform better. Statistics is a perfect tool to see where you should push harder.
+          .col-lg-5.col-lg-offset-2.col-sm-6
+            = image_tag 'phones.png', class: 'img-responsive'
+
+
+    a name="contact"
+    .banner
+      .container
+        .row
+          .col-lg-6
+            h2 Connect to Start Bootstrap:
+          .col-lg-6
+            ul.list-inline.banner-social-buttons
+              li
+                a.btn.btn-default.btn-lg href="https://twitter.com/SBootstrap"
+                  span.network-name Twitter
+              li
+                a.btn.btn-default.btn-lg href="https://github.com/IronSummitMedia/startbootstrap"
+                  span.network-name Github
+              li
+                a.btn.btn-default.btn-lg href="#"
+                  span.network-name Linkedin
+
+    footer
+      .container
+        .row
+          .col-lg-12
+            ul.list-inline
+              li = link_to 'Home', root_path
+              li.footer-menu-divider &sdot;
+              li = link_to 'How to', pages_how_to_path
+
+              li.footer-menu-divider &sdot;
+              li = link_to 'Feedback', pages_feedback_path
+            p.copyright.text-muted.small OPST 2016-2017
+
+= render 'shared/metrics' if Rails.env.production?
