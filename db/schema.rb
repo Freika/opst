@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103112303) do
+ActiveRecord::Schema.define(version: 20170103205510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170103112303) do
     t.integer  "streak",       default: 1, null: false
     t.integer  "user_id",      default: 0, null: false
     t.integer  "number",       default: 0, null: false
+    t.text     "comment"
     t.index ["number"], name: "index_matches_on_number", using: :btree
     t.index ["season_id"], name: "index_matches_on_season_id", using: :btree
     t.index ["skill_rating"], name: "index_matches_on_skill_rating", using: :btree

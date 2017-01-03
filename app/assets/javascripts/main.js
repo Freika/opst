@@ -57,8 +57,13 @@ $(document).on('turbolinks:load ajax:success', function() {
 
   // enable tooltips
   $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
   });
+
+  // enable popovers
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+  })
 
 
   // Color percent values

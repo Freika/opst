@@ -75,7 +75,9 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:map_ids, :skill_rating, :result, hero_ids: [])
+    params.require(:match).permit(
+      :map_ids, :skill_rating, :result, :comment, hero_ids: []
+    )
   end
 
   def load_matches_and_season
