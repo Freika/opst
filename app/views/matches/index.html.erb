@@ -10,10 +10,10 @@
     <table class='table' id='matches' data-first='<%= @first_match_sr %>'>
       <thead>
         <tr>
-<!--           <th>
+          <th>
             <span data-toggle="tooltip" data-placement="top" title="Match number">#</span>
           </th>
- -->          <th>
+          <th>
             <span data-toggle="tooltip" data-placement="top" title="Skill rating">SR</span>
           </th>
           <th>Result</th>
@@ -25,11 +25,11 @@
       </thead>
 
       <tbody>
-        <% @matches.each do |match, index| %>
+        <% @matches.each do |match| %>
           <tr>
-            <!-- <td class='game-number'> -->
-              <%#= @matches.offset + index %>
-            <!-- </td> -->
+            <td class='game-number'>
+              <%= match.number %>
+            </td>
             <td class='skill-rating'>
               <%= link_to match.skill_rating, match %>
             </td>
