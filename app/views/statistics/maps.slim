@@ -1,9 +1,9 @@
 #maps_stats
-  h1 Maps statistics
+  h1.text-center Maps statistics
 
-  .col-md-6
+  .col-md-7
     .table-responsive
-      table.table
+      table.table.table-bordered.table-hover
         tr
           th Map type
           th % played
@@ -55,25 +55,8 @@
           td.losses-percent = "#{@control[:losses_percent]}%"
           td.draws-percent = "#{@control[:draws_percent]}%"
 
-    #games_played_by_map_donut(
-      data-dorado=@maps_statistics['dorado']
-      data-eichenwalde=@maps_statistics['eichenwalde']
-      data-hanamura=@maps_statistics['hanamura']
-      data-hollywood=@maps_statistics['hollywood']
-      data-ilios=@maps_statistics['ilios']
-      data-kingsrow=@maps_statistics['king_s_row']
-      data-lijiangtower=@maps_statistics['lijiang_tower']
-      data-nepal=@maps_statistics['nepal']
-      data-numbani=@maps_statistics['numbani']
-      data-route66=@maps_statistics['route_66']
-      data-anubis=@maps_statistics['temple_of_anubis']
-      data-volskaya=@maps_statistics['volskaya_industries']
-      data-gibraltar=@maps_statistics['watchpoint__gibraltar']
-    )
-
-  .col-md-6
     .table-responsive
-      table.table
+      table.table.table-bordered.table-hover
         tr
           th Map
           th % played
@@ -98,6 +81,24 @@
               td.wins-percent = "#{map.wins_percent(@matches)}%"
               td.losses-percent = "#{map.losses_percent(@matches)}%"
               td.draws-percent = "#{map.draws_percent(@matches)}%"
+
+  .col-md-5
+    #games_played_by_map_donut(
+      data-dorado=@maps_statistics['dorado']
+      data-eichenwalde=@maps_statistics['eichenwalde']
+      data-hanamura=@maps_statistics['hanamura']
+      data-hollywood=@maps_statistics['hollywood']
+      data-ilios=@maps_statistics['ilios']
+      data-kingsrow=@maps_statistics['king_s_row']
+      data-lijiangtower=@maps_statistics['lijiang_tower']
+      data-nepal=@maps_statistics['nepal']
+      data-numbani=@maps_statistics['numbani']
+      data-route66=@maps_statistics['route_66']
+      data-anubis=@maps_statistics['temple_of_anubis']
+      data-volskaya=@maps_statistics['volskaya_industries']
+      data-gibraltar=@maps_statistics['watchpoint__gibraltar']
+    )
+
 
   #map_win_percentage(
     data-dorado=@wins_per_map['dorado']
