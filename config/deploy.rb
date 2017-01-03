@@ -6,6 +6,10 @@ set :deploy_to, '/home/deploy/var/www/opst'
 set :linked_files, %w{config/database.yml config/application.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
+set :rollbar_token, ENV['ROLLBAR_API_KEY']
+set :rollbar_env, Proc.new { fetch :stage }
+set :rollbar_role, Proc.new { :app }
+
 namespace :deploy do
 
   desc 'Restart application'

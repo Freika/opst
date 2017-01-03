@@ -7,6 +7,7 @@ require 'capistrano/scm/git'
 require 'capistrano/rails/console'
 require 'capistrano/rails/migrations'
 require 'capistrano/rake'
+require 'rollbar/capistrano3'
 
 install_plugin Capistrano::SCM::Git
 
