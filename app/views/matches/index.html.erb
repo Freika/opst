@@ -31,7 +31,7 @@
               <%= match.number %>
             </td>
             <td class='skill-rating'>
-              <% if match.comment %>
+              <% unless match.comment.blank? %>
                 <a class='glyphicon glyphicon-file' tabindex="0" role='button' data-toggle="popover" title="Comment" data-placement='bottom' data-content="<%= match.comment %>">
                 </a>
               <% end %>
