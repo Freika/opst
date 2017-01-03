@@ -2,37 +2,37 @@
   h1 Main statistics
 
   .col-md-6
-    table.table
+    table.table.table-hover
       tr
-        td Games played
-        td = @main_stats[:games_played]
+        td.table-legend Games played
+        td.value = @main_stats[:games_played]
       tr
-        td Wins
-        td = @main_stats[:wins]
+        td.table-legend Wins
+        td.value = @main_stats[:wins]
       tr
-        td Losses
-        td = @main_stats[:losses]
+        td.table-legend Losses
+        td.value = @main_stats[:losses]
       tr
-        td Wins %
-        td = "#{@main_stats[:win_percent]}%"
+        td.table-legend Wins %
+        td.value = "#{@main_stats[:win_percent]}%"
       tr
-        td Loss %
-        td = "#{@main_stats[:lose_percent]}%"
+        td.table-legend Loss %
+        td.value = "#{@main_stats[:lose_percent]}%"
       tr
-        td Draw %
-        td = "#{@main_stats[:draw_percent]}%"
+        td.table-legend Draw %
+        td.value = "#{@main_stats[:draw_percent]}%"
       tr
-        td Longest win streak
-        td = @main_stats[:longest_win_streak]
+        td.table-legend Longest win streak
+        td.value = @main_stats[:longest_win_streak]
       tr
-        td Longest loss streak
-        td = @main_stats[:longest_loss_streak]
+        td.table-legend Longest loss streak
+        td.value = @main_stats[:longest_loss_streak]
       tr
-        td Average gain
-        td = @main_stats[:average_gain]
+        td.table-legend Average gain
+        td.value = @main_stats[:average_gain]
       tr
-        td Average loss
-        td = @main_stats[:average_loss]
+        td.table-legend Average loss
+        td.value = @main_stats[:average_loss]
 
   .col-md-6
     #results_donut data-wins=@main_stats[:wins] data-losses=@main_stats[:losses] data-draws=@main_stats[:draws]

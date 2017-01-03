@@ -2,13 +2,18 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, th, .h1, .h2, .h3, .h4, .h5, .h6 {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: 'Gentium Basic', serif;
   font-weight: bolder;
 }
 
-td {
-  text-align: center;
+td.table-legend {
+  text-align: left;
+  font-weight: bolder;
+}
+
+td.value, th.value {
+  text-align: right;
 }
 
 .win {

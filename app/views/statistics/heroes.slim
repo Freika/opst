@@ -3,31 +3,31 @@
 
   .col-md-6
     .table-responsive
-      table.table.table-bordered.table-hover
+      table.table.table-hover
         tr
-          th Hero
-          th % played
-          th Played
-          th Wins
-          th Losses
-          th Draws
-          th Win %
-          th Loss %
-          th Draw %
+          th.table-legend Hero
+          th.value % played
+          th.value Played
+          th.value Wins
+          th.value Losses
+          th.value Draws
+          th.value Win %
+          th.value Loss %
+          th.value Draw %
         - @heroes.each do |hero|
           - if hero.played(@matches).zero?
             - next
           - else
             tr
-              td = hero.name
-              td = "#{hero.percent_played(@matches)}%"
-              td = hero.played(@matches)
-              td = hero.wins(@matches)
-              td = hero.losses(@matches)
-              td = hero.draws(@matches)
-              td.wins-percent = "#{hero.wins_percent(@matches)}%"
-              td.losses-percent = "#{hero.losses_percent(@matches)}%"
-              td.draws-percent = "#{hero.draws_percent(@matches)}%"
+              td.table-legend = hero.name
+              td.value = "#{hero.percent_played(@matches)}%"
+              td.value = hero.played(@matches)
+              td.value = hero.wins(@matches)
+              td.value = hero.losses(@matches)
+              td.value = hero.draws(@matches)
+              td.wins-percent.value = "#{hero.wins_percent(@matches)}%"
+              td.losses-percent.value = "#{hero.losses_percent(@matches)}%"
+              td.draws-percent.value = "#{hero.draws_percent(@matches)}%"
 
   .col-md-6
     #games_played_by_hero_donut data-ana=@heroes_statistics['ana'] data-bastion=@heroes_statistics['bastion'] data-dva=@heroes_statistics['dva'] data-genji=@heroes_statistics['genji'] data-hanzo=@heroes_statistics['hanzo'] data-junkrat=@heroes_statistics['junkrat'] data-lucio=@heroes_statistics['lucio'] data-mccree=@heroes_statistics['mc_cree'] data-mei=@heroes_statistics['mei'] data-mercy=@heroes_statistics['mercy'] data-pharah=@heroes_statistics['pharah'] data-reaper=@heroes_statistics['reaper'] data-reinhardt=@heroes_statistics['reinhardt'] data-roadhog=@heroes_statistics['roadhog'] data-soldier76=@heroes_statistics['soldier_76'] data-sombra=@heroes_statistics['sombra'] data-symmetra=@heroes_statistics['symmetra'] data-torbjorn=@heroes_statistics['torbjorn'] data-tracer=@heroes_statistics['tracer'] data-widowmaker=@heroes_statistics['widowmaker'] data-winston=@heroes_statistics['winston'] data-zarya=@heroes_statistics['zarya'] data-zenyatta=@heroes_statistics['zenyatta']
