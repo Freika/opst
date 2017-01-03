@@ -21,7 +21,12 @@ class MatchesController < ApplicationController
   end
 
   def create
-    number = current_user.matches.last.number + 1
+    number =
+      if current_user.matches.last
+        current_user.matches.last + 1
+      else
+        1
+      end
     @match = current_user.matches.build(
       skill_rating: match_params[:skill_rating], number: number
     )
@@ -80,7 +85,7 @@ class MatchesController < ApplicationController
                 .order(created_at: :desc)
                 .paginate(page: params[:page], per_page: 20)
     @season = Season.last
-    @first_match_sr = current_user.matches.current_season.first.skill_rating
+    @first_match_sr = current_user.matches.current_season.first.try(:skill_rating)
   end
 
   def load_and_render_index
