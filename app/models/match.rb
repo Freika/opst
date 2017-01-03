@@ -79,4 +79,11 @@ class Match < ApplicationRecord
   def self.first_in_season?
     current_season.one?
   end
+
+  def self.period_count_array
+    from = 7.days.ago.beginning_of_day
+    to = Date.today.end_of_day
+
+    where(created_at: from..to).group('date(created_at)').count
+  end
 end

@@ -1,4 +1,4 @@
-Map.create!([
+maps = [
   { name: 'Temple of Anubis', kind: 1 },
   { name: 'Hanamura', kind: 1 },
   { name: 'Volskaya Industries', kind: 1 },
@@ -11,12 +11,17 @@ Map.create!([
   { name: 'King\'s Row', kind: 4 },
   { name: 'Numbani', kind: 4 },
   { name: 'Hollywood', kind: 4 },
-  { name: 'Eichenwalde', kind: 4 }
-])
+  { name: 'Eichenwalde', kind: 4 },
+  { name: 'Oasis', kind: 4 }
+]
+
+maps.each do |map|
+  Map.find_or_create_by!(map)
+end
 
 p 'Maps.created'
 
-Hero.create!([
+heroes = [
   { name: 'Genji' },
   { name: 'McCree' },
   { name: 'Pharah' },
@@ -40,8 +45,12 @@ Hero.create!([
   { name: 'Mercy' },
   { name: 'Symmetra' },
   { name: 'Zenyatta' }
-])
+]
+
+heroes.each do |hero|
+  Hero.find_or_create_by!(hero)
+end
 
 p 'Hero.created'
 
-Season.create(name: '3rd season')
+Season.find_or_create_by!(name: '3rd season')
