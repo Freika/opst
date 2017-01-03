@@ -91,6 +91,6 @@ class MatchesController < ApplicationController
   end
 
   def load_and_render_index
-    render :index, change: 'matches'
+    redirect_to matches_path
   end
 end
