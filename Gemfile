@@ -44,3 +44,7 @@ group :development do
   gem 'capistrano-rvm', github: 'capistrano/rvm'
   gem 'capistrano-rake', require: false
 end
+
+group :production do
+  gem 'rollbar'
+end
