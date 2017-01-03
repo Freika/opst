@@ -21,7 +21,10 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = current_user.matches.build(skill_rating: match_params[:skill_rating])
+    number = current_user.matches.last.number + 1
+    @match = current_user.matches.build(
+      skill_rating: match_params[:skill_rating], number: number
+    )
     @match.update_associations(match_params[:hero_ids], params[:map_id])
 
     if @match.save
