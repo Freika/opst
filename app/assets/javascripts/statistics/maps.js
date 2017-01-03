@@ -115,7 +115,13 @@ $(document).on('turbolinks:load ajax:success', function() {
               y: parseFloat($maps.data('gibraltar')),
               // colorIndex: true,
               dataLabels: { enabled: false }
-            }
+            },
+            {
+              name: 'Oasis',
+              y: parseFloat($maps.data('oasis')),
+              // colorIndex: true,
+              dataLabels: { enabled: false }
+            },
           ],
         }]
       },
