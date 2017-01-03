@@ -22,7 +22,7 @@ class MatchesController < ApplicationController
 
   def create
     number =
-      if current_user.matches.last
+      if current_user.matches.last.present? && current_user.matches.last.persisted?
         current_user.matches.last + 1
       else
         1
