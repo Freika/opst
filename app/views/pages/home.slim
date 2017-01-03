@@ -6,7 +6,7 @@ html lang="en"
     meta content="width=device-width, initial-scale=1" name="viewport"
     meta content="" name="description"
     meta content="" name="author"
-    title Overwatch Personal Perfomance Stat Tracker
+    title Overwatch Personal Performance Stat Tracker
 
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Gentium+Basic" rel="stylesheet">
@@ -58,8 +58,7 @@ html lang="en"
             h2.section-heading
               | Record results of your matches
             p.lead
-              ' Create a new record with match results after each match to gather
-              ' detailed statistics on your playing skills
+              ' Create a new record with match results after each match to gather  detailed statistics on your playing skills
           .col-lg-5.col-lg-offset-2.col-sm-6
             = image_tag 'ipad.png', class: 'img-responsive'
 
@@ -73,7 +72,7 @@ html lang="en"
             h2.section-heading
               | Observe various statistics
             p.lead
-              ' Know your strengths a seaknesses: Look on your perfomance as each hero on each map and get crystal clear picture on what you should work harder
+              ' Know your strengths a weaknesses: Look on your performance as each hero on each map and get crystal clear picture on what you should work harder
           .col-lg-5.col-sm-pull-6.col-sm-6
             = image_tag 'imac.png', class: 'img-responsive'
 
@@ -87,7 +86,7 @@ html lang="en"
             h2.section-heading
               | Grow your Skill Rating
             p.lead
-              ' Train harder on heroes and maps you want to perform better. Statistics is a perfect tool to see where you should push harder.
+              ' Train harder on heroes and maps you want to perform better. Statistics is a perfect tool to see where you should push harder
           .col-lg-5.col-lg-offset-2.col-sm-6
             = image_tag 'phones.png', class: 'img-responsive'
 
@@ -102,6 +101,10 @@ html lang="en"
             ul.banner-social-buttons
               li = "#{@users} users joined"
               li = "#{@matches} matches recorded"
+              li = "#{@highest_rating} is the highest rating"
+              li = "#{@wins} wins"
+              li = "#{@losses} losses"
+              li = "#{@draws} draws"
 
     footer
       .container
