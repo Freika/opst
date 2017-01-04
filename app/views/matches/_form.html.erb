@@ -18,13 +18,6 @@
         <%= f.number_field :skill_rating, autofocus: true, required: true, class: 'form-control' %>
       </p>
 
-      <% if Match.first_in_season? %>
-        <p>
-          <%= f.label :result %>
-          <%= f.select :result, Match.results.keys, {}, class: 'form-control' %>
-        </p>
-      <% end %>
-
       <p>
         <%= f.label :heroes_ids, 'Heroes' %>
         <p>
@@ -38,6 +31,21 @@
       <p>
         <%= f.label :map_id, 'Select map of this match' %>
         <%= select_tag :map_id, options_for_select(@maps, @match.map.try(:id)), required: true, class: 'form-control select2' %>
+      </p>
+
+      <p>
+        <hr>
+        <strong>Optional</strong>
+      </p>
+
+      <p>
+        <%= f.label :rounds, 'How many rounds you\'ve played?' %>
+        <%= f.number_field :rounds, class: 'form-control', min: 3, max: 6 %>
+      </p>
+
+      <p>
+        <%= f.label :party_size, 'How many players were in your group?' %>
+        <%= f.number_field :party_size, class: 'form-control', min: 1, max: 6 %>
       </p>
 
       <p>

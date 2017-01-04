@@ -76,7 +76,7 @@ class MatchesController < ApplicationController
 
   def match_params
     params.require(:match).permit(
-      :map_ids, :skill_rating, :result, :comment, hero_ids: []
+      :map_ids, :skill_rating, :comment, :rounds, :party_size, hero_ids: []
     )
   end
 

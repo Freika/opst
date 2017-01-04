@@ -9,6 +9,11 @@ class Match < ApplicationRecord
   belongs_to :user
   enum result: { draw: 0, lose: 1, win: 2 }
 
+  validates :rounds, numericality: { less_than: 7, only_integer: true }
+  validates :party_size, numericality: {
+    more_than_or_equal_to: 1, less_than_or_equal_to: 6, only_integer: true
+  }
+
   scope :current_season, -> { where('season_id = ?', Season.last.id) }
 
   def update_skill_rating_diff
@@ -74,10 +79,6 @@ class Match < ApplicationRecord
     end
 
     self
-  end
-
-  def self.first_in_season?
-    current_season.one?
   end
 
   def self.period_count_array

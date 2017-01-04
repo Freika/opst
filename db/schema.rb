@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103205510) do
+ActiveRecord::Schema.define(version: 20170104132144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,16 +48,20 @@ ActiveRecord::Schema.define(version: 20170103205510) do
 
   create_table "matches", force: :cascade do |t|
     t.integer  "result"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "skill_rating"
-    t.integer  "sr_diff",      default: 0, null: false
-    t.integer  "season_id",    default: 0, null: false
-    t.integer  "streak",       default: 1, null: false
-    t.integer  "user_id",      default: 0, null: false
-    t.integer  "number",       default: 0, null: false
-    t.text     "comment"
+    t.integer  "sr_diff",      default: 0,  null: false
+    t.integer  "season_id",    default: 0,  null: false
+    t.integer  "streak",       default: 1,  null: false
+    t.integer  "user_id",      default: 0,  null: false
+    t.integer  "number",       default: 0,  null: false
+    t.text     "comment",      default: "", null: false
+    t.integer  "rounds",       default: 3
+    t.integer  "party_size",   default: 1
     t.index ["number"], name: "index_matches_on_number", using: :btree
+    t.index ["party_size"], name: "index_matches_on_party_size", using: :btree
+    t.index ["rounds"], name: "index_matches_on_rounds", using: :btree
     t.index ["season_id"], name: "index_matches_on_season_id", using: :btree
     t.index ["skill_rating"], name: "index_matches_on_skill_rating", using: :btree
     t.index ["sr_diff"], name: "index_matches_on_sr_diff", using: :btree
