@@ -144,3 +144,13 @@ footer {
 a.glyphicon:hover {
   opacity: 0.7
 }
+
+.hero-percent-played a {
+  border-bottom: 1px dotted black;
+  cursor: help;
+  color: black;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

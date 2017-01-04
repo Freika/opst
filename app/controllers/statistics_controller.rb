@@ -1,13 +1,8 @@
 class StatisticsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_vars
 
   def main
-    @matches = current_user.matches
-                .current_season
-                .includes(:map)
-                .order(created_at: :asc)
-    @season = Season.last
-
     # Season main statistics
     wins = @matches.win.count
     losses = @matches.lose.count
@@ -34,23 +29,16 @@ class StatisticsController < ApplicationController
   end
 
   def heroes
-    @matches = current_user.matches
-                .current_season
-                .includes(:map)
-                .order(created_at: :asc)
-    @season = Season.last
-
     @heroes = Hero.all
-    @heroes_statistics = @season.heroes_statistics(current_user.id)
+    @heroes_statistics = {
+      wins: @season.heroes_wins(current_user.id),
+      losses: @season.heroes_losses(current_user.id),
+      draws: @season.heroes_draws(current_user.id)
+    }
     @heroes_wins = @season.wins_percentage_per_hero(current_user.id)
   end
 
   def maps
-    @matches = current_user.matches
-                .current_season
-                .includes(:map)
-                .order(created_at: :asc)
-    @season = Season.last
     @maps = Map.all
 
     @maps_statistics = @season.maps_statistics(current_user.id)
@@ -125,5 +113,15 @@ class StatisticsController < ApplicationController
       losses_percent: @season.to_percent(control_losses, @played[:control]),
       draws_percent: @season.to_percent(control_draws, @played[:control])
     }
+  end
+
+  private
+
+  def set_vars
+    @matches = current_user.matches
+                .current_season
+                .includes(:map)
+                .order(created_at: :asc)
+    @season = Season.last
   end
 end

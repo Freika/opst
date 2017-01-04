@@ -20,6 +20,24 @@ class Season < ApplicationRecord
     hash
   end
 
+  def heroes_wins(user_id)
+    Hero.all.order(name: :asc).map do|hero|
+      hero.matches.where(result: 'win', user_id: user_id).count
+    end
+  end
+
+  def heroes_losses(user_id)
+    Hero.all.order(name: :asc).map do|hero|
+      hero.matches.where(result: 'lose', user_id: user_id).count
+    end
+  end
+
+  def heroes_draws(user_id)
+    Hero.all.order(name: :asc).map do|hero|
+      hero.matches.where(result: 'draw', user_id: user_id).count
+    end
+  end
+
   def wins_percentage_per_map(user_id)
     hash = {}
 
@@ -54,23 +72,6 @@ class Season < ApplicationRecord
       hero_name = h.name.underscore.gsub(' ', '_').gsub('.', '')
 
       hash[hero_name] = to_percent(hero_wins, total(user_id))
-    end
-
-    hash
-  end
-
-  def heroes_statistics(user_id)
-    hash = {}
-
-    Hero.all.each do |h|
-      hero_matches =
-        matches
-          .joins(:heros)
-          .where('heros.id = ? and user_id = ?', h.id, user_id)
-          .count
-      hero_name = h.name.underscore.gsub(' ', '_').gsub('.', '')
-
-      hash[hero_name] = to_percent(hero_matches, total(user_id))
     end
 
     hash
