@@ -39,7 +39,7 @@ class MatchesController < ApplicationController
       @match.save
 
       load_matches_and_season
-      load_and_render_index
+      redirect_to matches_path, notice: 'Match created.'
     else
       render :new
     end
@@ -56,7 +56,7 @@ class MatchesController < ApplicationController
       @match.save
 
       load_matches_and_season
-      load_and_render_index
+      redirect_to matches_path, notice: 'Match updated.'
     else
       render :edit
     end
@@ -65,7 +65,7 @@ class MatchesController < ApplicationController
   def destroy
     @match.destroy
     load_matches_and_season
-    load_and_render_index
+    redirect_to matches_path, notice: 'Match destroyed'
   end
 
   private
@@ -88,9 +88,5 @@ class MatchesController < ApplicationController
                 .paginate(page: params[:page], per_page: 20)
     @season = Season.last
     @first_match_sr = current_user.matches.current_season.first.try(:skill_rating)
-  end
-
-  def load_and_render_index
-    redirect_to matches_path
   end
 end

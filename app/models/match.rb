@@ -9,9 +9,14 @@ class Match < ApplicationRecord
   belongs_to :user
   enum result: { draw: 0, lose: 1, win: 2 }
 
-  validates :rounds, numericality: { less_than: 7, only_integer: true }
+  validates :rounds, numericality: {
+    less_than: 7, only_integer: true, allow_nil: true
+  }
   validates :party_size, numericality: {
-    more_than_or_equal_to: 1, less_than_or_equal_to: 6, only_integer: true
+    more_than_or_equal_to: 1,
+    less_than_or_equal_to: 6,
+    only_integer: true,
+    allow_nil: true
   }
 
   scope :current_season, -> { where('season_id = ?', Season.last.id) }
@@ -71,7 +76,7 @@ class Match < ApplicationRecord
       case self.result
       when 'win'
         self.streak = 1
-      when 'lose' # correct
+      when 'lose'
         self.streak = prev_streak - 1
       when 'draw'
         self.streak = prev_streak
@@ -79,6 +84,10 @@ class Match < ApplicationRecord
     end
 
     self
+  end
+
+  def self.first_in_season?
+    current_season.one?
   end
 
   def self.period_count_array

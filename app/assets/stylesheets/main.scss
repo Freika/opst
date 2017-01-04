@@ -46,6 +46,11 @@ td.value, th.value {
 
 .skill-rating a {
   color: black;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 footer {

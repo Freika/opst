@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20170104132144) do
     t.integer  "user_id",      default: 0,  null: false
     t.integer  "number",       default: 0,  null: false
     t.text     "comment",      default: "", null: false
-    t.integer  "rounds",       default: 3
-    t.integer  "party_size",   default: 1
+    t.integer  "rounds"
+    t.integer  "party_size"
     t.index ["number"], name: "index_matches_on_number", using: :btree
     t.index ["party_size"], name: "index_matches_on_party_size", using: :btree
     t.index ["rounds"], name: "index_matches_on_rounds", using: :btree
