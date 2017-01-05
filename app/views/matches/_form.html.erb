@@ -12,50 +12,48 @@
   <% end %>
 
   <div class="row">
-    <div class="col-xs-12 col-offset-sm-4 col-sm-4 col-md-offset-4 col-md-4   col-lg-4 col-lg-offset-4">
-      <p>
-        <%= f.label :skill_rating %>
-        <%= f.number_field :skill_rating, autofocus: true, required: true, class: 'form-control' %>
-      </p>
+    <p>
+      <%= f.label :skill_rating %>
+      <%= f.number_field :skill_rating, autofocus: true, required: true, class: 'form-control' %>
+    </p>
 
+    <p>
+      <%= f.label :heroes_ids, 'Heroes' %>
       <p>
-        <%= f.label :heroes_ids, 'Heroes' %>
-        <p>
-          <small>
-            Choose heroes you played most in this match
-          </small>
-        </p>
-        <%= f.select :hero_ids, @heroes, {}, { required: true, multiple: true, class: 'form-control select2', size: 10 } %>
+        <small>
+          Choose heroes you played most in this match
+        </small>
       </p>
+      <%= f.select :hero_ids, @heroes, {}, { required: true, multiple: true, class: 'form-control select2', size: 10 } %>
+    </p>
 
-      <p>
-        <%= f.label :map_id, 'Select map of this match' %>
-        <%= select_tag :map_id, options_for_select(@maps, @match.map.try(:id)), required: true, class: 'form-control select2' %>
-      </p>
+    <p>
+      <%= f.label :map_id, 'Select map of this match' %>
+      <%= select_tag :map_id, options_for_select(@maps, @match.map.try(:id)), required: true, class: 'form-control select2' %>
+    </p>
 
-      <p>
-        <hr>
-        <strong>Optional</strong>
-      </p>
+    <p>
+      <hr>
+      <strong>Optional</strong>
+    </p>
 
-      <p>
-        <%= f.label :rounds, 'How many rounds you\'ve played?' %>
-        <%= f.number_field :rounds, class: 'form-control', max: 6 %>
-      </p>
+    <p>
+      <%= f.label :rounds, 'How many rounds you\'ve played?' %>
+      <%= f.number_field :rounds, class: 'form-control', max: 6 %>
+    </p>
 
-      <p>
-        <%= f.label :party_size, 'How many players were in your group?' %>
-        <%= f.number_field :party_size, class: 'form-control', max: 6 %>
-      </p>
+    <p>
+      <%= f.label :party_size, 'How many players were in your group?' %>
+      <%= f.number_field :party_size, class: 'form-control', max: 6 %>
+    </p>
 
-      <p>
-        <%= f.label :comment %>
-        <%= f.text_area :comment, class: 'form-control', placeholder: 'You can add some notes about this match' %>
-      </p>
+    <p>
+      <%= f.label :comment %>
+      <%= f.text_area :comment, class: 'form-control', placeholder: 'You can add some notes about this match' %>
+    </p>
 
-      <p>
-        <%= f.submit 'Save match', class: 'btn btn-success' %>
-      </p>
-    </div>
+    <p>
+      <%= f.submit 'Save match', class: 'btn btn-success' %>
+    </p>
   </div>
 <% end %>
