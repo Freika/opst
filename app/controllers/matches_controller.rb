@@ -85,7 +85,7 @@ class MatchesController < ApplicationController
   def load_matches_and_season
     @matches = current_user.matches
                 .current_season
-                .includes(:map, :destination)
+                .includes(:map, :destination, :heros)
                 .order(created_at: :desc)
                 .paginate(page: params[:page], per_page: 20)
     @season = Season.last

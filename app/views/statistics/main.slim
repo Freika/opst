@@ -35,7 +35,11 @@
         td.value = @main_stats[:average_loss]
 
   .col-md-6
-    #results_donut data-wins=@main_stats[:wins] data-losses=@main_stats[:losses] data-draws=@main_stats[:draws]
+    #results_donut(
+      data-wins=@main_stats[:wins]
+      data-losses=@main_stats[:losses]
+      data-draws=@main_stats[:draws]
+    )
 
   #streaks data-streaks=@streaks
 
