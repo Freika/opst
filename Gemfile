@@ -25,14 +25,11 @@ end
 
 group :development do
   # debug
-  gem 'rack-mini-profiler', require: false
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet'
-  gem 'flamegraph'
-  gem 'stackprof', '~> 0.2.7'
 
   # server
   gem 'puma'
@@ -49,4 +46,15 @@ end
 
 group :production do
   gem 'rollbar'
+
+
+  # Profilers
+  gem 'rack-mini-profiler', require: false
+  # For memory profiling (requires Ruby MRI 2.1+)
+  gem 'memory_profiler'
+
+  # For call-stack profiling flamegraphs (requires Ruby MRI 2.0.0+)
+  gem 'flamegraph'
+  gem 'stackprof'     # For Ruby MRI 2.1+
+  gem 'fast_stack'    # For Ruby MRI 2.0
 end
