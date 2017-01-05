@@ -35,14 +35,14 @@ class StatisticsController < ApplicationController
       losses: @season.heroes_losses(current_user.id),
       draws: @season.heroes_draws(current_user.id)
     }
-    @heroes_wins = @season.wins_percentage_per_hero(current_user.id)
+    @heroes_wins = @season.wins_percentage_per_hero(@matches, current_user.id)
   end
 
   def maps
     @maps = Map.all
 
-    @maps_statistics = @season.maps_statistics(current_user.id)
-    @wins_per_map = @season.wins_percentage_per_map(current_user.id)
+    @maps_statistics = @season.maps_statistics(@matches, current_user.id)
+    @wins_per_map = @season.wins_percentage_per_map(@matches, current_user.id)
 
     games_played = @matches.count
     assault_matches = @matches.joins(:map).merge(Map.where(kind: Map.kinds[:assault]))
