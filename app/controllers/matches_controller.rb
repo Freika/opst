@@ -28,7 +28,9 @@ class MatchesController < ApplicationController
         1
       end
     @match = current_user.matches.build(
-      skill_rating: match_params[:skill_rating], number: number
+      skill_rating: match_params[:skill_rating], number: number,
+      party_size: match_params[:party_size], comment: match_params[:comment],
+      rounds: match_params[:rounds]
     )
     @match.update_associations(match_params[:hero_ids], params[:map_id])
 
