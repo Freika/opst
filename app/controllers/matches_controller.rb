@@ -89,6 +89,8 @@ class MatchesController < ApplicationController
                 .order(created_at: :desc)
                 .paginate(page: params[:page], per_page: 20)
     @season = Season.last
+
+    @qualification = current_user.qualifications.last
     @first_match_sr = current_user.matches.current_season.first.try(:skill_rating)
   end
 end

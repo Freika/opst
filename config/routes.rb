@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   get 'statistics/heroes', as: :heroes_statistics
   get 'statistics/maps', as: :maps_statistics
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   resources :matches, except: :show
+  resources :qualifications, only: [:create, :update]
   root 'pages#home'
 end
