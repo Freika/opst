@@ -2,6 +2,7 @@ class Season < ApplicationRecord
   include Calculateable
 
   has_many :matches, dependent: :destroy
+  has_many :qualifications
 
   def maps_statistics(matches, user_id)
     hash = {}

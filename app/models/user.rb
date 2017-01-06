@@ -3,4 +3,5 @@ class User < ApplicationRecord
     :trackable, :validatable
 
   has_many :matches, dependent: :destroy
+  has_many :qualifications, dependent: :destroy
 end

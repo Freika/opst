@@ -23,7 +23,7 @@ class Match < ApplicationRecord
 
   def update_skill_rating_diff
     prev_skill_rating =
-      self.prev(self.user_id).try(:skill_rating) || self.skill_rating
+      self.prev(self.user_id).try(:skill_rating) || self.user.qualifications.last.skill_rating
     self.sr_diff = self.skill_rating - prev_skill_rating
 
     self
@@ -84,10 +84,6 @@ class Match < ApplicationRecord
     end
 
     self
-  end
-
-  def self.first_in_season?
-    current_season.one?
   end
 
   def self.period_count_array
