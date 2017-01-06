@@ -36,7 +36,7 @@ class MatchesController < ApplicationController
 
     if @match.save
       @match.update_skill_rating_diff
-      @match.calculate_result unless Match.first_in_season?
+      @match.calculate_result
       @match.update_streak
       @match.save
 
@@ -54,7 +54,7 @@ class MatchesController < ApplicationController
 
     if @match.save
       @match.update_skill_rating_diff
-      @match.calculate_result unless Match.first_in_season?
+      @match.calculate_result
       @match.save
 
       load_matches_and_season
@@ -91,6 +91,5 @@ class MatchesController < ApplicationController
     @season = Season.last
 
     @qualification = current_user.qualifications.last
-    @first_match_sr = current_user.matches.current_season.first.try(:skill_rating)
   end
 end
