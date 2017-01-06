@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-offset-2 col-md-offset-2 col-sm-8 col-lg-offset-2 col-lg-8">
 
 
-  <% if @qualification.skill_rating %>
+  <% if @qualification.persisted? && @qualification.skill_rating %>
     <h1 class='text-center'>Matches in <%= @season.name %></h1>
     <p>
       In current season you were qualified with <%= @qualification.skill_rating %> Skill Rating.
@@ -115,6 +115,10 @@
       <p>
         To record new matches, provide current season qualification data. It's ok if you can't remember your number of wins, draws and losses in your qualification, just provide starting Skill Rating value.
       </p>
+
+      <small>
+        Also, if you already created some matches, edit and save the very first match to recalculate it's results. Thank you.
+      </small>
 
       <%= form_for(@qualification, method: :patch) do |f| %>
         <div class="row">
