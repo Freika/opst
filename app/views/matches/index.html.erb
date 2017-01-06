@@ -124,18 +124,22 @@
         <div class="row">
           <div class='col-md-3'>
             <%= f.number_field :skill_rating, placeholder: 'Skill Rating', required: true, class: 'form-control' %>
+            <%= f.label :skill_rating, 'required' %>
           </div>
 
           <div class='col-md-3'>
             <%= f.number_field :wins, placeholder: 'Wins', class: 'form-control', max: 10 %>
+            <%= f.label :wins, 'optional' %>
           </div>
 
           <div class='col-md-3'>
             <%= f.number_field :losses, placeholder: 'Losses', class: 'form-control', max: 10 %>
+            <%= f.label :losses, 'optional' %>
           </div>
 
           <div class='col-md-3'>
             <%= f.number_field :draws, placeholder: 'Draws', class: 'form-control', max: 10 %>
+            <%= f.label :draws, 'optional' %>
           </div>
         </div>
 
