@@ -27,12 +27,12 @@
       tr
         td.table-legend Longest loss streak
         td.value = @main_stats[:longest_loss_streak]
-      tr
-        td.table-legend Average gain
-        td.value = @main_stats[:average_gain]
-      tr
-        td.table-legend Average loss
-        td.value = @main_stats[:average_loss]
+      / tr
+      /   td.table-legend Average gain
+      /   td.value = @main_stats[:average_gain]
+      / tr
+      /   td.table-legend Average loss
+      /   td.value = @main_stats[:average_loss]
 
   .col-md-6
     #results_donut(
