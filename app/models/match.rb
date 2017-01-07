@@ -18,6 +18,11 @@ class Match < ApplicationRecord
     only_integer: true,
     allow_nil: true
   }
+  validates :skill_rating, numericality: {
+    less_than_or_equal_to: 5000, only_integer: true, greater_than_or_equal_to: 0
+  }
+
+  validates :skill_rating, presence: true
 
   scope :current_season, -> { where('season_id = ?', Season.last.id) }
 
