@@ -41,6 +41,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm', github: 'capistrano/rvm'
   gem 'capistrano-rake', require: false
+  gem 'capistrano-sidekiq'
 
   gem 'rails_real_favicon'
 end
