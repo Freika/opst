@@ -9,7 +9,6 @@ require 'capistrano/rails/migrations'
 require 'capistrano/rake'
 require 'rollbar/capistrano3'
 require 'capistrano/sidekiq'
-require 'capistrano/sidekiq/monit'
 
 install_plugin Capistrano::SCM::Git
 
