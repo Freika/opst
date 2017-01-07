@@ -66,6 +66,7 @@ class MatchesController < ApplicationController
 
   def destroy
     @match.destroy
+    MatchesRecalculatorWorker.perform_async(current_user.id)
     load_matches_and_season
     redirect_to matches_path, notice: 'Match destroyed'
   end
