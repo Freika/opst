@@ -21,20 +21,56 @@ $(document).on('turbolinks:load ajax:success', function() {
 
   // Color streak
   $('.streak').each(function() {
-    el = $(this)
+    el = $(this);
     content = parseInt(el.text());
+    console.log(content)
 
-    if (content > 0) {
-      klass = 'win'
-    } else if (content < 0) {
-      klass = 'lose'
-    } else {
+    if (content >= 10) {
+      klass = 'green_90'
+    } else if (content == 9) {
+      klass = 'green_90'
+    } else if (content == 8) {
+      klass = 'green_80'
+    } else if (content == 7) {
+      klass = 'green_70'
+    } else if (content == 6) {
+      klass = 'green_60'
+    } else if (content == 5) {
+      klass = 'green_50'
+    } else if (content == 4) {
+      klass = 'green_40'
+    } else if (content == 3) {
+      klass = 'green_30'
+    } else if (content == 2) {
+      klass = 'green_20'
+    } else if (content == 1) {
+      klass = 'green_10'
+    } else if (content == 0) {
       klass = 'draw'
+    } else if (content == -1) {
+      klass = 'red_10'
+    } else if (content == -2) {
+      klass = 'red_20'
+    } else if (content == -3) {
+      klass = 'red_30'
+    } else if (content == -4) {
+      klass = 'red_40'
+    } else if (content == -5) {
+      klass = 'red_50'
+    } else if (content == -6) {
+      klass = 'red_60'
+    } else if (content == -7) {
+      klass = 'red_70'
+    } else if (content == -8) {
+      klass = 'red_80'
+    } else if (content == -9) {
+      klass = 'red_90'
+    } else if (content <= -10) {
+      klass = 'red_90'
     }
 
     el.addClass(klass);
   });
-
 
   // Color skill rating
   $('.skill-rating').each(function() {
