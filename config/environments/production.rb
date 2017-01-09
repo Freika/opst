@@ -85,4 +85,14 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: 'http://opst.space' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:           587,
+    address:        'smtp.mailgun.org',
+    domain:         'opst.space',
+    user_name:      ENV['MAILGUN_USERNAME'],
+    password:       ENV['MAILGUN_PASSWORD'],
+    authentication: :plain,
+  }
 end
