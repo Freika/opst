@@ -97,4 +97,41 @@ class Match < ApplicationRecord
 
     where(created_at: from..to).group('date(created_at)').count
   end
+
+  def self.to_csv
+    attributes = %w(
+      id
+      result
+      skill_rating
+      sr_diff
+      season_id
+      streak
+      comment
+      rounds
+      party_size
+      map_name
+      heroes_names
+    )
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |match|
+        # data = match.attributes.values_at(*attributes)
+        # data << match.map.name
+        # data << match.heros.map(&:name)
+
+        # csv << data
+        csv << attributes.map{ |attr| match.send(attr) }
+      end
+    end
+  end
+
+  def map_name
+    map.name
+  end
+
+  def heroes_names
+    heros.map(&:name).join(", ")
+  end
 end

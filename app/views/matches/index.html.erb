@@ -107,6 +107,8 @@
     <div class="text-center">
       <%= will_paginate @matches %>
     </div>
+
+    <%= link_to "Export to CSV", matches_path(format: :csv), class: 'btn btn-default' %>
   <% else %>
     <h1 class='text-center'><%= @season.name %> season qualification</h1>
 

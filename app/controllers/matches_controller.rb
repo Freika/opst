@@ -4,6 +4,13 @@ class MatchesController < ApplicationController
 
   def index
     load_matches_and_season
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data @export_matches.to_csv, filname: "#{current_user.email}_matches_#{Date.today}"
+      end
+    end
   end
 
   def show
@@ -84,11 +91,13 @@ class MatchesController < ApplicationController
   end
 
   def load_matches_and_season
-    @matches = current_user.matches
+    matches = current_user.matches
                 .current_season
                 .includes(:map, :destination, :heros)
                 .order(created_at: :desc)
-                .paginate(page: params[:page], per_page: 20)
+
+    @matches = matches.paginate(page: params[:page], per_page: 20)
+    @export_matches = matches
     @season = Season.last
 
     @qualification = current_user.qualifications.last
