@@ -62,6 +62,7 @@ class MatchesController < ApplicationController
     if @match.save
       @match.update_skill_rating_diff
       @match.calculate_result
+      @match.update_streak
       @match.save
 
       load_matches_and_season
