@@ -18,6 +18,11 @@
     </p>
 
     <p>
+      <%= f.label :map_id, 'Select map of this match' %>
+      <%= select_tag :map_id, options_for_select(@maps, @match.map.try(:id)), required: true, class: 'form-control select2' %>
+    </p>
+
+    <p>
       <%= f.label :heroes_ids, 'Heroes' %>
       <p>
         <small>
@@ -25,11 +30,6 @@
         </small>
       </p>
       <%= f.select :hero_ids, @heroes, {}, { required: true, multiple: true, class: 'form-control select2', size: 10 } %>
-    </p>
-
-    <p>
-      <%= f.label :map_id, 'Select map of this match' %>
-      <%= select_tag :map_id, options_for_select(@maps, @match.map.try(:id)), required: true, class: 'form-control select2' %>
     </p>
 
     <p>

@@ -1,4 +1,7 @@
 $(document).on('turbolinks:load ajax:success', function() {
+  $('.alert').delay(5000).slideUp('slow');
+
+
   elements = $('#main_statistics')
   if (!elements.length) {
     return

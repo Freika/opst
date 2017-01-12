@@ -117,11 +117,6 @@ class Match < ApplicationRecord
       csv << attributes
 
       all.each do |match|
-        # data = match.attributes.values_at(*attributes)
-        # data << match.map.name
-        # data << match.heros.map(&:name)
-
-        # csv << data
         csv << attributes.map{ |attr| match.send(attr) }
       end
     end
