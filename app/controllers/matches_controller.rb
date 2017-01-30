@@ -109,18 +109,20 @@ class MatchesController < ApplicationController
     @end_of_season = DateTime.new(2017, 02, 28)
     @days_left = @end_of_season.mjd - DateTime.now.mjd
     @rating = @export_matches.pluck(:skill_rating).max
+    current_rating = @export_matches.first.skill_rating
+    rating_left = next_league[:range].first - current_rating
 
-    current_league = nil
+    next_league = nil
 
     Qualification::LEAGUES.each.with_index do |league, index|
       if league[:range].include?(@rating)
         @league = league[:name]
-        @next_league = Qualification::LEAGUES[index + 1][:name]
-        current_league = league
+        next_league = Qualification::LEAGUES[index + 1]
         break
       end
     end
 
-    @sr_per_day = (current_league[:range].last - @rating) / @days_left
+    @sr_per_day = (rating_left.to_f / @days_left).ceil
+    @next_league = next_league[:name]
   end
 end
