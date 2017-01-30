@@ -110,8 +110,6 @@ class MatchesController < ApplicationController
     @days_left = @end_of_season.mjd - DateTime.now.mjd
     @rating = @export_matches.pluck(:skill_rating).max
     current_rating = @export_matches.first.skill_rating
-    rating_left = next_league[:range].first - current_rating
-
     next_league = nil
 
     Qualification::LEAGUES.each.with_index do |league, index|
@@ -121,6 +119,8 @@ class MatchesController < ApplicationController
         break
       end
     end
+
+    rating_left = next_league[:range].first - current_rating
 
     @sr_per_day = (rating_left.to_f / @days_left).ceil
     @next_league = next_league[:name]
