@@ -38,76 +38,9 @@
 
         <tbody>
           <% @matches.each do |match| %>
-            <tr>
-              <td class='game-number'>
-                <%= match.number %>
-              </td>
-              <td class='skill-rating'>
-                <a tabindex='0' role='button'
-                data-toggle='popover'
-                data-placement='bottom'
-                data-trigger='focus'
-                data-html='true'
-                data-content="
-                  <p>
-                    <strong>Map: </strong>
-                    <%= match.map.name %>
-                  </p>
-
-                  <p>
-                    <strong>Played heroes:</strong>
-                    <% match.heros.each do |hero| %>
-                      <li>
-                        <%= hero.name %>
-                      </li>
-                    <% end %>
-                  </p>
-
-                  <% if match.party_size.present? %>
-                    <p>
-                      <strong>Party size: </strong>
-                      <%= match.party_size %>
-                    </p>
-                  <% end %>
-
-                  <% if match.rounds.present? %>
-                    <p>
-                      <strong>Rounds played: </strong>
-                      <%= match.rounds %>
-                    </p>
-                  <% end %>
-
-                  <% if match.comment.present? %>
-                    <p>
-                      <strong>Comment: </strong>
-                      <%= sanitize(match.comment) %>
-                    </p>
-                  <% end %>
-                ">
-                  <% if match.comment.present? %>
-                    <i class="glyphicon glyphicon-file"></i>
-                  <% end %>
-                  <%= match.skill_rating %>
-                </a>
-              </td>
-              <td class='result'>
-                <%= match.result %>
-              </td>
-              <td class='skill-rating-diff'>
-                <%= match.sr_diff %>
-              </td>
-              <td class='streak'>
-                <%= match.streak %>
-              </td>
-              <td class='actions'>
-                <%= link_to edit_match_path(match) do %>
-                  <i class="glyphicon glyphicon-edit"></i>
-                <% end %>
-                <%= link_to match, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                  <i class="glyphicon glyphicon-remove"></i>
-                <% end %>
-              </td>
-            </tr>
+            <% cache match do %>
+              <%= render match %>
+            <% end %>
           <% end %>
         </tbody>
       </table>
