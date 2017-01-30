@@ -4,6 +4,7 @@ class MatchesController < ApplicationController
 
   def index
     load_matches_and_season
+    calculate_season_data
 
     respond_to do |format|
       format.html
@@ -102,5 +103,24 @@ class MatchesController < ApplicationController
     @season = Season.last
 
     @qualification = current_user.qualifications.last
+  end
+
+  def calculate_season_data
+    @end_of_season = DateTime.new(2017, 02, 28)
+    @days_left = @end_of_season.mjd - DateTime.now.mjd
+    @rating = @export_matches.pluck(:skill_rating).max
+
+    current_league = nil
+
+    Qualification::LEAGUES.each.with_index do |league, index|
+      if league[:range].include?(@rating)
+        @league = league[:name]
+        @next_league = Qualification::LEAGUES[index + 1][:name]
+        current_league = league
+        break
+      end
+    end
+
+    @sr_per_day = (current_league[:range].last - @rating) / @days_left
   end
 end

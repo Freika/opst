@@ -19,7 +19,9 @@ class StatisticsController < ApplicationController
       draw_percent: @season.to_percent(draws, games_played),
       # TODO: implement
       longest_win_streak: @matches.pluck(:streak).max,
-      longest_loss_streak: @matches.pluck(:streak).min
+      longest_loss_streak: @matches.pluck(:streak).min,
+      qualified: current_user.qualifications.last.skill_rating,
+      maximum: @matches.pluck(:skill_rating).max
     }
 
     @skill_rating_chart = @matches.pluck(:skill_rating)
