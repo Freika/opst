@@ -3,10 +3,10 @@
   <% if @qualification.persisted? && @qualification.skill_rating %>
     <h1 class='text-center'>Matches in <%= @season.name %></h1>
 
-    <%= render 'jumbotron' %>
+    <%= render 'jumbotron', matches: @matches, end_of_season: @end_of_season, export_matches: @export_matches, days_left: @days_left, league: @league, next_league: @next_league, sr_per_day: @sr_per_day %>
 
-    <%= render 'matches' %>
+    <%= render 'matches', matches: @matches, export_matches: @export_matches %>
   <% else %>
-    <%= render 'non_qualified' %>
+    <%= render 'non_qualified', season: @season, qualification: @qualification %>
   <% end %>
 </div>

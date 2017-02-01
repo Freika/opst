@@ -1,4 +1,4 @@
-<% if @matches.any? %>
+<% if matches.any? %>
   <div class="row">
     <table class='table' id='matches' data-first='<%= @qualification.skill_rating %>'>
       <thead>
@@ -18,7 +18,7 @@
       </thead>
 
       <tbody>
-        <% @matches.each do |match| %>
+        <% matches.each do |match| %>
           <% cache match do %>
             <%= render match %>
           <% end %>
@@ -28,10 +28,10 @@
   </div>
 
   <div class="text-center">
-    <%= will_paginate @matches %>
+    <%= will_paginate matches %>
   </div>
 <% end %>
 
-<% if @export_matches.any? %>
+<% if export_matches.any? %>
   <%= link_to "Export to CSV", matches_path(format: :csv), class: 'btn btn-default' %>
 <% end %>
