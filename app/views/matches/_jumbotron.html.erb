@@ -1,0 +1,17 @@
+<% if @matches.any? && @export_matches.any? %>
+  <div class='jumbotron'>
+    <h4 class='text-center'>
+      To get to next league you should win at least <span class='bg-success'><%= @sr_per_day %> Skill Rating</span> per day
+    </h4>
+  </div>
+  <p>
+    Season will be finished by <%= @end_of_season.to_date %> (approx)
+    <br>
+    <%= @days_left %> days till end of season
+    <br>
+    Current league — <%= @league %>, next — <%= @next_league %>
+  </p>
+  <p>
+    Legend: last matches are on top, <span class='win'>green</span> SR means you are above your first match in the season, <span class='lose'>red</span> — below.
+  </p>
+<% end %>
