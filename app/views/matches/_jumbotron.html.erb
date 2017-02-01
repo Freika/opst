@@ -14,4 +14,13 @@
   <p>
     Legend: last matches are on top, <span class='win'>green</span> SR means you are above your first match in the season, <span class='lose'>red</span> — below.
   </p>
+<% else %>
+  <div class="jumbotron">
+    <p class='text-center'>
+      Record your matches results to gather statistics
+      <br>
+      <br>
+      <%= link_to 'Add first match data!', new_match_path, class: 'btn btn-success' %>
+    </p>
+  </div>
 <% end %>

@@ -11,7 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     ActiveRecord::Base.transaction do
       super
-      current_user.qualifications.create!(season: Season.last)
     end
   end
 
