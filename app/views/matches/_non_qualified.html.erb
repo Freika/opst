@@ -1,0 +1,41 @@
+<h1 class='text-center'><%= @season.name %> season qualification</h1>
+
+<div class='jumbotron'>
+  <p>
+    To record new matches, provide current season qualification data. It's ok if you can't remember your number of wins, draws, and losses in your qualification, just provide starting Skill Rating value.
+  </p>
+
+  <small>
+    Also, if you already created some matches, edit and save the very first match to recalculate its results. Thank you.
+  </small>
+
+  <%= form_for(@qualification, method: :patch) do |f| %>
+    <div class="row">
+      <div class='col-md-3'>
+        <%= f.number_field :skill_rating, placeholder: 'Skill Rating', required: true, class: 'form-control' %>
+        <%= f.label :skill_rating, 'required' %>
+      </div>
+
+      <div class='col-md-3'>
+        <%= f.number_field :wins, placeholder: 'Wins', class: 'form-control', max: 10 %>
+        <%= f.label :wins, 'optional' %>
+      </div>
+
+      <div class='col-md-3'>
+        <%= f.number_field :losses, placeholder: 'Losses', class: 'form-control', max: 10 %>
+        <%= f.label :losses, 'optional' %>
+      </div>
+
+      <div class='col-md-3'>
+        <%= f.number_field :draws, placeholder: 'Draws', class: 'form-control', max: 10 %>
+        <%= f.label :draws, 'optional' %>
+      </div>
+    </div>
+
+    <div class="row submit-qualification">
+      <div class='text-center'>
+        <%= f.submit "Save qualification", class: 'btn btn-success' %>
+      </div>
+    </div>
+  <% end %>
+</div>

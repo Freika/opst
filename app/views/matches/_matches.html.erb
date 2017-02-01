@@ -1,0 +1,37 @@
+<% if @matches.any? %>
+  <div class="row">
+    <table class='table' id='matches' data-first='<%= @qualification.skill_rating %>'>
+      <thead>
+        <tr>
+          <th>
+            <span data-toggle="tooltip" data-placement="top" title="Match number">#</span>
+          </th>
+          <th>
+            <span data-toggle="tooltip" data-placement="top" title="Skill rating">SR</span>
+          </th>
+          <th>Result</th>
+          <th>
+            <span data-toggle="tooltip" data-placement="top" title="Skill rating gain/loss">±SR</span>
+          </th>
+          <th>Streak</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @matches.each do |match| %>
+          <% cache match do %>
+            <%= render match %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-center">
+    <%= will_paginate @matches %>
+  </div>
+<% end %>
+
+<% if @export_matches.any? %>
+  <%= link_to "Export to CSV", matches_path(format: :csv), class: 'btn btn-default' %>
+<% end %>
