@@ -4,6 +4,14 @@ class Season < ApplicationRecord
   has_many :matches, dependent: :destroy
   has_many :qualifications
 
+  def self.create_with_qualifications(name)
+    create(name: name)
+
+    User.all.each do |user|
+      user.qualifications.create(season: current)
+    end
+  end
+
   def self.current
     last
   end

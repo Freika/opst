@@ -101,8 +101,6 @@ class MatchesController < ApplicationController
     @matches = matches.paginate(page: params[:page], per_page: 20)
     @export_matches = matches
     @season = Season.last
-
-    @qualification = current_user.qualifications.last
   end
 
   def calculate_season_data
