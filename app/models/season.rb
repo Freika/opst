@@ -4,6 +4,10 @@ class Season < ApplicationRecord
   has_many :matches, dependent: :destroy
   has_many :qualifications
 
+  def self.current
+    last
+  end
+
   def maps_statistics(matches, user_id)
     hash = {}
 

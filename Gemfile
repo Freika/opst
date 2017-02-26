@@ -24,11 +24,26 @@ group :development, :test do
   gem 'byebug', platform: :mri
 end
 
+group :test do
+  gem 'capybara', '~> 2.4.0'
+  gem 'capybara-webkit'
+  gem 'database_cleaner', '~> 1.3'
+  gem 'shoulda-matchers', '~> 2.8'
+  gem 'codeclimate-test-reporter', require: nil
+end
+
+group :development, :test do
+  gem 'byebug'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'spring'
+  gem 'launchy'
+end
+
 group :development do
   # debug
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
-  gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet'
 
