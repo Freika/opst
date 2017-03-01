@@ -27,10 +27,15 @@ class Match < ApplicationRecord
   scope :current_season, -> { where('season_id = ?', Season.last.id) }
 
   def update_skill_rating_diff
-    prev_skill_rating =
-      self.prev(self.user_id).try(:skill_rating) || self.user.qualifications.last.skill_rating
-    self.sr_diff = self.skill_rating.to_i - prev_skill_rating.to_i
+    matches = self.user.matches.current_season
 
+    if matches.none? || matches.first == self
+      prev_skill_rating = self.user.qualifications.last.skill_rating
+    else
+      prev_skill_rating = self.prev(self.user_id).try(:skill_rating)
+    end
+
+    self.sr_diff = self.skill_rating.to_i - prev_skill_rating.to_i
     self
   end
 

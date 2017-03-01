@@ -6,6 +6,8 @@ class MatchesController < ApplicationController
     load_matches_and_season
     calculate_season_data
 
+    # if current_user.matches.pluck(:season_id) > 1
+
     respond_to do |format|
       format.html
       format.csv do
@@ -100,7 +102,7 @@ class MatchesController < ApplicationController
 
     @matches = matches.paginate(page: params[:page], per_page: 20)
     @export_matches = matches
-    @season = Season.last
+    @season = Season.current
   end
 
   def calculate_season_data
