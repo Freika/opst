@@ -55,6 +55,7 @@ GEM
     autoprefixer-rails (6.7.5)
       execjs
     bcrypt (3.1.11)
+    bcrypt_pbkdf (1.0.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -321,6 +322,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt_pbkdf
   bootstrap-sass
   bullet
   byebug

@@ -19,7 +19,10 @@ gem 'capistrano-rails-console', require: false
 gem 'devise'
 gem 'will_paginate'
 gem 'sidekiq'
+
+# Encrypting
 gem 'rbnacl'
+gem 'bcrypt_pbkdf'
 
 group :development, :test do
   gem 'byebug', platform: :mri
