@@ -19,6 +19,7 @@ gem 'capistrano-rails-console', require: false
 gem 'devise'
 gem 'will_paginate'
 gem 'sidekiq'
+gem 'rbnacl'
 
 group :development, :test do
   gem 'byebug', platform: :mri
