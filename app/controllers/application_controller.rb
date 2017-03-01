@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :set_qualification
+  before_action :set_qualification, if: :signed_in?
 
   before_action do
     if current_user && current_user.email == 'frey@list.ru'
