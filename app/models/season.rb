@@ -4,13 +4,7 @@ class Season < ApplicationRecord
   has_many :matches, dependent: :destroy
   has_many :qualifications
 
-  def self.create_with_qualifications(name)
-    create(name: name)
-
-    User.all.each do |user|
-      user.qualifications.create(season: current)
-    end
-  end
+  after_create :create_qualifications
 
   def self.current
     last
@@ -90,5 +84,11 @@ class Season < ApplicationRecord
 
   def total(user_id)
     matches.where(user_id: user_id).count
+  end
+
+  def create_qualifications
+    User.all.each do |user|
+      user.qualifications.create(season: self)
+    end
   end
 end
