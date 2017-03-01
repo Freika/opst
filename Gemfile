@@ -23,6 +23,7 @@ gem 'sidekiq'
 # Encrypting
 gem 'rbnacl'
 gem 'bcrypt_pbkdf'
+gem 'rbnacl-libsodium'
 
 group :development, :test do
   gem 'byebug', platform: :mri
