@@ -1,6 +1,11 @@
 #maps_stats
   h1.text-center Maps statistics
 
+  .row.text-center
+    = form_tag('', method: :get) do
+      = select_tag 'season', options_from_collection_for_select(@seasons, 'id', 'name'), onchange: "this.form.submit();", include_blank: 'Select season'
+  br
+
   .col-md-7
     .table-responsive
       table.table.table-hover

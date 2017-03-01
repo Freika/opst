@@ -46,6 +46,8 @@ describe 'Matches' do
     expect(Match.last.season).to eq(Season.current)
   end
 
+  it 'must correctly calculate diff from qualification'
+
   def fill_qualification
     fill_in 'qualification_skill_rating', with: 1900
     fill_in 'qualification_wins', with: 4

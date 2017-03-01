@@ -6,8 +6,6 @@ class MatchesController < ApplicationController
     load_matches_and_season
     calculate_season_data
 
-    # if current_user.matches.pluck(:season_id) > 1
-
     respond_to do |format|
       format.html
       format.csv do

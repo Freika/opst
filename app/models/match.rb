@@ -39,6 +39,10 @@ class Match < ApplicationRecord
     self
   end
 
+  def self.seasons(user)
+    Season.find(user.matches.pluck(:season_id).uniq)
+  end
+
   def calculate_result
     self.result =
       if sr_diff.negative?
