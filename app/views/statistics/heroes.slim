@@ -1,6 +1,11 @@
 #heroes_statistics
   h1.text-center Heroes statistics
 
+  .row.text-center
+    = form_tag('', method: :get) do
+      = select_tag 'season', options_from_collection_for_select(@seasons, 'id', 'name'), onchange: "this.form.submit();", include_blank: 'Select season'
+  br
+
   .col-md-6
     .table-responsive
       table.table.table-hover

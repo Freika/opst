@@ -1,6 +1,12 @@
 #main_statistics
   h1.text-center Main statistics
 
+  .row.text-center
+    = form_tag('', method: :get) do
+      = select_tag 'season', options_from_collection_for_select(@seasons, 'id', 'name'), onchange: "this.form.submit();", include_blank: 'Select season'
+  br
+
+
   .col-md-6
     table.table.table-hover
       tr
@@ -33,12 +39,6 @@
       tr
         td.table-legend Maximum rating
         td.value = @main_stats[:maximum]
-      / tr
-      /   td.table-legend Average gain
-      /   td.value = @main_stats[:average_gain]
-      / tr
-      /   td.table-legend Average loss
-      /   td.value = @main_stats[:average_loss]
 
   .col-md-6
     #results_donut(

@@ -118,10 +118,20 @@ class StatisticsController < ApplicationController
   private
 
   def set_vars
-    @matches = current_user.matches
-                .current_season
-                .includes(:map)
-                .order(created_at: :asc)
-    @season = Season.last
+    @seasons = Match.seasons(current_user)
+
+    if params[:season]
+      @season = Season.find(params[:season])
+      @matches = current_user.matches
+                  .where(season_id: @season.id)
+                  .includes(:map)
+                  .order(created_at: :asc)
+    else
+      @matches = current_user.matches
+                  .current_season
+                  .includes(:map)
+                  .order(created_at: :asc)
+      @season = Season.current
+    end
   end
 end

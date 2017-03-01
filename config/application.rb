@@ -24,5 +24,13 @@ module Opst
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = 'UTC'
     config.active_record.default_timezone = :utc
+
+    config.generators do |g|
+      g.test_framework :rspec,
+        view_specs:    false,
+        request_specs: false,
+        routing_specs: false,
+        helper_specs:  false
+    end
   end
 end

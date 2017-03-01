@@ -4,6 +4,12 @@ class Season < ApplicationRecord
   has_many :matches, dependent: :destroy
   has_many :qualifications
 
+  after_create :create_qualifications
+
+  def self.current
+    last
+  end
+
   def maps_statistics(matches, user_id)
     hash = {}
 
@@ -78,5 +84,11 @@ class Season < ApplicationRecord
 
   def total(user_id)
     matches.where(user_id: user_id).count
+  end
+
+  def create_qualifications
+    User.all.each do |user|
+      user.qualifications.create(season: self)
+    end
   end
 end
