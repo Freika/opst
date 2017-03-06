@@ -44,6 +44,10 @@ class MatchesController < ApplicationController
 
     if @match.save
       @match.update_skill_rating_diff
+      if @match.skill_rating == 0
+        flash[:error] = 'You must provide skill rating'
+        render :new and return
+      end
       @match.calculate_result
       @match.update_streak
       @match.save
@@ -62,6 +66,10 @@ class MatchesController < ApplicationController
 
     if @match.save
       @match.update_skill_rating_diff
+      if @match.skill_rating == 0
+        flash[:error] = 'You must provide skill rating'
+        render :edit and return
+      end
       @match.calculate_result
       @match.update_streak
       @match.save
