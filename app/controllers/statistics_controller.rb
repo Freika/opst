@@ -3,29 +3,11 @@ class StatisticsController < ApplicationController
   before_action :set_vars
 
   def main
-    # Season main statistics
-    wins = @matches.win.count
-    losses = @matches.lose.count
-    draws = @matches.draw.count
-    games_played = @matches.count
+    statistics = Statistics::Main.new(@matches, @season, current_user)
 
-    @main_stats = {
-      games_played: games_played,
-      wins: wins,
-      losses: losses,
-      draws: draws,
-      win_percent: @season.to_percent(wins, games_played),
-      lose_percent: @season.to_percent(losses, games_played),
-      draw_percent: @season.to_percent(draws, games_played),
-      # TODO: implement
-      longest_win_streak: @matches.pluck(:streak).max,
-      longest_loss_streak: @matches.pluck(:streak).min,
-      qualified: current_user.qualifications.last.skill_rating,
-      maximum: @matches.pluck(:skill_rating).max
-    }
-
-    @skill_rating_chart = @matches.pluck(:skill_rating)
-    @streaks = @season.streaks(current_user.id)
+    @main_stats = statistics.data
+    @skill_rating_chart = statistics.skill_rating_chart
+    @streaks = statistics.streaks
   end
 
   def heroes

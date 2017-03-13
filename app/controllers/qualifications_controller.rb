@@ -6,7 +6,6 @@ class QualificationsController < ApplicationController
     @qualification = current_user.qualifications.find(params[:id])
 
     if @qualification.update(qualification_params)
-
       redirect_to matches_path, notice: "#{@qualification.season.name} season qualification saved."
     else
       redirect :back
