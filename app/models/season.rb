@@ -13,10 +13,10 @@ class Season < ApplicationRecord
   def maps_statistics(matches, user_id)
     hash = {}
 
-    Map.all.each do |m|
-      map_matches = matches.joins(:map).where('maps.id = ?', m.id).count
+    Map.all.each do |map|
+      map_matches = matches.joins(:map).where('maps.id = ?', map.id).count
 
-      map_name = m.name.underscore.gsub(/\s|'|:/, '_')
+      map_name = map.name.underscore.gsub(/\s|'|:/, '_')
 
       hash[map_name] = to_percent(map_matches, total(user_id))
     end
