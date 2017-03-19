@@ -2,6 +2,9 @@
   <td class='game-number'>
     <%= match.number %>
   </td>
+  <td>
+    <%= match.created_at.strftime('%d %b') %>
+  </td>
   <td class='skill-rating'>
     <a tabindex='0' role='button'
     data-toggle='popover'
