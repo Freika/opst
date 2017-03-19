@@ -3,7 +3,7 @@
     <%= match.number %>
   </td>
   <td>
-    <%= match.created_at.strftime('%d %b') %>
+    <%= match_date(current_user, match) %>
   </td>
   <td class='skill-rating'>
     <a tabindex='0' role='button'
