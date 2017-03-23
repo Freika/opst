@@ -21,8 +21,8 @@ nav.navbar.navbar-default.navbar-fixed-top.topnav role="navigation"
         li = link_to 'Feedback', pages_feedback_path, class: 'bg-warning'
         li = link_to 'Usage', pages_how_to_path, class: 'bg-danger'
         li
-          a
-            i.glyphicon.glyphicon-bell#service_updates
+          a#service_updates
+            i.glyphicon.glyphicon-bell
         - if signed_in?
           li.dropdown
             a.dropdown-toggle href='#' data-toggle='dropdown'
