@@ -44,7 +44,8 @@ heroes = [
   { name: 'Lucio' },
   { name: 'Mercy' },
   { name: 'Symmetra' },
-  { name: 'Zenyatta' }
+  { name: 'Zenyatta' },
+  { name: 'Orisa' }
 ]
 
 heroes.each do |hero|
@@ -53,4 +54,4 @@ end
 
 p 'Hero.created'
 
-Season.find_or_create_by!(name: '3rd season')
+# Season.find_or_create_by!(name: '3rd season')

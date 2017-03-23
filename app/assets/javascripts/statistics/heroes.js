@@ -17,7 +17,7 @@ $(document).on('turbolinks:load ajax:success', function() {
       xAxis: {
         categories: [
           'Ana', 'Bastion', 'D.Va', 'Genji', 'Hanzo', 'Junkrat', 'Lucio',
-          'McCree', 'Mei', 'Mercy', 'Pharah', 'Reaper', 'Reinhardt',
+          'McCree', 'Mei', 'Mercy', 'Orisa', 'Pharah', 'Reaper', 'Reinhardt',
           'Roadhog', 'Soldier 76', 'Sombra', 'Symmetra', 'Torbjorn',
           'Tracer', 'Widowmaker', 'Winston', 'Zarya', 'Zenyatta'
         ]
