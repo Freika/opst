@@ -170,10 +170,14 @@ a.glyphicon:hover {
 
 // Headway widget
 #HW_badge_cont {
-  position: absolute;
+  position: absolute!important;
   margin-top: -20px;
 }
 
 #HW_badge {
   margin-top: 10px;
+}
+
+#HW_frame_cont {
+  z-index: 9999;
 }
