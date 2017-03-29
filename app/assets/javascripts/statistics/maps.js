@@ -230,6 +230,10 @@ $(document).on('turbolinks:load ajax:success', function() {
           {
             name: 'Watchpoint: Gibraltar',
             y: parseFloat($wins_per_map.data('gibraltar')),
+          },
+          {
+            name: 'Oasis',
+            y: parseFloat($wins_per_map.data('oasis')),
           }]
         }]
       });
