@@ -14,6 +14,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require DataTables
 //= require bootstrap-sprockets
 //= require select2
 //= require main

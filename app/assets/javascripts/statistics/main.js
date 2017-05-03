@@ -1,6 +1,10 @@
 $(document).on('turbolinks:load ajax:success', function() {
   $('.alert').delay(5000).slideUp('slow');
 
+  $('.datatable').dataTable({
+    searching: false
+  });
+  $('.dataTables_paginate').hide();
 
   elements = $('#main_statistics')
   if (!elements.length) {

@@ -8,37 +8,40 @@
 
   .col-md-6
     .table-responsive
-      table.table.table-hover
-        tr
-          th.table-legend Hero
-          th.value.hero-percent-played
-            a(tabindex="0" role="button"
-              data-toggle="popover"
-              data-placement='bottom'
-              data-trigger="focus"
-              data-content="Since you can play several heroes in single match, sum of percent in this column will likely be greater than 100%. Value just means that you played a hero in N% of your competitive matches."
-            ) % played
-          th.value Played
-          th.value Wins
-          th.value Losses
-          th.value Draws
-          th.value Win %
-          th.value Loss %
-          th.value Draw %
-        - @heroes.each do |hero|
-          - if hero.played(@matches).zero?
-            - next
-          - else
-            tr
-              td.table-legend = hero.name
-              td.value = "#{hero.percent_played(@matches)}%"
-              td.value = hero.played(@matches)
-              td.value = hero.wins(@matches)
-              td.value = hero.losses(@matches)
-              td.value = hero.draws(@matches)
-              td.wins-percent.value = "#{hero.wins_percent(@matches)}%"
-              td.losses-percent.value = "#{hero.losses_percent(@matches)}%"
-              td.draws-percent.value = "#{hero.draws_percent(@matches)}%"
+      table.table.table-hover.datatable
+        thead
+          tr
+            th.table-legend Hero
+            th.value.hero-percent-played
+              a(tabindex="0" role="button"
+                data-toggle="popover"
+                data-placement='bottom'
+                data-trigger="focus"
+                data-content="Since you can play several heroes in single match, sum of percent in this column will likely be greater than 100%. Value just means that you played a hero in N% of your competitive matches."
+              ) % played
+            th.value Played
+            th.value Wins
+            th.value Losses
+            th.value Draws
+            th.value Win %
+            th.value Loss %
+            th.value Draw %
+        tbody
+          - @heroes.each do |hero|
+            - if hero.played(@matches).zero?
+              - next
+            - else
+
+              tr
+                td.table-legend = hero.name
+                td.value = "#{hero.percent_played(@matches)}%"
+                td.value = hero.played(@matches)
+                td.value = hero.wins(@matches)
+                td.value = hero.losses(@matches)
+                td.value = hero.draws(@matches)
+                td.wins-percent.value = "#{hero.wins_percent(@matches)}%"
+                td.losses-percent.value = "#{hero.losses_percent(@matches)}%"
+                td.draws-percent.value = "#{hero.draws_percent(@matches)}%"
 
   .col-md-6
     h3.text-center

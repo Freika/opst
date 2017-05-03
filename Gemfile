@@ -12,6 +12,7 @@ gem 'bootstrap-sass'
 gem 'select2-rails'
 gem 'jquery-turbolinks'
 gem 'rails-assets-highcharts', source: 'https://rails-assets.org'
+gem 'rails-assets-DataTables', source: 'https://rails-assets.org'
 gem 'slim-rails'
 gem 'figaro'
 gem 'capistrano-rails-console', require: false
@@ -24,6 +25,9 @@ gem 'sidekiq'
 gem 'rbnacl'
 gem 'bcrypt_pbkdf'
 gem 'rbnacl-libsodium'
+
+# ML
+gem 'decisiontree'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -51,6 +55,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet'
+  gem 'irbtools-more', require: 'irbtools/binding'
 
   # server
   gem 'puma'

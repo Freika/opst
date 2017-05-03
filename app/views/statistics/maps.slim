@@ -8,84 +8,88 @@
 
   .col-md-7
     .table-responsive
-      table.table.table-hover
-        tr
-          th.table-legend Map type
-          th.value % played
-          th.value Played
-          th.value Wins
-          th.value Losses
-          th.value Draws
-          th.value Win %
-          th.value Loss %
-          th.value Draw %
-        tr
-          td.table-legend Assault
-          td.value = "#{@played_percent[:assault]}%"
-          td.value = @played[:assault]
-          td.value = @assault[:wins]
-          td.value = @assault[:losses]
-          td.value = @assault[:draws]
-          td.wins-percent.value = "#{@assault[:wins_percent]}%"
-          td.losses-percent.value = "#{@assault[:losses_percent]}%"
-          td.draws-percent.value = "#{@assault[:draws_percent]}%"
-        tr
-          td.table-legend Escort
-          td.value = "#{@played_percent[:escort]}%"
-          td.value = @played[:escort]
-          td.value = @escort[:wins]
-          td.value = @escort[:losses]
-          td.value = @escort[:draws]
-          td.wins-percent.value = "#{@escort[:wins_percent]}%"
-          td.losses-percent.value = "#{@escort[:losses_percent]}%"
-          td.draws-percent.value = "#{@escort[:draws_percent]}%"
-        tr
-          td.table-legend Hybrid
-          td.value = "#{@played_percent[:hybrid]}%"
-          td.value = @played[:hybrid]
-          td.value = @hybrid[:wins]
-          td.value = @hybrid[:losses]
-          td.value = @hybrid[:draws]
-          td.wins-percent.value = "#{@hybrid[:wins_percent]}%"
-          td.losses-percent.value = "#{@hybrid[:losses_percent]}%"
-          td.draws-percent.value = "#{@hybrid[:draws_percent]}%"
-        tr
-          td.table-legend Control
-          td.value = "#{@played_percent[:control]}%"
-          td.value = @played[:control]
-          td.value = @control[:wins]
-          td.value = @control[:losses]
-          td.value = @control[:draws]
-          td.wins-percent.value = "#{@control[:wins_percent]}%"
-          td.losses-percent.value = "#{@control[:losses_percent]}%"
-          td.draws-percent.value = "#{@control[:draws_percent]}%"
+      table.table.table-hover.datatable
+        thead
+          tr
+            th.table-legend Map type
+            th.value % played
+            th.value Played
+            th.value Wins
+            th.value Losses
+            th.value Draws
+            th.value Win %
+            th.value Loss %
+            th.value Draw %
+        tbody
+          tr
+            td.table-legend Assault
+            td.value = "#{@played_percent[:assault]}%"
+            td.value = @played[:assault]
+            td.value = @assault[:wins]
+            td.value = @assault[:losses]
+            td.value = @assault[:draws]
+            td.wins-percent.value = "#{@assault[:wins_percent]}%"
+            td.losses-percent.value = "#{@assault[:losses_percent]}%"
+            td.draws-percent.value = "#{@assault[:draws_percent]}%"
+          tr
+            td.table-legend Escort
+            td.value = "#{@played_percent[:escort]}%"
+            td.value = @played[:escort]
+            td.value = @escort[:wins]
+            td.value = @escort[:losses]
+            td.value = @escort[:draws]
+            td.wins-percent.value = "#{@escort[:wins_percent]}%"
+            td.losses-percent.value = "#{@escort[:losses_percent]}%"
+            td.draws-percent.value = "#{@escort[:draws_percent]}%"
+          tr
+            td.table-legend Hybrid
+            td.value = "#{@played_percent[:hybrid]}%"
+            td.value = @played[:hybrid]
+            td.value = @hybrid[:wins]
+            td.value = @hybrid[:losses]
+            td.value = @hybrid[:draws]
+            td.wins-percent.value = "#{@hybrid[:wins_percent]}%"
+            td.losses-percent.value = "#{@hybrid[:losses_percent]}%"
+            td.draws-percent.value = "#{@hybrid[:draws_percent]}%"
+          tr
+            td.table-legend Control
+            td.value = "#{@played_percent[:control]}%"
+            td.value = @played[:control]
+            td.value = @control[:wins]
+            td.value = @control[:losses]
+            td.value = @control[:draws]
+            td.wins-percent.value = "#{@control[:wins_percent]}%"
+            td.losses-percent.value = "#{@control[:losses_percent]}%"
+            td.draws-percent.value = "#{@control[:draws_percent]}%"
 
     .table-responsive
-      table.table.table-hover
-        tr
-          th.table-legend Map
-          th.value % played
-          th.value Played
-          th.value Wins
-          th.value Losses
-          th.value Draws
-          th.value Win %
-          th.value Loss %
-          th.value Draw %
-        - @maps.each do |map| %
-          - if map.played(@matches).zero?
-            - next
-          - else
-            tr
-              td.table-legend = map.name
-              td.value = "#{map.percent_played(@matches)}%"
-              td.value = map.played(@matches)
-              td.value = map.wins(@matches)
-              td.value = map.losses(@matches)
-              td.value = map.draws(@matches)
-              td.wins-percent.value = "#{map.wins_percent(@matches)}%"
-              td.losses-percent.value = "#{map.losses_percent(@matches)}%"
-              td.draws-percent.value = "#{map.draws_percent(@matches)}%"
+      table.table.table-hover.datatable
+        thead
+          tr
+            th.table-legend Map
+            th.value % played
+            th.value Played
+            th.value Wins
+            th.value Losses
+            th.value Draws
+            th.value Win %
+            th.value Loss %
+            th.value Draw %
+        tbody
+          - @maps.each do |map| %
+            - if map.played(@matches).zero?
+              - next
+            - else
+              tr
+                td.table-legend = map.name
+                td.value = "#{map.percent_played(@matches)}%"
+                td.value = map.played(@matches)
+                td.value = map.wins(@matches)
+                td.value = map.losses(@matches)
+                td.value = map.draws(@matches)
+                td.wins-percent.value = "#{map.wins_percent(@matches)}%"
+                td.losses-percent.value = "#{map.losses_percent(@matches)}%"
+                td.draws-percent.value = "#{map.draws_percent(@matches)}%"
 
   .col-md-5
     #games_played_by_map_donut(
