@@ -29,10 +29,6 @@ gem 'rbnacl-libsodium'
 # ML
 gem 'decisiontree'
 
-group :development, :test do
-  gem 'byebug', platform: :mri
-end
-
 group :test do
   gem 'capybara', '~> 2.8'
   gem 'capybara-webkit'
@@ -56,6 +52,15 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet'
   gem 'irbtools-more', require: 'irbtools/binding'
+
+  # CI
+  gem 'pronto'
+  gem 'pronto-rubocop', require: false
+  gem 'pronto-fasterer', require: false
+  gem 'pronto-rails_best_practices', require: false
+  gem 'pronto-rails_schema', require: false
+  gem 'pronto-slim', require: false
+  gem 'pronto-flay', require: false
 
   # server
   gem 'puma'
