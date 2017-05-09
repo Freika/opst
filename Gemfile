@@ -74,6 +74,8 @@ group :development do
   gem 'capistrano-sidekiq'
 
   gem 'rails_real_favicon'
+
+  gem 'switch_user'
 end
 
 group :production do

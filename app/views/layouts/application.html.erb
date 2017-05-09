@@ -17,6 +17,7 @@
     <%= render 'shared/navbar' %>
     <%= render partial: "shared/flash_messages", flash: flash %>
     <%= yield %>
+    <%= switch_user_select if Rails.env.development? %>
   </div>
 
   <%= render 'shared/metrics' if Rails.env.production? %>

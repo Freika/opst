@@ -128,10 +128,16 @@ class MatchesController < ApplicationController
         end
       end
 
-      rating_left = next_league[:range].first - current_rating
 
-      @sr_per_day = (rating_left.to_f / @days_left).ceil
-      @next_league = next_league[:name]
+      # There is no league higher than Grandmaster
+      if @league == 'Grandmaster'
+        next_league = @league
+      else
+        rating_left = next_league[:range].first - current_rating
+
+        @sr_per_day = (rating_left.to_f / @days_left).ceil
+        @next_league = next_league[:name]
+      end
     end
   end
 end
