@@ -1,0 +1,52 @@
+h1 = "#{battletag(@user)}'s public profile"
+
+#main_statistics
+  .row.text-center
+    = form_tag('', method: :get) do
+      = select_tag 'season', options_from_collection_for_select(@seasons, 'id', 'name'), onchange: "this.form.submit();", include_blank: 'Select season'
+  br
+
+
+  .col-md-6
+    table.table.table-hover
+      tr
+        td.table-legend Games played
+        td.value = @main_stats[:games_played]
+      tr
+        td.table-legend Wins
+        td.value = @main_stats[:wins]
+      tr
+        td.table-legend Losses
+        td.value = @main_stats[:losses]
+      tr
+        td.table-legend Wins %
+        td.value = "#{@main_stats[:win_percent]}%"
+      tr
+        td.table-legend Loss %
+        td.value = "#{@main_stats[:lose_percent]}%"
+      tr
+        td.table-legend Draw %
+        td.value = "#{@main_stats[:draw_percent]}%"
+      tr
+        td.table-legend Longest win streak
+        td.value = @main_stats[:longest_win_streak]
+      tr
+        td.table-legend Longest loss streak
+        td.value = @main_stats[:longest_loss_streak]
+      tr
+        td.table-legend Qualified rating
+        td.value = @main_stats[:qualified]
+      tr
+        td.table-legend Maximum rating
+        td.value = @main_stats[:maximum]
+
+  .col-md-6
+    #results_donut(
+      data-wins=@main_stats[:wins]
+      data-losses=@main_stats[:losses]
+      data-draws=@main_stats[:draws]
+    )
+
+  #streaks data-streaks=@streaks
+
+  #skill_rating_chart data-skill-rating=@skill_rating_chart
