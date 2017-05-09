@@ -28,6 +28,8 @@ gem 'rbnacl-libsodium'
 
 # ML
 gem 'decisiontree'
+gem 'descriptive_statistics', '~> 2.4.0', require: 'descriptive_statistics/safe'
+
 
 group :test do
   gem 'capybara', '~> 2.8'
