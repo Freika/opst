@@ -9,6 +9,11 @@
       <%= f.email_field :email, class: 'form-control', autofocus: true %>
     </div>
 
+    <div class="field">
+      <%= f.label :battletag %><br />
+      <%= f.text_field :battletag, class: 'form-control' %>
+    </div>
+
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
