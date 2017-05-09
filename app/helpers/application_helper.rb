@@ -7,4 +7,8 @@ module ApplicationHelper
       notice: 'alert-info'
     }[flash_type.to_sym] || flash_type.to_s
   end
+
+  def battletag(user)
+    user.battletag.split('#').first
+  end
 end
