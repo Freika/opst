@@ -108,7 +108,7 @@ class Match < ApplicationRecord
   end
 
   def self.to_csv
-    attributes = %w(
+    attributes = %w[
       id
       result
       skill_rating
@@ -120,7 +120,7 @@ class Match < ApplicationRecord
       party_size
       map_name
       heroes_names
-    )
+    ]
 
     CSV.generate(headers: true) do |csv|
       csv << attributes

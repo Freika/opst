@@ -21,10 +21,10 @@ class Statistics::Main
       win_percent: @season.to_percent(wins, games_played),
       lose_percent: @season.to_percent(losses, games_played),
       draw_percent: @season.to_percent(draws, games_played),
-      longest_win_streak: @matches.pluck(:streak).max,
-      longest_loss_streak: @matches.pluck(:streak).min,
+      longest_win_streak: @matches.maximum(:streak),
+      longest_loss_streak: @matches.minimum(:streak),
       qualified: @user.qualifications.last.skill_rating,
-      maximum: @matches.pluck(:skill_rating).max
+      maximum: @matches.maximum(:skill_rating)
     }
   end
 
