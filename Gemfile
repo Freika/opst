@@ -83,7 +83,7 @@ end
 
 group :production do
   gem 'rollbar'
-
+  gem 'newrelic_rpm'
 
   # Profilers
   gem 'rack-mini-profiler', require: false
