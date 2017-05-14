@@ -21,6 +21,7 @@ gem 'mini_racer'
 gem 'devise'
 gem 'will_paginate'
 gem 'sidekiq'
+gem 'redis'
 
 # Encrypting
 gem 'rbnacl'
