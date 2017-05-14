@@ -37,20 +37,23 @@ class Statistics::Maps
 
   Map.kinds.keys.each do |kind|
     define_method(kind) do
-      instance_variable_set("played_#{kind}", played[:"#{kind}"])
+      instance_variable_set("@played_#{kind}", played[:"#{kind}"])
 
       {
-        wins: escort_wins,
-        losses: escort_losses,
-        draws: escort_draws,
+        wins: send("#{kind}_wins"),
+        losses: send("#{kind}_losses"),
+        draws: send("#{kind}_draws"),
         wins_percent: @season.to_percent(
-          escort_wins, instance_variable_get("played_#{kind}", played[:"#{kind}"])
+          send("#{kind}_wins"),
+          instance_variable_get("@played_#{kind}")
         ),
         losses_percent: @season.to_percent(
-          escort_losses, instance_variable_get("played_#{kind}", played[:"#{kind}"])
+          send("#{kind}_losses"),
+          instance_variable_get("@played_#{kind}")
         ),
         draws_percent: @season.to_percent(
-          escort_draws, instance_variable_get("played_#{kind}", played[:"#{kind}"])
+          send("#{kind}_draws"),
+          instance_variable_get("@played_#{kind}")
         )
       }
     end
@@ -70,21 +73,21 @@ class Statistics::Maps
 
   Map.kinds.keys.each do |kind|
     define_method("#{kind}_wins") do
-      binding.local_variable_get("#{kind}_matches")
+      send("#{kind}_matches")
         .where(result: Match.results[:win]).size
     end
   end
 
   Map.kinds.keys.each do |kind|
     define_method("#{kind}_losses") do
-      binding.local_variable_get("#{kind}_matches")
+      send("#{kind}_matches")
         .where(result: Match.results[:lose]).size
     end
   end
 
   Map.kinds.keys.each do |kind|
     define_method("#{kind}_draws") do
-      binding.local_variable_get("#{kind}_matches")
+      send("#{kind}_matches")
         .where(result: Match.results[:draw]).size
     end
   end

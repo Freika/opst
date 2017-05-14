@@ -7,6 +7,6 @@ class Map < ApplicationRecord
   enum kind: { assault: 1, escort: 2, control: 3, hybrid: 4 }
 
   def underscore_name
-    self.underscore.gsub(/\s|'|:/, '_')
+    self.name.underscore.gsub(/\s|'|:/, '_')
   end
 end
