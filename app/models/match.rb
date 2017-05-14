@@ -40,7 +40,7 @@ class Match < ApplicationRecord
   end
 
   def self.seasons(user)
-    Season.find(user.matches.pluck(:season_id).uniq)
+    @season ||= Season.find(user.matches.pluck(:season_id).uniq)
   end
 
   def calculate_result

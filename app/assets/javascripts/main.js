@@ -23,7 +23,6 @@ $(document).on('turbolinks:load ajax:success', function() {
   $('.streak').each(function() {
     el = $(this);
     content = parseInt(el.text());
-    console.log(content)
 
     if (content >= 10) {
       klass = 'green_90'

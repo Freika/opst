@@ -5,4 +5,8 @@ class Map < ApplicationRecord
   has_many :matches, through: :destinations
 
   enum kind: { assault: 1, escort: 2, control: 3, hybrid: 4 }
+
+  def underscore_name
+    self.name.underscore.gsub(/\s|'|:/, '_')
+  end
 end

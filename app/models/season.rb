@@ -15,41 +15,31 @@ class Season < ApplicationRecord
 
     Map.all.each do |map|
       map_matches = matches.joins(:map).where('maps.id = ?', map.id).size
-      map_name = map.name.underscore.gsub(/\s|'|:/, '_')
+      map_name = map.underscore_name
       hash[map_name] = to_percent(map_matches, total(user_id))
     end
 
     hash
   end
 
-  def heroes_wins(user_id)
-    Hero.all.order(name: :asc).map do|hero|
-      hero.matches.where(result: 'win', user_id: user_id, season: self).size
-    end
-  end
-
-  def heroes_losses(user_id)
-    Hero.all.order(name: :asc).map do|hero|
-      hero.matches.where(result: 'lose', user_id: user_id, season: self).size
-    end
-  end
-
-  def heroes_draws(user_id)
-    Hero.all.order(name: :asc).map do|hero|
-      hero.matches.where(result: 'draw', user_id: user_id, season: self).size
+  Match.results.keys.each do |result|
+    define_method("heroes_#{result.pluralize}") do |user_id|
+      Hero.order(name: :asc).map do |hero|
+        hero.matches.where(result: result, user_id: user_id, season: self).size
+      end
     end
   end
 
   def wins_percentage_per_map(matches, user_id)
     hash = {}
 
-    Map.all.each do |m|
+    Map.all.each do |map|
       map_wins =
         matches
           .joins(:map)
-          .where('maps.id = ? and result = ?', m.id, Match.results[:win])
+          .where('maps.id = ? and result = ?', map.id, Match.results[:win])
           .size
-      map_name = m.name.underscore.gsub(/\s|'|:/, '_')
+      map_name = map.underscore_name
 
       hash[map_name] = to_percent(map_wins, total(user_id))
     end
@@ -60,13 +50,12 @@ class Season < ApplicationRecord
   def wins_percentage_per_hero(matches, user_id)
     hash = {}
 
-    Hero.all.each do |h|
+    Hero.all.each do |hero|
       hero_wins =
-        matches
-        .joins(:heros)
-        .where('heros.id = ? and result = ?', h.id, Match.results[:win])
+        matches.joins(:heros)
+        .where('heros.id = ? and result = ?', hero.id, Match.results[:win])
         .size
-      hero_name = h.name.underscore.gsub(' ', '_').gsub('.', '')
+      hero_name = hero.name.underscore.gsub(' ', '_').gsub('.', '')
 
       hash[hero_name] = to_percent(hero_wins, total(user_id))
     end

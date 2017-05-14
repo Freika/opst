@@ -7,14 +7,14 @@ module Calculateable
   end
 
   def percent_played(matches)
-    to_percent(played(matches), matches.count)
+    to_percent(played(matches), matches.size)
   end
 
   def played(matches)
     if self.is_a?(Map)
-      matches.joins(:map).where('maps.id = ?', self.id).count
+      matches.joins(:map).where('maps.id = ?', self.id).size
     elsif self.is_a?(Hero)
-      matches.joins(:heros).where('heros.id = ?', self.id).count
+      matches.joins(:heros).where('heros.id = ?', self.id).size
     end
   end
 
@@ -22,11 +22,11 @@ module Calculateable
     if self.is_a?(Map)
       matches
         .joins(:map)
-        .where('maps.id = ? and result = ?', self.id, Match.results[:win]).count
+        .where('maps.id = ? and result = ?', self.id, Match.results[:win]).size
     elsif self.is_a?(Hero)
       matches
         .joins(:heros)
-        .where('heros.id = ? and result = ?', self.id, Match.results[:win]).count
+        .where('heros.id = ? and result = ?', self.id, Match.results[:win]).size
     end
   end
 
@@ -34,11 +34,11 @@ module Calculateable
     if self.is_a?(Map)
       matches
         .joins(:map)
-        .where('maps.id = ? and result = ?', self.id, Match.results[:lose]).count
+        .where('maps.id = ? and result = ?', self.id, Match.results[:lose]).size
     elsif self.is_a?(Hero)
       matches
         .joins(:heros)
-        .where('heros.id = ? and result = ?', self.id, Match.results[:lose]).count
+        .where('heros.id = ? and result = ?', self.id, Match.results[:lose]).size
     end
   end
 
@@ -46,11 +46,11 @@ module Calculateable
     if self.is_a?(Map)
       matches
         .joins(:map)
-        .where('maps.id = ? and result = ?', self.id, Match.results[:draw]).count
+        .where('maps.id = ? and result = ?', self.id, Match.results[:draw]).size
     elsif self.is_a?(Hero)
       matches
         .joins(:heros)
-        .where('heros.id = ? and result = ?', self.id, Match.results[:draw]).count
+        .where('heros.id = ? and result = ?', self.id, Match.results[:draw]).size
     end
   end
 

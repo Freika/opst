@@ -6,6 +6,7 @@ require 'devise'
 require 'factory_girl_rails'
 require 'shoulda/matchers'
 include Warden::Test::Helpers
+include ActionView::RecordIdentifier
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 

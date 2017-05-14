@@ -9,13 +9,13 @@ class ApplicationController < ActionController::Base
   end
 
   def set_qualification
-    @qualification = current_user.qualifications.last
+    @qualification ||= current_user.qualifications.last
   end
 
   protected
 
   def set_vars
-    @seasons = Match.seasons(current_user)
+    @seasons ||= Match.seasons(current_user)
 
     if params[:season]
       @season = Season.find(params[:season])

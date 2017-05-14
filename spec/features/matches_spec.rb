@@ -34,16 +34,26 @@ describe 'Matches' do
 
     fill_qualification
 
-    visit new_match_path
-
-    fill_in 'Skill rating', with: 1900
-    select hero.name, from: 'match_hero_ids'
-
-    click_on 'Save match'
+    create_new_match(1900)
 
     expect(page).to have_content('Match created.')
     expect(page).to have_content('1900')
     expect(Match.last.season).to eq(Season.current)
+  end
+
+  it 'gets correct match number' do
+    visit matches_path
+
+    fill_qualification
+
+    create_new_match(1900)
+    create_new_match(1930)
+
+    within("##{dom_id(Match.last)}") do
+      within('.game-number') do
+        expect(page).to have_content('2')
+      end
+    end
   end
 
   it 'must correctly calculate diff from qualification'
@@ -55,5 +65,14 @@ describe 'Matches' do
     fill_in 'qualification_draws', with: 2
 
     click_on 'Save qualification'
+  end
+
+  def create_new_match(rating)
+    visit new_match_path
+
+    fill_in 'Skill rating', with: rating
+    select hero.name, from: 'match_hero_ids'
+
+    click_on 'Save match'
   end
 end
