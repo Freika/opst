@@ -22,21 +22,11 @@ class Season < ApplicationRecord
     hash
   end
 
-  def heroes_wins(user_id)
-    Hero.all.order(name: :asc).map do|hero|
-      hero.matches.where(result: 'win', user_id: user_id, season: self).size
-    end
-  end
-
-  def heroes_losses(user_id)
-    Hero.all.order(name: :asc).map do|hero|
-      hero.matches.where(result: 'lose', user_id: user_id, season: self).size
-    end
-  end
-
-  def heroes_draws(user_id)
-    Hero.all.order(name: :asc).map do|hero|
-      hero.matches.where(result: 'draw', user_id: user_id, season: self).size
+  Match.results.keys.each do |result|
+    define_method("heroes_#{result.pluralize}") do |user_id|
+      Hero.order(name: :asc).map do |hero|
+        hero.matches.where(result: result, user_id: user_id, season: self).size
+      end
     end
   end
 

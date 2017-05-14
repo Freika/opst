@@ -14,7 +14,7 @@ class StatisticsController < ApplicationController
     @heroes = Hero.all
     @heroes_statistics = {
       wins: @season.heroes_wins(current_user.id),
-      losses: @season.heroes_losses(current_user.id),
+      losses: @season.heroes_loses(current_user.id),
       draws: @season.heroes_draws(current_user.id)
     }
     @heroes_wins = @season.wins_percentage_per_hero(@matches, current_user.id)
