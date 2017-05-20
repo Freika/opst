@@ -1,5 +1,6 @@
 class Season < ApplicationRecord
   include Calculateable
+  END_OF_SEASON = DateTime.new(2017, 05, 29).freeze
 
   has_many :matches, dependent: :destroy
   has_many :qualifications
