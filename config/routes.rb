@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   }
   resources :matches, except: :show
   resources :qualifications, only: [:create, :update]
-  resources :users, only: :show
+  resources :users, only: :show, path: 'profile'
   root 'pages#home'
 end
