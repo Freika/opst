@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def set_vars
     @seasons ||= Match.seasons(current_user)
 
-    if params[:season]
+    if params[:season].present?
       @season = Season.find(params[:season])
       @matches = current_user.matches
                   .where(season_id: @season.id)

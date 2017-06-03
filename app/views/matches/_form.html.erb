@@ -14,7 +14,8 @@
   <div class="row">
     <p>
       <%= f.label :skill_rating %>
-      <%= f.number_field :skill_rating, autofocus: true, required: true, class: 'form-control' %>
+      <%= f.number_field :skill_rating, autofocus: true, required: true,
+        min: 1, max: 5000, class: 'form-control' %>
     </p>
 
     <p>
@@ -29,7 +30,8 @@
           Choose heroes you played most in this match
         </small>
       </p>
-      <%= f.select :hero_ids, @heroes, {}, { required: true, multiple: true, class: 'form-control select2', size: 10 } %>
+      <%= f.select :hero_ids, @heroes, {}, required: true, multiple: true,
+        class: 'form-control select2', size: 10 %>
     </p>
 
     <p>
@@ -44,7 +46,8 @@
 
     <p>
       <%= f.label :party_size, 'How many players were in your group (including you)?' %>
-      <%= f.number_field :party_size, class: 'form-control', max: 6 %>
+      <%= f.number_field :party_size, class: 'form-control', max: 6, min: 1,
+        value: 1 %>
     </p>
 
     <p>
