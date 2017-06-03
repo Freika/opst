@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :matches, dependent: :destroy
   has_many :qualifications, dependent: :destroy
 
+  validates :battletag, uniqueness: true
+
   after_create :create_qualification
 
   def recalculate_matches_numbers
