@@ -1,11 +1,7 @@
 #main_statistics
   h1.text-center Main statistics
 
-  .row.text-center
-    = form_tag('', method: :get) do
-      = select_tag 'season', options_from_collection_for_select(@seasons, 'id', 'name'), onchange: "this.form.submit();", include_blank: 'Select season'
-  br
-
+  = render 'shared/season_select'
 
   .col-md-6
     table.table.table-hover
