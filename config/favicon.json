@@ -1,6 +1,6 @@
 
 {
-    "master_picture": "app/assets/images/favicon.png",
+    "master_picture": "app/assets/images/favicon/apple-touch-icon-180x180.png",
     "favicon_design": {
         "ios": {
             "picture_aspect": "no_change",
