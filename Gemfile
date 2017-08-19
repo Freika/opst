@@ -25,15 +25,8 @@ gem 'will_paginate'
 gem 'sidekiq'
 gem 'redis'
 
-# Encrypting
-gem 'rbnacl'
-gem 'bcrypt_pbkdf'
-gem 'rbnacl-libsodium'
-
-# ML
-gem 'decisiontree'
-gem 'descriptive_statistics', '~> 2.4.0', require: 'descriptive_statistics/safe'
-
+# server
+gem 'puma'
 
 group :test do
   gem 'capybara', '~> 2.8'
@@ -67,9 +60,6 @@ group :development do
   gem 'pronto-rails_schema', require: false
   gem 'pronto-slim', require: false
   gem 'pronto-flay', require: false
-
-  # server
-  gem 'puma'
 
   # deployment
   gem 'capistrano'
