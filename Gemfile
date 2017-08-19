@@ -28,6 +28,8 @@ gem 'redis'
 # Server
 gem 'puma'
 
+gem 'dokku-cli'
+
 group :test do
   gem 'capybara', '~> 2.8'
   gem 'capybara-webkit'
