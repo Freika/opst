@@ -25,7 +25,7 @@ gem 'will_paginate'
 gem 'sidekiq'
 gem 'redis'
 
-# server
+# Server
 gem 'puma'
 
 group :test do
