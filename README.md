@@ -8,21 +8,21 @@ Dokku redis: [https://github.com/dokku/dokku-redis](https://github.com/dokku/dok
 
 Creating redis container:
 
-`dokku redis:create sublet_app`
+`dokku redis:create opst_redis`
 
 Attaching redis container to app container:
 
-`dokku redis:link sublet_app sublet_app`
+`dokku redis:link opst_redis opst`
 
 Restarting the app:
 
-`dokku ps:rebuild sublet_app`
+`dokku ps:rebuild opst`
 
 Enabling monit:
 
-`dokku monit:enable sublet_app`
+`dokku monit:enable opst`
 
 Sidekiq must starts after deployment because of contents of DOKKU_SCALE file.
 If it wasn't started, use this command:
 
-`dokku ps:scale sublet_app worker=1`
+`dokku ps:scale opst worker=1`
