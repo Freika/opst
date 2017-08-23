@@ -16,19 +16,20 @@ class Api::MatchesController < ApplicationController
       # party_size: match_params[:party_size], comment: match_params[:comment],
       # rounds: match_params[:rounds]
     )
-    match.number = number if number
-    match.update_associations(match_params[:hero], params[:map_id])
 
-    # if @match.save
-    #   @match.update_skill_rating_diff
-    #   if @match.skill_rating == 0
-    #     flash[:error] = 'You must provide skill rating'
-    #     render :new and return
-    #   end
-    #   @match.calculate_result
-    #   @match.update_streak
-    #   @match.save
-    # end
+    match.number = number if number
+    match.update_associations(match_params[:hero], params[:map])
+
+    if match.save
+      match.update_skill_rating_diff
+
+      return if match.skill_rating == 0
+
+      match.calculate_result
+      match.update_streak
+      match.save
+    end
+
     render json: match_params
   end
 
@@ -37,6 +38,6 @@ class Api::MatchesController < ApplicationController
   end
 
   def match_params
-    params.permit(:map, :hero, :rating)
+    params.permit(:map, :rating, hero: [])
   end
 end
