@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   resources :qualifications, only: [:create, :update]
   resources :users, only: :show, path: 'profile'
   root 'pages#home'
+
+  namespace :api do
+    resources :matches, only: :create
+  end
 end

@@ -46,7 +46,8 @@ heroes = [
   { name: 'Mercy' },
   { name: 'Symmetra' },
   { name: 'Zenyatta' },
-  { name: 'Orisa' }
+  { name: 'Orisa' },
+  { name: 'Doomfist' }
 ]
 
 heroes.each do |hero|
