@@ -4,7 +4,7 @@ class Api::MatchesController < ApplicationController
   def create
     p match_params
 
-    current_user = User.find_by(email: 'frey@list.ru')
+    current_user = User.find_by(email: params[:email])
 
     number =
       if have_matches?(current_user)
