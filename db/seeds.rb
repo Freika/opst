@@ -13,7 +13,8 @@ maps = [
   { name: 'Hollywood', kind: 4 },
   { name: 'Eichenwalde', kind: 4 },
   { name: 'Oasis', kind: 3 },
-  { name: 'Horizon Lunar Colony', kind: 1 }
+  { name: 'Horizon Lunar Colony', kind: 1 },
+  { name: 'Junkertown', kind: 2 }
 ]
 
 maps.each do |map|
