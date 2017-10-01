@@ -112,7 +112,7 @@ class MatchesController < ApplicationController
   end
 
   def calculate_season_data
-    @end_of_season = Season::END_OF_SEASON
+    @end_of_season = Season.last.finishes_at
     @days_left = @end_of_season.mjd - DateTime.now.mjd
     @rating = @export_matches.maximum(:skill_rating)
 
