@@ -1,5 +1,8 @@
 # README
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/f9a98ff2b59a4f24b5ff/maintainability)](https://codeclimate.com/github/Freika/opst/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f9a98ff2b59a4f24b5ff/test_coverage)](https://codeclimate.com/github/Freika/opst/test_coverage)
+
 This is an Overwatch Performance Tracker, web application inspired by [Basilisk's Google Docs sheet](https://docs.google.com/spreadsheets/d/1x8klqrgx_QXBLsbaNa-Ca0VC-BESogggQJc58tLE4_w/edit#gid=1558584019).
 
 Live version is available at [opst.space](http://opst.space).
