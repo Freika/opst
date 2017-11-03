@@ -136,6 +136,6 @@ class Match < ApplicationRecord
   end
 
   def heroes_names
-    heros.map(&:name).join(", ")
+    heros.pluck(:name).join(', ')
   end
 end
