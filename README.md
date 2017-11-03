@@ -1,6 +1,6 @@
 # README
 
-This is an Overwatch Performance Tracker, web application inspired by [Basikisk's Google Docs sheet](https://docs.google.com/spreadsheets/d/1x8klqrgx_QXBLsbaNa-Ca0VC-BESogggQJc58tLE4_w/edit#gid=1558584019).
+This is an Overwatch Performance Tracker, web application inspired by [Basilisk's Google Docs sheet](https://docs.google.com/spreadsheets/d/1x8klqrgx_QXBLsbaNa-Ca0VC-BESogggQJc58tLE4_w/edit#gid=1558584019).
 
 Live version is available at [opst.space](http://opst.space).
 
