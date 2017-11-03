@@ -19,13 +19,13 @@ class MatchesController < ApplicationController
 
   def new
     @match = current_user.matches.build
-    @maps = Map.all.map { |map| [map.name, map.id] }
-    @heroes = Hero.all.map { |hero| [hero.name, hero.id] }
+    @maps = Map.pluck(:name, :id)
+    @heroes = Hero.pluck(:name, :id)
   end
 
   def edit
-    @maps = Map.all.map { |map| [map.name, map.id] }
-    @heroes = Hero.all.map { |hero| [hero.name, hero.id] }
+    @maps = Map.pluck(:name, :id)
+    @heroes = Hero.pluck(:name, :id)
   end
 
   def create
