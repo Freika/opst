@@ -8,6 +8,16 @@ Live version is available at [opst.space](http://opst.space).
 
 [CONTRIBUTING.md](CONTRIBUTING.md)
 
+## Contribution ideas
+
+ - Update seeds to generate reasonable amount of matches (500-1000)
+ - Refactorings
+ - Improve test coverage (which is zero now :)
+ - Rethink/improve user interface
+ - Improve performance (page loading speed)
+ - Implement overall statistics based on all matches results
+ - Suggest?
+
 A little disclaimer: I know the code is pretty terrible. I open sourcing it so anybody could make your contribution and make it a little bit better :)
 
 ## Dokku Deployment
