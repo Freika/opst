@@ -1,5 +1,14 @@
 # README
 
+This is an Overwatch Performance Tracker, web application inspired by [Basikisk's Google Docs sheet](https://docs.google.com/spreadsheets/d/1x8klqrgx_QXBLsbaNa-Ca0VC-BESogggQJc58tLE4_w/edit#gid=1558584019).
+
+Live version is available at [opst.space](http://opst.space).
+
+# Contributing
+
+[CONTRIBUTING.md](CONTRIBUTING.md)
+
+A little disclaimer: I know the code is pretty terrible. I open sourcing it so anybody could make your contribution and make it a little bit better :)
 
 ## Dokku Deployment
 
