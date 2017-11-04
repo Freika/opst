@@ -51,6 +51,9 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     airbrussh (1.1.2)
       sshkit (>= 1.6.1, != 1.7.0)
+    annotate (2.7.2)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 13.0)
     arel (7.1.4)
     ast (2.3.0)
     autoprefixer-rails (6.7.5)
@@ -481,6 +484,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   bootstrap-sass
   bullet
   byebug
@@ -546,4 +550,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.15.4
+   1.16.0

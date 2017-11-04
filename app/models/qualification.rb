@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: qualifications
+#
+#  id           :integer          not null, primary key
+#  skill_rating :integer
+#  wins         :integer
+#  losses       :integer
+#  draws        :integer
+#  season_id    :integer          not null
+#  user_id      :integer          not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 class Qualification < ApplicationRecord
   BRONZE      = { name: 'Bronze', range: 1..1499 }
   SILVER      = { name: 'Silver', range: 1500..1999 }
