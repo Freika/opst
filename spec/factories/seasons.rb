@@ -14,5 +14,6 @@ FactoryGirl.define do
     sequence :name do |n|
       "#{n} season"
     end
+    finishes_at 7.days.from_now
   end
 end
