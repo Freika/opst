@@ -43,7 +43,7 @@ class Match < ApplicationRecord
 
   validates :skill_rating, presence: true
 
-  scope :current_season, -> { where('season_id = ?', Season.last.id) }
+  scope :current_season, -> { where(season: Season.last) }
 
   def update_skill_rating_diff
     matches = self.user.matches.current_season
