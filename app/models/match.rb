@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: matches
+#
+#  id           :integer          not null, primary key
+#  result       :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  skill_rating :integer
+#  sr_diff      :integer          default(0), not null
+#  season_id    :integer          default(0), not null
+#  streak       :integer          default(1), not null
+#  user_id      :integer          default(0), not null
+#  number       :integer          default(1), not null
+#  comment      :text             default(""), not null
+#  rounds       :integer
+#  party_size   :integer
+#
+
 class Match < ApplicationRecord
   has_one :destination, dependent: :destroy
   has_one :map, through: :destination

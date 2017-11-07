@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: seasons
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  finishes_at :datetime
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Season < ApplicationRecord
   include Calculateable
   END_OF_SEASON = DateTime.new(2017, 8, 29).freeze
