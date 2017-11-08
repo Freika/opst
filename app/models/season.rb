@@ -25,7 +25,7 @@ class Season < ApplicationRecord
   def maps_statistics(matches, user_id)
     hash = {}
 
-    Map.all.each do |map|
+    Map.find_each do |map|
       map_matches = matches.joins(:map).where('maps.id = ?', map.id).size
       map_name = map.underscore_name
       hash[map_name] = to_percent(map_matches, total(user_id))
@@ -45,7 +45,7 @@ class Season < ApplicationRecord
   def wins_percentage_per_map(matches, user_id)
     hash = {}
 
-    Map.all.each do |map|
+    Map.find_each do |map|
       map_wins =
         matches
           .joins(:map)
@@ -62,7 +62,7 @@ class Season < ApplicationRecord
   def wins_percentage_per_hero(matches, user_id)
     hash = {}
 
-    Hero.all.each do |hero|
+    Hero.find_each do |hero|
       hero_wins =
         matches.joins(:heros)
         .where('heros.id = ? and result = ?', hero.id, Match.results[:win])
@@ -86,7 +86,7 @@ class Season < ApplicationRecord
   end
 
   def create_qualifications
-    User.all.each do |user|
+    User.find_each do |user|
       user.qualifications.create(season: self)
     end
   end
