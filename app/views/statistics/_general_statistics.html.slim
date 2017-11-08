@@ -1,0 +1,51 @@
+#general_statistics
+  h1.text-center General statistics
+
+  = render 'shared/season_select'
+
+  .col-md-6
+    table.table.table-hover
+      tr
+        td.table-legend Games played
+        td.value = stats[:games_played]
+      tr
+        td.table-legend Wins
+        td.value = stats[:wins]
+      tr
+        td.table-legend Losses
+        td.value = stats[:losses]
+      tr
+        td.table-legend Wins %
+        td.value = "#{stats[:win_percent]}%"
+      tr
+        td.table-legend Loss %
+        td.value = "#{stats[:lose_percent]}%"
+      tr
+        td.table-legend Draw %
+        td.value = "#{stats[:draw_percent]}%"
+      tr
+        td.table-legend Longest win streak
+        td.value = stats[:longest_win_streak]
+      tr
+        td.table-legend Longest loss streak
+        td.value = stats[:longest_loss_streak]
+      - if stats[:qualified]
+        tr
+          td.table-legend Qualified rating
+          td.value = stats[:qualified]
+      tr
+        td.table-legend Maximum rating
+        td.value = stats[:maximum]
+
+  .col-md-6
+    #results_donut(
+      data-wins=stats[:wins]
+      data-losses=stats[:losses]
+      data-draws=stats[:draws]
+    )
+
+  - if streaks
+    #streaks data-streaks=streaks
+
+  - if chart
+    #skill_rating_chart data-skill-rating=chart

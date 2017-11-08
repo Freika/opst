@@ -2,10 +2,6 @@ Rails.application.routes.draw do
   get 'pages/feedback'
   get 'pages/how_to'
 
-  get 'statistics/main', as: :main_statistics
-  get 'statistics/heroes', as: :heroes_statistics
-  get 'statistics/maps', as: :maps_statistics
-
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -13,6 +9,18 @@ Rails.application.routes.draw do
   resources :qualifications, only: [:create, :update]
   resources :users, only: :show, path: 'profile'
   root 'pages#home'
+
+  namespace :statistics do
+    get 'general'
+    get 'heroes'
+    get 'maps'
+
+    namespace :global do
+      get 'general'
+      get 'heroes'
+      get 'maps'
+    end
+  end
 
   namespace :api do
     resources :matches, only: :create

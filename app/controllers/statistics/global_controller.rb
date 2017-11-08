@@ -1,9 +1,8 @@
-class StatisticsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_vars
+class Statistics::GlobalController < ApplicationController
+  before_action :set_matches
 
   def general
-    statistics = Statistics::General.new(@matches, @season, current_user)
+    statistics = Statistics::General.new(@matches, @season)
 
     @general_stats = statistics.data
     @skill_rating_chart = statistics.skill_rating_chart
@@ -33,5 +32,23 @@ class StatisticsController < ApplicationController
     @escort           = statistics.escort
     @assault          = statistics.assault
     @control          = statistics.control
+  end
+
+  private
+
+  def set_matches
+    @seasons ||= Season.all
+
+    if params[:season].present?
+      @season = Season.find(params[:season])
+      @matches = Match.where(season_id: @season.id)
+                  .includes(:map)
+                  .order(created_at: :asc)
+    else
+      @matches = Match.current_season
+                  .includes(:map)
+                  .order(created_at: :asc)
+      @season = Season.current
+    end
   end
 end

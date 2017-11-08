@@ -1,6 +1,6 @@
 .row.text-center
   = form_tag('', method: :get) do
     = select_tag 'season',
-      options_from_collection_for_select(@seasons, 'id', 'name'),
+      options_from_collection_for_select(@seasons, 'id', 'name', params[:season]),
       onchange: 'this.form.submit();', include_blank: 'Current season'
 br

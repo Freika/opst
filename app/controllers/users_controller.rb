@@ -9,9 +9,9 @@ class UsersController < ApplicationController
       redirect_to root_path and return
     end
 
-    statistics = Statistics::Main.new(@matches, @season, current_user)
+    statistics = Statistics::General.new(@matches, @season, current_user)
 
-    @main_stats = statistics.data
+    @general_stats = statistics.data
     @skill_rating_chart = statistics.skill_rating_chart
     @streaks = statistics.streaks
   end
