@@ -1,7 +1,7 @@
 class Statistics::General
   attr_reader :data, :skill_rating_chart, :streaks
 
-  def initialize(matches, season, user)
+  def initialize(matches, season, user = nil)
     @matches = matches
     @season = season
     @user = user
@@ -23,16 +23,21 @@ class Statistics::General
       draw_percent: @season.to_percent(draws, games_played),
       longest_win_streak: @matches.maximum(:streak),
       longest_loss_streak: @matches.minimum(:streak),
-      qualified: @user.qualifications.last.skill_rating,
       maximum: @matches.maximum(:skill_rating)
     }
+
+    if @user.present?
+      general_stats[:qualified] = @user.qualifications.last.skill_rating
+    end
+
+    general_stats
   end
 
   def skill_rating_chart
-    @matches.pluck(:skill_rating)
+    @user.present? ? @matches.pluck(:skill_rating) : nil
   end
 
   def streaks
-    @season.streaks(@user.id)
+    @user.present? ? @season.streaks(@user.id) : nil
   end
 end
