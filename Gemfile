@@ -34,7 +34,7 @@ group :test do
   gem 'capybara', '~> 2.8'
   gem 'capybara-webkit'
   gem 'database_cleaner', '~> 1.3'
-  gem 'shoulda-matchers', '~> 2.8'
+  gem 'shoulda-matchers', '~> 2.8', require: false
   gem 'codeclimate-test-reporter', require: nil
 end
 
@@ -44,6 +44,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spring'
   gem 'launchy'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
