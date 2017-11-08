@@ -7,7 +7,7 @@ default: &default
 
 development:
   <<: *default
-  database: opst_development
+  database: opst_database
 
 test:
   <<: *default
