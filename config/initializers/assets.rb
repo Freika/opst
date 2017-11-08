@@ -11,4 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w(
   statistics/main.js charts.js statistics/heroes.js statistics/maps.js
+  landing-page.css
 )

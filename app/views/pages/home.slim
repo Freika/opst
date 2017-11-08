@@ -14,6 +14,7 @@ html lang="en"
     <link href="https://fonts.googleapis.com/css?family=Gentium+Basic" rel="stylesheet">
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'landing-page', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
@@ -35,7 +36,7 @@ html lang="en"
                 => link_to 'Add new match', new_match_path, class: 'btn btn-success'
                 ' or
                 '
-                => link_to 'Watch some stats', statistics_main_path, class: 'btn btn-success'
+                => link_to 'Watch some stats', statistics_global_general_path, class: 'btn btn-success'
               - else
                 => link_to 'Login', new_user_session_path, class: 'btn btn-success'
                 ' or
