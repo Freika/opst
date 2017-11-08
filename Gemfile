@@ -17,7 +17,6 @@ gem 'rails-assets-highcharts', source: 'https://rails-assets.org'
 gem 'rails-assets-DataTables', source: 'https://rails-assets.org'
 gem 'slim-rails'
 gem 'figaro'
-gem 'capistrano-rails-console', require: false
 gem 'mini_racer'
 
 gem 'devise'
@@ -64,14 +63,6 @@ group :development do
   gem 'pronto-rails_schema', require: false
   gem 'pronto-slim', require: false
   gem 'pronto-flay', require: false
-
-  # deployment
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rvm', github: 'capistrano/rvm'
-  gem 'capistrano-rake', require: false
-  gem 'capistrano-sidekiq'
 
   gem 'rails_real_favicon'
 
