@@ -17,6 +17,6 @@
 //= require DataTables
 //= require bootstrap-sprockets
 //= require select2
-//= require main
+//= require general
 //= require_tree ./statistics
 //= require turbolinks

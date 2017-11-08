@@ -9,7 +9,7 @@ $(document).on('turbolinks:load ajax:success', function() {
   });
   $('.dataTables_paginate').hide();
 
-  elements = $('#main_statistics')
+  elements = $('#general_statistics')
   if (!elements.length) {
     return
   }

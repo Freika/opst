@@ -1,10 +1,10 @@
 class Global::StatisticsController < ApplicationController
   before_action :set_vars
 
-  def main
+  def general
     statistics = Statistics::General.new(@matches, @season, current_user)
 
-    @main_stats = statistics.data
+    @general_stats = statistics.data
     @skill_rating_chart = statistics.skill_rating_chart
     @streaks = statistics.streaks
   end

@@ -13,7 +13,7 @@ class Statistics::General
     draws = @matches.draw.size
     games_played = @matches.size
 
-    main_stats = {
+    general_stats = {
       games_played: games_played,
       wins: wins,
       losses: losses,
