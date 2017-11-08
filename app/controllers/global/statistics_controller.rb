@@ -1,8 +1,7 @@
-class StatisticsController < ApplicationController
-  before_action :authenticate_user!
+class Global::StatisticsController < ApplicationController
   before_action :set_vars
 
-  def general
+  def main
     statistics = Statistics::General.new(@matches, @season, current_user)
 
     @main_stats = statistics.data

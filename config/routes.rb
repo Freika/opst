@@ -11,9 +11,15 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   namespace :statistics do
-    get 'main'
+    get 'general'
     get 'heroes'
     get 'maps'
+
+    namespace :global do
+      get 'general'
+      get 'heroes'
+      get 'maps'
+    end
   end
 
   namespace :api do

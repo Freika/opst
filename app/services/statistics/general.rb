@@ -1,4 +1,4 @@
-class Statistics::Main
+class Statistics::General
   attr_reader :data, :skill_rating_chart, :streaks
 
   def initialize(matches, season, user)
