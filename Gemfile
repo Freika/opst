@@ -54,6 +54,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet'
   gem 'irbtools-more', require: 'irbtools/binding'
+  gem 'letter_opener'
 
   # CI
   gem 'pronto'
